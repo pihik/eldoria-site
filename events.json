@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "id": "cesky-krumlov-five-petalled-rose-2027",
+      "title": "Five-Petalled Rose Celebrations",
+      "titles": { "cs": "Slavnosti pětilisté růže", "sk": "Slávnosti päťlistej ruže", "de": "Fest der Fünfblättrigen Rose" },
+      "country": "CZ",
+      "city": "Český Krumlov",
+      "start": "2027-06-18",
+      "end": "2027-06-20",
+      "description": "Historical festival in the old town of Český Krumlov, with a Renaissance theme: costumed processions, music, performances and a fire procession. 39th edition.",
+      "descriptions": {
+        "cs": "Historické slavnosti ve starém městě Českého Krumlova v renesančním duchu: průvody v kostýmech, hudba, vystoupení a ohnivý průvod. 39. ročník.",
+        "sk": "Historické slávnosti v starom meste Českého Krumlova v renesančnom duchu: sprievody v kostýmoch, hudba, vystúpenia a ohnivý sprievod. 39. ročník.",
+        "de": "Historisches Fest in der Altstadt von Český Krumlov im Stil der Renaissance: Kostümumzüge, Musik, Vorführungen und ein Feuerumzug. 39. Ausgabe."
+      },
+      "url": "https://www.ckrumlov.info/cz/akce-17513-slavnosti-petiliste-ruze/",
+      "lat": 48.8127,
+      "lng": 14.3175
+    },
+    {
+      "id": "tabor-meetings-2027",
+      "title": "Táborská setkání",
+      "country": "CZ",
+      "city": "Tábor",
+      "start": "2027-09-10",
+      "end": "2027-09-12",
+      "description": "Historical festival in the centre of Tábor, recreating the first half of the 15th century and the Hussite commander Jan Žižka. Parades in period costume, a medieval market, historical camps, historical fencing, open-air theatre and concerts.",
+      "descriptions": {
+        "cs": "Historický festival v centru Tábora, který připomíná první polovinu 15. století a husitského vojevůdce Jana Žižku. Průvody v dobových kostýmech, středověký trh, historická ležení, historický šerm, divadlo pod širým nebem a koncerty.",
+        "sk": "Historický festival v centre Tábora, ktorý pripomína prvú polovicu 15. storočia a husitského vojvodcu Jana Žižku. Sprievody v dobových kostýmoch, stredoveký trh, historické vojenské tábory, historický šerm, divadlo pod holým nebom a koncerty.",
+        "de": "Historisches Festival im Zentrum von Tábor, das die erste Hälfte des 15. Jahrhunderts und den Hussitenführer Jan Žižka lebendig macht. Umzüge in historischen Kostümen, ein mittelalterlicher Markt, historische Lager, historisches Fechten, Freilufttheater und Konzerte."
+      },
+      "url": "https://www.taborskasetkani.eu",
+      "lat": 49.4144,
+      "lng": 14.6578
+    },
+    {
+      "id": "znojmo-historical-wine-festival-2027",
+      "title": "Znojmo Historical Wine Festival",
+      "titles": { "cs": "Znojemské historické vinobraní", "sk": "Znojemské historické vinobranie", "de": "Znaimer Historisches Weinfest" },
+      "country": "CZ",
+      "city": "Znojmo",
+      "start": "2027-09-10",
+      "end": "2027-09-12",
+      "description": "Historical wine festival in the centre of Znojmo: a costumed procession around King John of Luxembourg, a medieval-themed programme, wine tastings and music on several stages.",
+      "descriptions": {
+        "cs": "Historické vinobraní v centru Znojma: kostýmovaný průvod s králem Janem Lucemburským, středověce laděný program, ochutnávky vín a hudba na několika scénách.",
+        "sk": "Historické vinobranie v centre Znojma: kostýmovaný sprievod s kráľom Jánom Luxemburským, stredoveko ladený program, ochutnávky vín a hudba na viacerých scénach.",
+        "de": "Historisches Weinfest im Zentrum von Znaim: ein Kostümumzug um König Johann von Luxemburg, ein mittelalterlich geprägtes Programm, Weinverkostungen und Musik auf mehreren Bühnen."
+      },
+      "url": "https://www.znojemskevinobrani.cz",
+      "lat": 48.8556,
+      "lng": 16.0488
+    }
+  ]
+}
