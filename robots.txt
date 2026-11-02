@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pihik.github.io/eldoria-site/sitemap.xml

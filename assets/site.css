@@ -118,6 +118,14 @@ summary { cursor: pointer; font-weight: 600; padding: 14px 0; }
 details[open] summary { margin-bottom: 4px; }
 details p { color: var(--muted); }
 
+/* privacy policy and other plain text pages */
+.legal { max-width: 800px; padding-top: 32px; padding-bottom: 48px; }
+.legal h1 { font-size: 34px; margin: 0 0 4px; }
+.legal h2 { font-size: 22px; margin: 32px 0 8px; }
+.legal p, .legal li { margin: 8px 0; }
+.legal ul { padding-left: 22px; }
+.legal .summary { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 4px 20px; margin-top: 16px; }
+
 /* footer */
 .site-footer { border-top: 1px solid var(--border); padding: 28px 0 44px; margin-top: 12px; }
 .site-footer p { font-size: 14px; color: var(--muted); }
