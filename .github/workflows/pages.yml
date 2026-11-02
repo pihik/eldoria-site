@@ -1,0 +1,38 @@
+# Deploys the website (this repository's files) to GitHub Pages.
+# Needs Settings > Pages > Source = "GitHub Actions". The permissions are declared here on purpose:
+# the built-in "pages build and deployment" workflow failed on the deploy step with
+# 'Ensure GITHUB_TOKEN has permission "id-token: write"'.
+name: Deploy website to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
