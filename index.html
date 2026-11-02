@@ -3,25 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Eldoria - castle map</title>
-  <style>
-    :root { --bg: #f5f1e8; --text: #201c15; --muted: #6f6859; --link: #7b4a1f; }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg: #14120e; --text: #f1ebdc; --muted: #a39b88; --link: #d49a5a; }
-    }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-    main { max-width: 640px; margin: 0 auto; padding: 48px 20px; }
-    h1 { font-size: 32px; margin: 0 0 8px; }
-    a { color: var(--link); }
-    .muted { color: var(--muted); font-size: 14px; }
-  </style>
+  <title>Eldoria: map of castles, chateaux and ancient sites</title>
+  <meta name="description" content="Eldoria is a free Android app with a map of more than 40,000 castles, chateaux, forts, historic towns and ancient sites in about 183 countries. No ads, no account.">
+  <meta name="theme-color" content="#4a2a12">
+  <link rel="canonical" href="https://pihik.github.io/eldoria-site/">
+  <link rel="alternate" hreflang="en" href="https://pihik.github.io/eldoria-site/">
+  <link rel="alternate" hreflang="sk" href="https://pihik.github.io/eldoria-site/sk/">
+  <link rel="alternate" hreflang="cs" href="https://pihik.github.io/eldoria-site/cs/">
+  <link rel="alternate" hreflang="x-default" href="https://pihik.github.io/eldoria-site/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Eldoria: map of castles, chateaux and ancient sites">
+  <meta property="og:description" content="Eldoria is a free Android app with a map of more than 40,000 castles, chateaux, forts, historic towns and ancient sites in about 183 countries. No ads, no account.">
+  <meta property="og:url" content="https://pihik.github.io/eldoria-site/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://pihik.github.io/eldoria-site/assets/feature-graphic.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<main>
-  <h1>Eldoria</h1>
-  <p>A free map of more than 22,000 castles, chateaux, manor houses and fortresses. Mark the ones you have visited, read their story and keep your own castle journal. No ads, no account.</p>
-  <p><a href="privacy.html">Privacy policy</a></p>
-  <p class="muted">Place data: Wikidata (CC0). Article texts: Wikipedia (CC BY-SA 4.0). Photos: Wikimedia Commons.</p>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/icon-512.png" width="36" height="36" alt="">Eldoria</a>
+    <nav class="site-nav" aria-label="Eldoria">
+        <a href="#features">Features</a>
+        <a href="#map">Reading the map</a>
+        <a href="#events">Events</a>
+        <a href="#data">Data</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language"><a href="./" hreflang="en" lang="en" aria-current="page">EN</a><a href="sk/" hreflang="sk" lang="sk">SK</a><a href="cs/" hreflang="cs" lang="cs">CS</a></div>
+  </div>
+</header>
+
+<main id="content">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Castles, chateaux, forts and ancient sites on one map</h1>
+        <p>Mark the places you have visited, read their story and keep your own castle journal. No ads, no account, no tracking.</p>
+        <p class="badge">Android app. Coming soon to Google Play.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#features">See what it does</a>
+          <a class="btn ghost" href="privacy.html">Privacy policy</a>
+        </div>
+      </div>
+      <img class="icon" src="assets/icon-512.png" width="220" height="220" alt="">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <ul class="facts">
+      <li><strong>40,000+</strong>places</li>
+      <li><strong>183</strong>countries</li>
+      <li><strong>14</strong>languages</li>
+      <li><strong>0</strong>ads and accounts</li>
+    </ul>
+
+    <section id="features" aria-labelledby="h-features">
+      <h2 id="h-features">What Eldoria does</h2>
+      <div class="grid">
+      <article class="card"><h3>One map, six kinds of place</h3><p>Castles, fortresses, chateaux and palaces, manor houses, historic towns and villages, ancient sites. Filter by type, country, condition, UNESCO World Heritage and visited. The map starts with castles and fortresses; add the other kinds in the filters.</p></article>
+      <article class="card"><h3>A parchment-style map</h3><p>Zoom out and places group into numbered bubbles. Zoom in and each place gets its own medieval icon, or a dot where it is crowded. In crowded areas the most-read places are drawn first.</p></article>
+      <article class="card"><h3>Near me</h3><p>The closest places with distances, and optional alerts while the app is open. Your approximate location stays on the phone.</p></article>
+      <article class="card"><h3>Read the story</h3><p>Open a place and read its Wikipedia article inside the app, in any of 14 languages where it exists, including history and legends. Photos come from Wikimedia Commons with the author credited.</p></article>
+      <article class="card"><h3>Your castle journal</h3><p>Mark visits with a date, add a star rating, notes and up to three photos. Bookmark places you want to visit. See your visits by country and type. Export a backup file and restore it on a new phone.</p></article>
+      <article class="card"><h3>Medieval events</h3><p>A list of upcoming fairs, tournaments and festivals in the countries you choose, with a link to the organiser’s page and to the place in Maps.</p></article>
+      </div>
+    </section>
+
+    <section id="map" aria-labelledby="h-map">
+      <h2 id="h-map">Reading the map</h2>
+      <p class="lead">Colour shows the kind of place. Shape and size show what is known about its condition.</p>
+      <div class="looks">
+        <div class="look"><span class="sample" aria-hidden="true"><span class="disc" style="width:36px;height:36px;background:#2b6cd4;border:2px solid #ffffff"></span><span class="disc" style="width:13px;height:13px;background:#2b6cd4;border:1.5px solid #ffffff"></span></span><p>Large and solid: intact, restored or rebuilt.</p></div>
+        <div class="look"><span class="sample" aria-hidden="true"><span class="disc" style="width:27px;height:27px;background:#eaf0fb;border:2px solid #2b6cd4"></span><span class="disc" style="width:9px;height:9px;background:#eaf0fb;border:1.5px solid #2b6cd4"></span></span><p>Outline only: condition not known.</p></div>
+        <div class="look"><span class="sample" aria-hidden="true"><span class="disc" style="width:27px;height:27px;background:#aec7ef;border:2px solid #2b6cd4"></span><span class="disc" style="width:9px;height:9px;background:#aec7ef;border:1.5px solid #2b6cd4"></span></span><p>Small and faded: ruin or destroyed.</p></div>
+      </div>
+      <h3>Six kinds of place</h3>
+      <ul class="kinds">
+        <li><span class="disc" style="background:#2b6cd4;border:2px solid #ffffff" aria-hidden="true"></span>Castle</li>
+        <li><span class="disc" style="background:#1c1c1c;border:2px solid #ffffff" aria-hidden="true"></span>Fortress</li>
+        <li><span class="disc" style="background:#d63a2f;border:2px solid #ffffff" aria-hidden="true"></span>Chateau or palace</li>
+        <li><span class="disc" style="background:#e8710a;border:2px solid #ffffff" aria-hidden="true"></span>Manor house</li>
+        <li><span class="disc" style="background:#c2379d;border:2px solid #ffffff" aria-hidden="true"></span>Historic town or village</li>
+        <li><span class="disc" style="background:#7c8a1d;border:2px solid #ffffff" aria-hidden="true"></span>Ancient site</li>
+      </ul>
+      <p class="muted" style="margin-top:14px">Condition comes from Wikidata, Wikipedia and DBpedia and is known for about 26% of places. The rest stay unclassified: Eldoria does not guess.</p>
+    </section>
+
+    <section id="events" aria-labelledby="h-events">
+      <h2 id="h-events">Upcoming medieval events</h2>
+      <p class="lead">The same list the app shows on its Events tab. It is compiled by hand from the organisers’ own announcements and covers only a few countries so far. Suggest an event through Contact in the app.</p>
+      <ul class="events" id="events-list" data-src="events.json" data-empty="No upcoming events are published yet." data-error="The events list could not be loaded." data-more="Organiser’s page"><li class="status">Loading the events…</li></ul>
+      <noscript><p class="status">The events list needs JavaScript. You will find it in the app as well.</p></noscript>
+    </section>
+
+    <section id="data" aria-labelledby="h-data">
+      <h2 id="h-data">Where the data comes from</h2>
+      <p class="lead">Eldoria combines public data. Places can be incomplete or contain mistakes.</p>
+      <dl class="sources">
+      <div><dt>Places and names</dt><dd>Wikidata (CC0).</dd></div>
+      <div><dt>Condition</dt><dd>Wikidata, Wikipedia categories and DBpedia infobox data (CC BY-SA). Where none of them states it, the place stays unclassified.</dd></div>
+      <div><dt>Which places come first</dt><dd>Views of the places’ Wikipedia articles in the 60 days before the data was built (Wikimedia pageviews, CC0).</dd></div>
+      <div><dt>Articles</dt><dd>Wikipedia (CC BY-SA 4.0), shortened in the app and linked to the original.</dd></div>
+      <div><dt>Photos</dt><dd>Wikimedia Commons, with author and licence shown for each photo.</dd></div>
+      <div><dt>Map</dt><dd>Google Maps.</dd></div>
+      <div><dt>Design</dt><dd>Marker symbols from the Fantasy RPG GUI pack by Artsystack; heading font MedievalSharp by wmk69 (SIL Open Font License).</dd></div>
+      </dl>
+      <p class="muted" style="margin-top:14px">Figures on this page are as of November 2026.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="h-faq">
+      <h2 id="h-faq">Questions and answers</h2>
+    <details><summary>Is Eldoria free?</summary><p>Yes. There are no ads, no purchases and no account.</p></details>
+    <details><summary>Which devices does it run on?</summary><p>Android. It is being prepared for Google Play; this page will link to it once it is published. There is no iPhone version.</p></details>
+    <details><summary>Does it work without internet?</summary><p>The map, articles and photos need a connection. Your visits, ratings, notes and photos are stored on the phone, and the last downloaded events list is kept for viewing offline.</p></details>
+    <details><summary>Where are my visits and reviews stored?</summary><p>Only on your phone. The developer never receives them. You can export a backup file and restore it on another phone.</p></details>
+    <details><summary>Is my location used?</summary><p>Only if you open Near me and allow it, and only approximately. It is read on the phone while the app is open to sort places by distance, and the app neither stores nor sends it. Details are in the <a href="privacy.html">Privacy policy</a>.</p></details>
+    <details><summary>Why are so many places “unclassified”?</summary><p>Public sources state whether a place is intact, restored, rebuilt or a ruin for only about 26% of them. Where no source says it, Eldoria shows the place as unclassified instead of guessing.</p></details>
+    <details><summary>A place is wrong or missing. What can I do?</summary><p>In the app, open Settings &gt; Contact, or write to <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>. The data comes from Wikidata, so corrections made there reach the app with a later data update.</p></details>
+    <details><summary>Can I suggest an event?</summary><p>Yes, through the same Contact form. Events are added by hand from the organisers’ own announcements.</p></details>
+    </section>
+  </div>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="links">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="#data">Where the data comes from</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">Contact: mythicforgeinteractive@gmail.com</a>
+    </div>
+    <p>Eldoria is published by Adrián Pažický.</p>
+    <p>This site sets no cookies and uses no analytics or third-party scripts. It is hosted by GitHub Pages, which receives your IP address like any web host.</p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
