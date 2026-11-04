@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=dfe3a538">
+  <link rel="stylesheet" href="../assets/site.css?v=ea072918">
 </head>
 <body>
 <a class="skip" href="#content">Przejdź do treści</a>
@@ -134,13 +134,13 @@
         <li><span class="disc" style="background:#c2379d;border:2px solid #ffffff" aria-hidden="true"></span>Zabytkowe miasto / wieś</li>
         <li><span class="disc" style="background:#7c8a1d;border:2px solid #ffffff" aria-hidden="true"></span>Stanowisko archeologiczne</li>
       </ul>
-      <p class="muted" style="margin-top:14px">Stan pochodzi z Wikidata, Wikipedii i DBpedii i jest znany w przypadku około 26% miejsc. Pozostałe miejsca zostają nieokreślone: Eldoria nie zgaduje.</p>
+      <p class="muted" style="margin-top:14px">Stan pochodzi z Wikidata, Wikipedii, Wikimedia Commons i DBpedii. Źródło podaje go dla około 27% miejsc; dla kolejnych około 22% jest wywnioskowany i oznaczony jako niezweryfikowany. Pozostałe miejsca zostają nieokreślone.</p>
     </section>
 
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Nadchodzące wydarzenia średniowieczne</h2>
       <p class="lead">Ta sama lista, którą aplikacja pokazuje w zakładce Wydarzenia. Jest opracowywana ręcznie na podstawie ogłoszeń samych organizatorów i obejmuje na razie tylko kilka krajów. Wydarzenie można zaproponować przez Kontakt w aplikacji.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Nie opublikowano jeszcze żadnych nadchodzących wydarzeń." data-error="Nie udało się wczytać listy wydarzeń." data-more="Strona organizatora"><li class="status">Wczytywanie wydarzeń…</li></ul>
+      <ul class="events" id="events-list" data-src="../events.json" data-empty="Nie opublikowano jeszcze żadnych nadchodzących wydarzeń." data-error="Nie udało się wczytać listy wydarzeń." data-more="Strona organizatora" data-all="Wszystkie rodzaje" data-categories="{&quot;festival&quot;:&quot;Festiwale&quot;,&quot;market&quot;:&quot;Jarmarki&quot;,&quot;tournament&quot;:&quot;Turnieje i bitwy&quot;,&quot;performance&quot;:&quot;Występy&quot;,&quot;tour&quot;:&quot;Zwiedzanie i dni otwarte&quot;,&quot;local&quot;:&quot;Wydarzenia lokalne&quot;}" data-expected-h="Terminy jeszcze nieogłoszone" data-expected-note="Coroczne wydarzenia, których terminy najbliższej edycji nie zostały jeszcze opublikowane. Miesiąc pochodzi z poprzednich edycji i nie jest potwierdzony. Przed planowaniem podróży sprawdź to u organizatora." data-expected-when="Oczekiwane: {month}" data-show-all="Pokaż wszystkie wydarzenia ({n})"><li class="status">Wczytywanie wydarzeń…</li></ul>
       <noscript><p class="status">Lista wydarzeń wymaga JavaScript. Jest ona dostępna także w aplikacji.</p></noscript>
     </section>
 
@@ -149,7 +149,7 @@
       <p class="lead">Eldoria łączy dane publiczne. Miejsca mogą być niekompletne lub zawierać błędy.</p>
       <dl class="sources">
       <div><dt>Miejsca i nazwy</dt><dd>Wikidata (CC0).</dd></div>
-      <div><dt>Stan</dt><dd>Wikidata, kategorie Wikipedii i dane z infoboksów DBpedii (CC BY-SA). Jeśli żadne z tych źródeł go nie podaje, miejsce pozostaje nieokreślone.</dd></div>
+      <div><dt>Stan</dt><dd>Wikidata, kategorie i infoboksy Wikipedii, kategorie Wikimedia Commons oraz dane infoboksów z DBpedii (CC BY-SA). Gdy żadne z nich go nie podaje, niektóre stany są wywnioskowane i oznaczone jako niezweryfikowane; pozostałe zostają nieokreślone.</dd></div>
       <div><dt>Kolejność miejsc</dt><dd>Liczba wyświetleń artykułów o tych miejscach w Wikipedii w ciągu 60 dni przed zbudowaniem danych (Wikimedia pageviews, CC0).</dd></div>
       <div><dt>Artykuły</dt><dd>Wikipedia (CC BY-SA 4.0), skrócone w aplikacji, z odnośnikiem do oryginału.</dd></div>
       <div><dt>Zdjęcia</dt><dd>Wikimedia Commons, z podaniem autora i licencji przy każdym zdjęciu.</dd></div>
@@ -166,7 +166,7 @@
     <details><summary>Czy działa bez internetu?</summary><p>Mapa, artykuły i zdjęcia wymagają połączenia. Twoje wizyty, oceny, notatki i zdjęcia są zapisane na telefonie, a ostatnio pobrana lista wydarzeń jest przechowywana do przeglądania bez połączenia.</p></details>
     <details><summary>Gdzie są zapisywane moje wizyty i recenzje?</summary><p>Tylko na Twoim telefonie. Twórca nigdy ich nie otrzymuje. Można wyeksportować plik kopii zapasowej i przywrócić go na innym telefonie.</p></details>
     <details><summary>Czy używana jest moja lokalizacja?</summary><p>Tylko po otwarciu W pobliżu i zezwoleniu na lokalizację, i to wyłącznie w przybliżeniu. Jest odczytywana na telefonie przy otwartej aplikacji, aby posortować miejsca według odległości; aplikacja jej ani nie zapisuje, ani nie wysyła. Szczegóły znajdują się w dokumencie: <a href="privacy.html">Polityka prywatności</a>.</p></details>
-    <details><summary>Dlaczego tak wiele miejsc jest „nieokreślonych”?</summary><p>Źródła publiczne wskazują, czy miejsce jest zachowane, odrestaurowane, odbudowane, czy też stanowi ruinę, tylko w przypadku około 26% z nich. Tam, gdzie żadne źródło tego nie podaje, Eldoria pokazuje miejsce jako nieokreślone, zamiast zgadywać.</p></details>
+    <details><summary>Dlaczego tak wiele miejsc jest „nieokreślonych”?</summary><p>Czy miejsce jest zachowane, odrestaurowane, odbudowane czy jest ruiną, podają publiczne źródła tylko dla około 27% miejsc. W części pozostałych Eldoria wnioskuje stan (na przykład z rodzaju obiektu) i oznacza go jako niezweryfikowany; gdy nic na to nie pozwala, miejsce zostaje nieokreślone.</p></details>
     <details><summary>Miejsce zawiera błędy lub go brakuje. Co mogę zrobić?</summary><p>W aplikacji należy otworzyć Ustawienia &gt; Kontakt albo napisać na adres <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>. Dane pochodzą z Wikidata, więc poprawki wprowadzone tam trafiają do aplikacji wraz z kolejną aktualizacją danych.</p></details>
     <details><summary>Czy mogę zaproponować wydarzenie?</summary><p>Tak, przez ten sam formularz na ekranie Kontakt. Wydarzenia są dodawane ręcznie na podstawie ogłoszeń samych organizatorów.</p></details>
     </section>
@@ -184,6 +184,6 @@
     <p>Ta strona nie ustawia plików cookie i nie używa analityki ani skryptów podmiotów trzecich. Jest hostowana w usłudze GitHub Pages, która, podobnie jak każdy dostawca hostingu, otrzymuje Twój adres IP.</p>
   </div>
 </footer>
-<script src="../assets/site.js?v=205d862d" defer></script>
+<script src="../assets/site.js?v=8c36c583" defer></script>
 </body>
 </html>

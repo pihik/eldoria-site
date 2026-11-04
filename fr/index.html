@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=dfe3a538">
+  <link rel="stylesheet" href="../assets/site.css?v=ea072918">
 </head>
 <body>
 <a class="skip" href="#content">Aller au contenu</a>
@@ -134,13 +134,13 @@
         <li><span class="disc" style="background:#c2379d;border:2px solid #ffffff" aria-hidden="true"></span>Ville / village historique</li>
         <li><span class="disc" style="background:#7c8a1d;border:2px solid #ffffff" aria-hidden="true"></span>Site antique</li>
       </ul>
-      <p class="muted" style="margin-top:14px">L’état provient de Wikidata, de Wikipédia et de DBpedia et est connu pour environ 26 % des lieux. Les autres restent non classés : Eldoria ne devine pas.</p>
+      <p class="muted" style="margin-top:14px">L’état provient de Wikidata, de Wikipédia, de Wikimedia Commons et de DBpedia. Une source l’indique pour environ 27 % des lieux ; pour environ 22 % de plus, il est déduit et signalé comme non vérifié. Les autres restent non classés.</p>
     </section>
 
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Événements médiévaux à venir</h2>
       <p class="lead">La même liste que celle de l’onglet Événements de l’application. Elle est établie à la main à partir des annonces des organisateurs eux-mêmes et ne couvre pour l’instant que quelques pays. Proposez un événement via Contact dans l’application.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Aucun événement à venir n’est encore publié." data-error="La liste des événements n’a pas pu être chargée." data-more="Page de l’organisateur"><li class="status">Chargement des événements…</li></ul>
+      <ul class="events" id="events-list" data-src="../events.json" data-empty="Aucun événement à venir n’est encore publié." data-error="La liste des événements n’a pas pu être chargée." data-more="Page de l’organisateur" data-all="Tous les types" data-categories="{&quot;festival&quot;:&quot;Festivals&quot;,&quot;market&quot;:&quot;Marchés&quot;,&quot;tournament&quot;:&quot;Tournois et batailles&quot;,&quot;performance&quot;:&quot;Spectacles&quot;,&quot;tour&quot;:&quot;Visites et journées portes ouvertes&quot;,&quot;local&quot;:&quot;Événements locaux&quot;}" data-expected-h="Dates pas encore annoncées" data-expected-note="Événements annuels dont les dates de la prochaine édition n'ont pas encore été publiées. Le mois provient des éditions précédentes et n'est pas confirmé. Vérifiez auprès de l'organisateur avant de planifier un voyage." data-expected-when="Attendu en {month}" data-show-all="Afficher les {n} événements"><li class="status">Chargement des événements…</li></ul>
       <noscript><p class="status">La liste des événements nécessite JavaScript. Vous la trouverez aussi dans l’application.</p></noscript>
     </section>
 
@@ -149,7 +149,7 @@
       <p class="lead">Eldoria combine des données publiques. Les lieux peuvent être incomplets ou comporter des erreurs.</p>
       <dl class="sources">
       <div><dt>Lieux et noms</dt><dd>Wikidata (CC0).</dd></div>
-      <div><dt>État</dt><dd>Wikidata, catégories de Wikipédia et données d’infobox de DBpedia (CC BY-SA). Lorsqu’aucune de ces sources ne l’indique, le lieu reste non classé.</dd></div>
+      <div><dt>État</dt><dd>Wikidata, catégories et infobox de Wikipédia, catégories de Wikimedia Commons et données d’infobox de DBpedia (CC BY-SA). Lorsqu’aucune de ces sources ne l’indique, certains états sont déduits et signalés comme non vérifiés ; les autres restent non classés.</dd></div>
       <div><dt>Quels lieux apparaissent en premier</dt><dd>Consultations des articles Wikipédia des lieux pendant les 60 jours précédant la génération des données (pages vues Wikimedia, CC0).</dd></div>
       <div><dt>Articles</dt><dd>Wikipédia (CC BY-SA 4.0), abrégés dans l’application, avec un lien vers l’original.</dd></div>
       <div><dt>Photos</dt><dd>Wikimedia Commons, avec l’auteur et la licence indiqués pour chaque photo.</dd></div>
@@ -166,7 +166,7 @@
     <details><summary>Eldoria fonctionne-t-elle sans internet ?</summary><p>La carte, les articles et les photos nécessitent une connexion. Vos visites, notes, remarques et photos sont enregistrées sur le téléphone, et la dernière liste d’événements téléchargée est conservée pour être consultée hors connexion.</p></details>
     <details><summary>Où sont enregistrés mes visites et mes avis ?</summary><p>Uniquement sur votre téléphone. Le développeur ne les reçoit jamais. Vous pouvez exporter un fichier de sauvegarde et le restaurer sur un autre téléphone.</p></details>
     <details><summary>Ma position est-elle utilisée ?</summary><p>Seulement si vous ouvrez Près de moi et l’autorisez, et seulement de façon approximative. Elle est lue sur le téléphone, tant que l’application est ouverte, pour trier les lieux par distance ; l’application ne l’enregistre ni ne l’envoie. Les détails figurent dans la <a href="privacy.html">politique de confidentialité</a>.</p></details>
-    <details><summary>Pourquoi tant de lieux sont-ils « non classés » ?</summary><p>Les sources publiques n’indiquent si un lieu est bien conservé, restauré, reconstruit ou en ruines que pour environ 26 % d’entre eux. Lorsqu’aucune source ne le précise, Eldoria présente le lieu comme non classé au lieu de deviner.</p></details>
+    <details><summary>Pourquoi tant de lieux sont-ils « non classés » ?</summary><p>Les sources publiques indiquent si un lieu est intact, restauré, reconstruit ou en ruine pour environ 27 % des lieux seulement. Pour une partie des autres, Eldoria déduit l’état (par exemple du type de site) et le signale comme non vérifié ; là où même cela n’est pas possible, le lieu reste non classé.</p></details>
     <details><summary>Un lieu est incorrect ou absent. Que puis-je faire ?</summary><p>Dans l’application, ouvrez Réglages &gt; Contact, ou écrivez à <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>. Les données proviennent de Wikidata ; les corrections qui y sont apportées parviennent donc à l’application lors d’une mise à jour ultérieure des données.</p></details>
     <details><summary>Puis-je proposer un événement ?</summary><p>Oui, via le même formulaire de contact. Les événements sont ajoutés à la main à partir des annonces des organisateurs eux-mêmes.</p></details>
     </section>
@@ -184,6 +184,6 @@
     <p>Ce site ne dépose aucun cookie et n’utilise ni outil d’analyse ni script tiers. Il est hébergé par GitHub Pages, qui reçoit votre adresse IP comme tout hébergeur web.</p>
   </div>
 </footer>
-<script src="../assets/site.js?v=205d862d" defer></script>
+<script src="../assets/site.js?v=8c36c583" defer></script>
 </body>
 </html>

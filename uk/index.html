@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=dfe3a538">
+  <link rel="stylesheet" href="../assets/site.css?v=ea072918">
 </head>
 <body>
 <a class="skip" href="#content">Перейти до вмісту</a>
@@ -134,13 +134,13 @@
         <li><span class="disc" style="background:#c2379d;border:2px solid #ffffff" aria-hidden="true"></span>Історичне місто або село</li>
         <li><span class="disc" style="background:#7c8a1d;border:2px solid #ffffff" aria-hidden="true"></span>Археологічна пам’ятка</li>
       </ul>
-      <p class="muted" style="margin-top:14px">Стан береться з Wikidata, Wikipedia та DBpedia і відомий приблизно для 26 % місць. Решта залишаються некласифікованими: Eldoria не робить припущень.</p>
+      <p class="muted" style="margin-top:14px">Стан береться з Wikidata, Wikipedia, Wikimedia Commons та DBpedia. Джерело вказує його приблизно для 27 % місць; ще для приблизно 22 % він виведений і позначений як неперевірений. Решта залишаються некласифікованими.</p>
     </section>
 
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Майбутні середньовічні події</h2>
       <p class="lead">Той самий список, який застосунок показує на вкладці «Події». Його складають вручну на основі власних оголошень організаторів, і наразі він охоплює лише кілька країн. Запропонуйте подію через розділ «Зв’язок» у застосунку.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Майбутніх подій ще не опубліковано." data-error="Не вдалося завантажити список подій." data-more="Сторінка організатора"><li class="status">Завантаження подій…</li></ul>
+      <ul class="events" id="events-list" data-src="../events.json" data-empty="Майбутніх подій ще не опубліковано." data-error="Не вдалося завантажити список подій." data-more="Сторінка організатора" data-all="Усі види" data-categories="{&quot;festival&quot;:&quot;Фестивалі&quot;,&quot;market&quot;:&quot;Ярмарки&quot;,&quot;tournament&quot;:&quot;Турніри та битви&quot;,&quot;performance&quot;:&quot;Виступи&quot;,&quot;tour&quot;:&quot;Екскурсії та дні відкритих дверей&quot;,&quot;local&quot;:&quot;Місцеві події&quot;}" data-expected-h="Дати ще не оголошено" data-expected-note="Щорічні події, дати найближчого проведення яких ще не опубліковано. Місяць узято з попередніх років, і він не підтверджений. Перед поїздкою уточніть в організатора." data-expected-when="Очікується: {month}" data-show-all="Показати всі події ({n})"><li class="status">Завантаження подій…</li></ul>
       <noscript><p class="status">Для списку подій потрібен JavaScript. Його також можна знайти в застосунку.</p></noscript>
     </section>
 
@@ -149,7 +149,7 @@
       <p class="lead">Eldoria поєднує публічні дані. Записи про місця можуть бути неповними або містити помилки.</p>
       <dl class="sources">
       <div><dt>Місця й назви</dt><dd>Wikidata (CC0).</dd></div>
-      <div><dt>Стан</dt><dd>Wikidata, категорії Wikipedia та дані інфобоксів DBpedia (CC BY-SA). Якщо жодне з цих джерел його не вказує, місце залишається некласифікованим.</dd></div>
+      <div><dt>Стан</dt><dd>Wikidata, категорії та інфобокси Вікіпедії, категорії Wikimedia Commons і дані інфобоксів з DBpedia (CC BY-SA). Якщо жодне з них його не вказує, частину станів виведено й позначено як неперевірені; решта залишається некласифікованою.</dd></div>
       <div><dt>Які місця показуються першими</dt><dd>Перегляди статей Wikipedia про ці місця за 60 днів до збирання даних (дані Wikimedia про перегляди сторінок, CC0).</dd></div>
       <div><dt>Статті</dt><dd>Wikipedia (CC BY-SA 4.0). У застосунку статті скорочено, з посиланням на оригінал.</dd></div>
       <div><dt>Фото</dt><dd>Wikimedia Commons; для кожного фото вказано автора та ліцензію.</dd></div>
@@ -166,7 +166,7 @@
     <details><summary>Чи працює він без інтернету?</summary><p>Для карти, статей і фото потрібне з’єднання. Ваші відвідування, оцінки, нотатки й фото зберігаються на телефоні, а останній завантажений список подій залишається доступним для перегляду офлайн.</p></details>
     <details><summary>Де зберігаються мої відвідування та відгуки?</summary><p>Лише на вашому телефоні. Розробник їх ніколи не отримує. Ви можете експортувати файл резервної копії та відновити його на іншому телефоні.</p></details>
     <details><summary>Чи використовується моє місцезнаходження?</summary><p>Лише якщо ви відкриєте «Поруч зі мною» і дозволите це, і лише приблизно. Воно зчитується на телефоні, поки застосунок відкритий, щоб упорядкувати місця за відстанню; застосунок його не зберігає й не надсилає. Докладніше: <a href="privacy.html">Політика конфіденційності</a>.</p></details>
-    <details><summary>Чому так багато місць «Не класифіковано»?</summary><p>Публічні джерела повідомляють, чи є місце збереженим, відреставрованим, відбудованим або руїнами, лише приблизно для 26 % із них. Якщо жодне джерело цього не вказує, Eldoria показує місце як не класифіковане, а не вгадує.</p></details>
+    <details><summary>Чому так багато місць «Не класифіковано»?</summary><p>Чи збережене місце, відновлене, відбудоване чи є руїнами, публічні джерела вказують лише приблизно для 27 % місць. Для частини решти Eldoria виводить стан (наприклад, за типом об’єкта) і позначає його як неперевірений; якщо й це неможливо, місце залишається некласифікованим.</p></details>
     <details><summary>Місце вказано неправильно або його немає. Що робити?</summary><p>У застосунку відкрийте Налаштування &gt; Зв’язок або напишіть на <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>. Дані походять із Wikidata, тому виправлення, внесені там, потрапляють у застосунок із наступним оновленням даних.</p></details>
     <details><summary>Чи можна запропонувати подію?</summary><p>Так, через ту саму форму «Зв’язок». Події додаються вручну на основі власних оголошень організаторів.</p></details>
     </section>
@@ -184,6 +184,6 @@
     <p>Цей сайт не встановлює cookie-файли й не використовує аналітику чи сторонні скрипти. Його розміщує GitHub Pages, який, як і будь-який вебхостинг, отримує вашу IP-адресу.</p>
   </div>
 </footer>
-<script src="../assets/site.js?v=205d862d" defer></script>
+<script src="../assets/site.js?v=8c36c583" defer></script>
 </body>
 </html>
