@@ -1,10 +1,14 @@
-// Eldoria website: fills the list of upcoming medieval events from events.json (the same file the app reads).
+// Eldoria website: fills the list of upcoming events from events.json (the same file the app reads).
+// On the home page it shows the few soonest events; on the events page (data-full) all of them, with a
+// type filter, a search field and the yearly events whose dates are not announced yet.
 // No libraries, no third-party requests. Text from the file is inserted as text, never as HTML.
 (function () {
   var list = document.getElementById('events-list');
   if (!list) return;
   var lang = document.documentElement.lang || 'en';
   var d = list.dataset;
+  var full = d.full === '1';
+  var limit = Number(d.limit) || 6;
   var categories = {};
   try { categories = JSON.parse(d.categories || '{}'); } catch (e) { categories = {}; }
   var ORDER = ['festival', 'market', 'tournament', 'performance', 'tour', 'local'];
@@ -63,6 +67,15 @@
     return typeof e.category === 'string' && categories[e.category] ? e.category : 'local';
   }
 
+  /** Everything a reader might type: titles in every language, venue, town, country and description. */
+  function haystack(e) {
+    var parts = [e.title, e.venue, e.city, e.description, typeof e.country === 'string' ? country(e.country) : '', categories[categoryOf(e)]];
+    [e.titles, e.descriptions].forEach(function (map) {
+      if (map && typeof map === 'object') Object.keys(map).forEach(function (k) { parts.push(map[k]); });
+    });
+    return parts.filter(function (p) { return typeof p === 'string'; }).join(' ').toLowerCase();
+  }
+
   function card(e, when) {
     var li = document.createElement('li');
     li.className = 'card';
@@ -89,11 +102,10 @@
     return li;
   }
 
-  var LIMIT = 18;
-  var expanded = false;
-  var filterBar = null;
+  var tools = null;
   var expectedBox = null;
   var chosen = '';
+  var query = '';
 
   function render(events, expected) {
     var upcoming = events
@@ -101,6 +113,15 @@
         return e && typeof e.title === 'string' && parseDay(e.start) && parseDay(e.end) && String(e.end) >= today;
       })
       .sort(function (a, b) { return String(a.start).localeCompare(String(b.start)) || a.title.localeCompare(b.title); });
+
+    if (!full) {
+      // Home page: the few soonest events, nothing else.
+      if (!upcoming.length) return note(d.empty);
+      list.textContent = '';
+      upcoming.slice(0, limit).forEach(function (e) { list.appendChild(card(e, dates(parseDay(e.start), parseDay(e.end)))); });
+      return;
+    }
+
     var thisMonth = now.getFullYear() + '-' + pad(now.getMonth() + 1);
     var later = expected
       .filter(function (e) {
@@ -109,51 +130,54 @@
       })
       .sort(function (a, b) { return (a.year - b.year) || (a.month - b.month) || a.title.localeCompare(b.title); });
 
-    // One button per category that occurs, plus "all".
-    if (!filterBar) {
+    // Search field and one button per type that occurs, plus "all", built once.
+    if (!tools) {
+      tools = document.createElement('div');
+      tools.className = 'event-tools';
+      var input = document.createElement('input');
+      input.type = 'search';
+      input.placeholder = d.search;
+      input.setAttribute('aria-label', d.search);
+      input.autocomplete = 'off';
+      input.addEventListener('input', function () { query = input.value.trim().toLowerCase(); render(events, expected); });
+      tools.appendChild(input);
       var present = ORDER.filter(function (c) {
         return upcoming.concat(later).some(function (e) { return categoryOf(e) === c; });
       });
       if (present.length > 1) {
-        filterBar = document.createElement('div');
-        filterBar.className = 'chips';
-        filterBar.setAttribute('role', 'group');
-        [''].concat(present).forEach(function (c) {
+        var bar = document.createElement('div');
+        bar.className = 'chips';
+        bar.setAttribute('role', 'group');
+        var all = [''].concat(present);
+        all.forEach(function (c) {
           var b = document.createElement('button');
           b.type = 'button';
           b.textContent = c ? categories[c] : d.all;
           b.setAttribute('aria-pressed', c === chosen ? 'true' : 'false');
           b.addEventListener('click', function () {
             chosen = c;
-            expanded = false;
-            Array.prototype.forEach.call(filterBar.children, function (x, i) {
-              x.setAttribute('aria-pressed', ([''].concat(present)[i] === chosen) ? 'true' : 'false');
+            Array.prototype.forEach.call(bar.children, function (x, i) {
+              x.setAttribute('aria-pressed', all[i] === chosen ? 'true' : 'false');
             });
             render(events, expected);
           });
-          filterBar.appendChild(b);
+          bar.appendChild(b);
         });
-        list.parentNode.insertBefore(filterBar, list);
+        tools.appendChild(bar);
       }
+      list.parentNode.insertBefore(tools, list);
     }
 
-    var shown = chosen ? upcoming.filter(function (e) { return categoryOf(e) === chosen; }) : upcoming;
-    var shownLater = chosen ? later.filter(function (e) { return categoryOf(e) === chosen; }) : later;
+    function matches(e) {
+      return (!chosen || categoryOf(e) === chosen) && (!query || haystack(e).indexOf(query) >= 0);
+    }
+    var shown = upcoming.filter(matches);
+    var shownLater = later.filter(matches);
 
-    if (!shown.length) note(d.empty);
+    if (!shown.length) note(upcoming.length || later.length ? d.noResults : d.empty);
     else {
       list.textContent = '';
-      var visible = expanded ? shown : shown.slice(0, LIMIT);
-      visible.forEach(function (e) { list.appendChild(card(e, dates(parseDay(e.start), parseDay(e.end)))); });
-      if (visible.length < shown.length) {
-        var li = document.createElement('li');
-        li.className = 'more';
-        var button = text('button', '', String(d.showAll).replace('{n}', shown.length));
-        button.type = 'button';
-        button.addEventListener('click', function () { expanded = true; render(events, expected); });
-        li.appendChild(button);
-        list.appendChild(li);
-      }
+      shown.forEach(function (e) { list.appendChild(card(e, dates(parseDay(e.start), parseDay(e.end)))); });
     }
 
     if (expectedBox) { expectedBox.remove(); expectedBox = null; }

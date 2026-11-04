@@ -127,9 +127,11 @@ section { padding: 36px 0; }
 .chips button { font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: inherit; cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-hero); }
 .chips button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-.events .more { grid-column: 1 / -1; text-align: center; }
-.events .more button { font: inherit; font-weight: 600; padding: 10px 22px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: inherit; cursor: pointer; }
-.events .more button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.event-tools { display: grid; gap: 12px; margin-top: 16px; }
+.event-tools input { font: inherit; width: 100%; box-sizing: border-box; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: inherit; }
+.event-tools input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.event-tools .chips { margin: 0; }
+.more-link { margin-top: 20px; }
 .expected { margin-top: 36px; }
 .expected h3 { font-size: 21px; margin-bottom: 4px; }
 
