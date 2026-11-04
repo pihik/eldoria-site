@@ -2,6 +2,47 @@
 // On the home page it shows the few soonest events; on the events page (data-full) all of them, with a
 // type filter, a search field and the yearly events whose dates are not announced yet.
 // No libraries, no third-party requests. Text from the file is inserted as text, never as HTML.
+// Gallery: the screenshots sit in a row; arrow buttons step through them, so there is no scroll bar.
+// Swiping and the arrow keys still work. Without JavaScript the row scrolls sideways as before.
+(function () {
+  var gallery = document.querySelector('.gallery');
+  if (!gallery) return;
+  var track = gallery.querySelector('.shots');
+  if (!track) return;
+  gallery.classList.add('has-arrows');
+
+  function button(cls, label, glyph) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'arrow ' + cls;
+    b.setAttribute('aria-label', label);
+    b.textContent = glyph;
+    return b;
+  }
+  var prev = button('prev', gallery.dataset.prev, '‹');
+  var next = button('next', gallery.dataset.next, '›');
+  gallery.appendChild(prev);
+  gallery.appendChild(next);
+
+  function step() {
+    var first = track.children[0];
+    var slide = first ? first.getBoundingClientRect().width : 246;
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 18;
+    var visible = Math.max(1, Math.floor((track.clientWidth + gap) / (slide + gap)));
+    return visible * (slide + gap);
+  }
+  function update() {
+    var max = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 8; // the row starts a few pixels in (its padding)
+    next.disabled = track.scrollLeft >= max - 8;
+  }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 (function () {
   var list = document.getElementById('events-list');
   if (!list) return;

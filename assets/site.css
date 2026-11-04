@@ -103,6 +103,16 @@ section { padding: 36px 0; }
 .shots img { display: block; width: 100%; height: auto; border: 6px solid #1b1814; border-radius: 30px; background: #1b1814; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); }
 .shots figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.45; }
 .shots:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 8px; }
+/* with JavaScript the arrows replace the scroll bar */
+.gallery { position: relative; }
+.gallery.has-arrows .shots { scrollbar-width: none; padding-bottom: 4px; }
+.gallery.has-arrows .shots::-webkit-scrollbar { display: none; }
+.gallery .arrow { position: absolute; top: 38%; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--brand); font: inherit; font-size: 30px; line-height: 1; padding: 0 0 4px; cursor: pointer; box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center; }
+.gallery .arrow.prev { left: -6px; }
+.gallery .arrow.next { right: -6px; }
+.gallery .arrow:disabled { opacity: 0; pointer-events: none; }
+.gallery .arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+@media (prefers-color-scheme: dark) { .gallery .arrow { color: var(--gold); } }
 
 /* reading the map */
 .looks { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); margin: 20px 0; }
