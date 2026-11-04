@@ -105,6 +105,7 @@
   var tools = null;
   var expectedBox = null;
   var chosen = '';
+  var chosenCountry = '';
   var query = '';
 
   function render(events, expected) {
@@ -140,7 +141,33 @@
       input.setAttribute('aria-label', d.search);
       input.autocomplete = 'off';
       input.addEventListener('input', function () { query = input.value.trim().toLowerCase(); render(events, expected); });
-      tools.appendChild(input);
+      var row = document.createElement('div');
+      row.className = 'event-search';
+      row.appendChild(input);
+
+      // One entry per country that has events, named in the page's language and sorted by that name.
+      var codes = [];
+      upcoming.concat(later).forEach(function (e) {
+        if (typeof e.country === 'string' && codes.indexOf(e.country) < 0) codes.push(e.country);
+      });
+      if (codes.length > 1) {
+        codes.sort(function (a, b) { return country(a).localeCompare(country(b), lang); });
+        var select = document.createElement('select');
+        select.setAttribute('aria-label', d.allCountries);
+        var first = document.createElement('option');
+        first.value = '';
+        first.textContent = d.allCountries;
+        select.appendChild(first);
+        codes.forEach(function (code) {
+          var o = document.createElement('option');
+          o.value = code;
+          o.textContent = country(code);
+          select.appendChild(o);
+        });
+        select.addEventListener('change', function () { chosenCountry = select.value; render(events, expected); });
+        row.appendChild(select);
+      }
+      tools.appendChild(row);
       var present = ORDER.filter(function (c) {
         return upcoming.concat(later).some(function (e) { return categoryOf(e) === c; });
       });
@@ -169,7 +196,8 @@
     }
 
     function matches(e) {
-      return (!chosen || categoryOf(e) === chosen) && (!query || haystack(e).indexOf(query) >= 0);
+      return (!chosen || categoryOf(e) === chosen) && (!chosenCountry || e.country === chosenCountry) &&
+        (!query || haystack(e).indexOf(query) >= 0);
     }
     var shown = upcoming.filter(matches);
     var shownLater = later.filter(matches);
