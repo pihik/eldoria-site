@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Treceți la conținut</a>
@@ -44,6 +44,7 @@
         <a href="#events">Evenimente</a>
         <a href="#data">Date</a>
         <a href="#faq">Întrebări</a>
+        <a href="contact.html">Contact</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Limbă">RO</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Ce face Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>O singură hartă, șase tipuri de locuri</h3><p>Castele, cetăți, palate și reședințe, conace și curii, orașe și sate istorice, situri arheologice. Filtrați după tip, țară, stare, patrimoniul mondial UNESCO și vizitate. Harta pornește cu castele și cetăți; celelalte tipuri le adăugați din filtre.</p></article>
-      <article class="card"><h3>O hartă în stil de pergament</h3><p>Micșorați harta și locurile se grupează în bule numerotate. Măriți harta și fiecare loc primește propria pictogramă medievală, sau un punct acolo unde este aglomerat. În zonele aglomerate, cele mai citite locuri sunt desenate primele.</p></article>
-      <article class="card"><h3>În apropierea mea</h3><p>Cele mai apropiate locuri, cu distanțele, și alerte opționale cât timp aplicația este deschisă. Locația dumneavoastră aproximativă rămâne pe telefon.</p></article>
-      <article class="card"><h3>Citiți povestea</h3><p>Deschideți un loc și citiți articolul său din Wikipedia direct în aplicație, în oricare dintre cele 14 limbi în care există, inclusiv istoria și legendele. Fotografiile provin de la Wikimedia Commons, cu indicarea autorului.</p></article>
-      <article class="card"><h3>Jurnalul dumneavoastră de castele</h3><p>Marcați vizitele cu o dată, adăugați o evaluare cu stele, note și până la trei fotografii. Salvați cu semn de carte locurile pe care doriți să le vizitați. Vedeți vizitele după țară și după tip. Exportați un fișier de copie de siguranță și restaurați-l pe un telefon nou.</p></article>
-      <article class="card"><h3>Evenimente medievale</h3><p>O listă de târguri, turniruri și festivaluri viitoare din țările pe care le alegeți, cu un link către pagina organizatorului și către locul din Hărți.</p></article>
+      <details class="card feature" data-resp open><summary><h3>O singură hartă, șase tipuri de locuri</h3></summary><p>Castele, cetăți, palate și reședințe, conace și curii, orașe și sate istorice, situri arheologice. Filtrați după tip, țară, stare, patrimoniul mondial UNESCO și vizitate. Harta pornește cu castele și cetăți; celelalte tipuri le adăugați din filtre.</p></details>
+      <details class="card feature" data-resp open><summary><h3>O hartă în stil de pergament</h3></summary><p>Micșorați harta și locurile se grupează în bule numerotate. Măriți harta și fiecare loc primește propria pictogramă medievală, sau un punct acolo unde este aglomerat. În zonele aglomerate, cele mai citite locuri sunt desenate primele.</p></details>
+      <details class="card feature" data-resp open><summary><h3>În apropierea mea</h3></summary><p>Cele mai apropiate locuri, cu distanțele, și alerte opționale cât timp aplicația este deschisă. Locația dumneavoastră aproximativă rămâne pe telefon.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Citiți povestea</h3></summary><p>Deschideți un loc și citiți articolul său din Wikipedia direct în aplicație, în oricare dintre cele 14 limbi în care există, inclusiv istoria și legendele. Fotografiile provin de la Wikimedia Commons, cu indicarea autorului.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Jurnalul dumneavoastră de castele</h3></summary><p>Marcați vizitele cu o dată, adăugați o evaluare cu stele, note și până la trei fotografii. Salvați cu semn de carte locurile pe care doriți să le vizitați. Vedeți vizitele după țară și după tip. Exportați un fișier de copie de siguranță și restaurați-l pe un telefon nou.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Evenimente medievale</h3></summary><p>O listă de târguri, turniruri și festivaluri viitoare din țările pe care le alegeți, cu un link către pagina organizatorului și către locul din Hărți.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Evenimente medievale viitoare</h2>
       <p class="lead">Aceeași listă pe care aplicația o afișează în fila Evenimente. Este alcătuită manual din anunțurile proprii ale organizatorilor și acoperă deocamdată doar câteva țări. Propuneți un eveniment prin Contact, în aplicație.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Încă nu sunt publicate evenimente viitoare." data-error="Lista de evenimente nu a putut fi încărcată." data-more="Pagina organizatorului" data-all="Toate tipurile" data-categories="{&quot;festival&quot;:&quot;Festivaluri&quot;,&quot;market&quot;:&quot;Târguri&quot;,&quot;tournament&quot;:&quot;Turniruri și bătălii&quot;,&quot;performance&quot;:&quot;Spectacole&quot;,&quot;tour&quot;:&quot;Vizite și zile porți deschise&quot;,&quot;local&quot;:&quot;Evenimente locale&quot;}" data-expected-h="Date încă neanunțate" data-expected-note="Evenimente anuale ale căror date pentru următoarea ediție nu au fost publicate. Luna provine din edițiile anterioare și nu este confirmată. Verificați la organizator înainte de a planifica o călătorie." data-expected-when="Așteptat: {month}" data-search="Caută evenimente" data-all-countries="Toate țările" data-no-results="Niciun eveniment nu corespunde căutării." data-limit="6"><li class="status">Se încarcă evenimentele…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Încă nu sunt publicate evenimente viitoare." data-error="Lista de evenimente nu a putut fi încărcată." data-more="Pagina organizatorului" data-all="Toate tipurile" data-categories="{&quot;festival&quot;:&quot;Festivaluri&quot;,&quot;market&quot;:&quot;Târguri&quot;,&quot;tournament&quot;:&quot;Turniruri și bătălii&quot;,&quot;performance&quot;:&quot;Spectacole&quot;,&quot;tour&quot;:&quot;Vizite și zile porți deschise&quot;,&quot;local&quot;:&quot;Evenimente locale&quot;}" data-expected-h="Date încă neanunțate" data-expected-note="Evenimente anuale ale căror date pentru următoarea ediție nu au fost publicate. Luna provine din edițiile anterioare și nu este confirmată. Verificați la organizator înainte de a planifica o călătorie." data-expected-when="Așteptat: {month}" data-search="Caută evenimente" data-all-countries="Toate țările" data-no-results="Niciun eveniment nu corespunde căutării." data-show-more="Afișați mai multe ({n})" data-read-more="Citiți mai mult" data-read-less="Afișați mai puțin" data-calendar="Adăugați în calendar" data-map="Hartă" data-limit="6"><li class="status">Se încarcă evenimentele…</li></ul>
       <noscript><p class="status">Lista de evenimente necesită JavaScript. O găsiți și în aplicație.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Toate evenimentele, cu filtru și căutare</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">De unde provin datele</h2>
-      <p class="lead">Eldoria combină date publice. Locurile pot fi incomplete sau pot conține erori.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">De unde provin datele</h2></summary>
+        <p class="lead">Eldoria combină date publice. Locurile pot fi incomplete sau pot conține erori.</p>
+        <dl class="sources">
       <div><dt>Locuri și nume</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Stare</dt><dd>Wikidata, categoriile și infocasetele Wikipedia, categoriile Wikimedia Commons și datele infocasetelor din DBpedia (CC BY-SA). Dacă niciuna nu o indică, unele stări sunt deduse și marcate ca neverificate; restul rămân neclasificate.</dd></div>
       <div><dt>Ce locuri apar primele</dt><dd>Vizualizările articolelor Wikipedia despre locuri în cele 60 de zile dinaintea generării datelor (date Wikimedia despre vizualizările de pagini, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Fotografii</dt><dd>Wikimedia Commons, cu autorul și licența afișate pentru fiecare fotografie.</dd></div>
       <div><dt>Hartă</dt><dd>Google Maps.</dd></div>
       <div><dt>Design</dt><dd>Simbolurile marcajelor din pachetul Fantasy RPG GUI de Artsystack; fontul titlurilor MedievalSharp de wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Cifrele de pe această pagină reflectă situația din noiembrie 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Cifrele de pe această pagină reflectă situația din noiembrie 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Politica de confidențialitate</a>
       <a href="#data">De unde provin datele</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Contact: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldoria este publicată de Adrián Pažický.</p>
     <p>Acest site nu setează cookie-uri și nu folosește instrumente de analiză sau scripturi ale unor terți. Este găzduit de GitHub Pages, care primește adresa dumneavoastră IP, ca orice furnizor de găzduire web.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

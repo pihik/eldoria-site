@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Preskoči na sadržaj</a>
@@ -44,6 +44,7 @@
         <a href="#events">Događaji</a>
         <a href="#data">Podaci</a>
         <a href="#faq">Česta pitanja</a>
+        <a href="contact.html">Kontakt</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Jezik">HR</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Što Eldoria radi</h2>
       <div class="grid">
-      <article class="card"><h3>Jedna karta, šest vrsta mjesta</h3><p>Burgovi, utvrde, dvorci i palače, kurije, povijesni gradovi i sela, arheološka nalazišta. Filtrirajte prema vrsti, državi, stanju, UNESCO-ovoj svjetskoj baštini i posjetima. Karta u početku prikazuje burgove i utvrde; ostale vrste dodajte u filtrima.</p></article>
-      <article class="card"><h3>Karta u stilu pergamenta</h3><p>Smanjite kartu i mjesta se grupiraju u numerirane mjehuriće. Povećajte kartu i svako mjesto dobiva vlastitu srednjovjekovnu ikonu, a ondje gdje je prepuno, točku. U prepunim područjima prvo se crtaju najčitanija mjesta.</p></article>
-      <article class="card"><h3>U mojoj blizini</h3><p>Najbliža mjesta s udaljenostima i neobavezna upozorenja dok je aplikacija otvorena. Vaš približni položaj ostaje na telefonu.</p></article>
-      <article class="card"><h3>Pročitajte priču</h3><p>Otvorite mjesto i pročitajte njegov članak s Wikipedije unutar aplikacije, na bilo kojem od 14 jezika na kojem postoji, uključujući povijest i legende. Fotografije potječu iz Wikimedia Commons, uz navođenje autora.</p></article>
-      <article class="card"><h3>Vaš dnevnik dvoraca</h3><p>Označite posjete datumom, dodajte ocjenu zvjezdicama, bilješke i do tri fotografije. Zabilješkom označite mjesta koja želite posjetiti. Pregledajte posjete prema državi i vrsti. Izvezite datoteku sigurnosne kopije i vratite je na novom telefonu.</p></article>
-      <article class="card"><h3>Srednjovjekovni događaji</h3><p>Popis nadolazećih sajmova, turnira i festivala u državama koje odaberete, s poveznicom na stranicu organizatora i na mjesto u kartama.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Jedna karta, šest vrsta mjesta</h3></summary><p>Burgovi, utvrde, dvorci i palače, kurije, povijesni gradovi i sela, arheološka nalazišta. Filtrirajte prema vrsti, državi, stanju, UNESCO-ovoj svjetskoj baštini i posjetima. Karta u početku prikazuje burgove i utvrde; ostale vrste dodajte u filtrima.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Karta u stilu pergamenta</h3></summary><p>Smanjite kartu i mjesta se grupiraju u numerirane mjehuriće. Povećajte kartu i svako mjesto dobiva vlastitu srednjovjekovnu ikonu, a ondje gdje je prepuno, točku. U prepunim područjima prvo se crtaju najčitanija mjesta.</p></details>
+      <details class="card feature" data-resp open><summary><h3>U mojoj blizini</h3></summary><p>Najbliža mjesta s udaljenostima i neobavezna upozorenja dok je aplikacija otvorena. Vaš približni položaj ostaje na telefonu.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Pročitajte priču</h3></summary><p>Otvorite mjesto i pročitajte njegov članak s Wikipedije unutar aplikacije, na bilo kojem od 14 jezika na kojem postoji, uključujući povijest i legende. Fotografije potječu iz Wikimedia Commons, uz navođenje autora.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Vaš dnevnik dvoraca</h3></summary><p>Označite posjete datumom, dodajte ocjenu zvjezdicama, bilješke i do tri fotografije. Zabilješkom označite mjesta koja želite posjetiti. Pregledajte posjete prema državi i vrsti. Izvezite datoteku sigurnosne kopije i vratite je na novom telefonu.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Srednjovjekovni događaji</h3></summary><p>Popis nadolazećih sajmova, turnira i festivala u državama koje odaberete, s poveznicom na stranicu organizatora i na mjesto u kartama.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Nadolazeći srednjovjekovni događaji</h2>
       <p class="lead">Isti popis koji aplikacija prikazuje na kartici Događaji. Sastavlja se ručno prema vlastitim objavama organizatora i za sada obuhvaća samo nekoliko država. Događaj predložite putem opcije Kontakt u aplikaciji.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Nadolazeći događaji još nisu objavljeni." data-error="Popis događaja nije bilo moguće učitati." data-more="Stranica organizatora" data-all="Sve vrste" data-categories="{&quot;festival&quot;:&quot;Festivali&quot;,&quot;market&quot;:&quot;Sajmovi&quot;,&quot;tournament&quot;:&quot;Turniri i bitke&quot;,&quot;performance&quot;:&quot;Izvedbe&quot;,&quot;tour&quot;:&quot;Obilasci i dani otvorenih vrata&quot;,&quot;local&quot;:&quot;Lokalna događanja&quot;}" data-expected-h="Termini još nisu objavljeni" data-expected-note="Godišnja događanja čiji termini za sljedeće izdanje još nisu objavljeni. Mjesec potječe iz prethodnih izdanja i nije potvrđen. Prije planiranja puta provjerite kod organizatora." data-expected-when="Očekuje se: {month}" data-search="Pretraži događanja" data-all-countries="Sve zemlje" data-no-results="Nijedno događanje ne odgovara pretraživanju." data-limit="6"><li class="status">Učitavanje događaja…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Nadolazeći događaji još nisu objavljeni." data-error="Popis događaja nije bilo moguće učitati." data-more="Stranica organizatora" data-all="Sve vrste" data-categories="{&quot;festival&quot;:&quot;Festivali&quot;,&quot;market&quot;:&quot;Sajmovi&quot;,&quot;tournament&quot;:&quot;Turniri i bitke&quot;,&quot;performance&quot;:&quot;Izvedbe&quot;,&quot;tour&quot;:&quot;Obilasci i dani otvorenih vrata&quot;,&quot;local&quot;:&quot;Lokalna događanja&quot;}" data-expected-h="Termini još nisu objavljeni" data-expected-note="Godišnja događanja čiji termini za sljedeće izdanje još nisu objavljeni. Mjesec potječe iz prethodnih izdanja i nije potvrđen. Prije planiranja puta provjerite kod organizatora." data-expected-when="Očekuje se: {month}" data-search="Pretraži događanja" data-all-countries="Sve zemlje" data-no-results="Nijedno događanje ne odgovara pretraživanju." data-show-more="Prikaži više ({n})" data-read-more="Čitaj više" data-read-less="Prikaži manje" data-calendar="Dodaj u kalendar" data-map="Karta" data-limit="6"><li class="status">Učitavanje događaja…</li></ul>
       <noscript><p class="status">Popis događaja zahtijeva JavaScript. Pronaći ćete ga i u aplikaciji.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Sva događanja s filtrom i pretraživanjem</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Odakle podaci dolaze</h2>
-      <p class="lead">Eldoria spaja javne podatke. Mjesta mogu biti nepotpuna ili sadržavati pogreške.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Odakle podaci dolaze</h2></summary>
+        <p class="lead">Eldoria spaja javne podatke. Mjesta mogu biti nepotpuna ili sadržavati pogreške.</p>
+        <dl class="sources">
       <div><dt>Mjesta i nazivi</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Stanje</dt><dd>Wikidata, kategorije i infokutije Wikipedije, kategorije Wikimedia Commonsa i podaci infokutija iz DBpedije (CC BY-SA). Ako ga ne navodi nijedan od njih, neka su stanja zaključena i označena kao neprovjerena; ostalo ostaje nerazvrstano.</dd></div>
       <div><dt>Koja mjesta dolaze prva</dt><dd>Pregledi članaka o mjestima na Wikipediji u 60 dana prije izrade podataka (Wikimedia pageviews, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Fotografije</dt><dd>Wikimedia Commons, uz autora i licenciju navedene za svaku fotografiju.</dd></div>
       <div><dt>Karta</dt><dd>Google Maps.</dd></div>
       <div><dt>Dizajn</dt><dd>Simboli oznaka iz paketa Fantasy RPG GUI autora Artsystack; font naslova MedievalSharp autora wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Brojke na ovoj stranici vrijede za mjesec studeni 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Brojke na ovoj stranici vrijede za mjesec studeni 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Pravila o privatnosti</a>
       <a href="#data">Odakle podaci dolaze</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Kontakt: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Aplikaciju Eldoria objavljuje Adrián Pažický.</p>
     <p>Ova stranica ne postavlja kolačiće i ne koristi analitiku ni skripte trećih strana. Smještena je na GitHub Pages, koji, kao i svaki pružatelj web-hostinga, prima vašu IP adresu.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

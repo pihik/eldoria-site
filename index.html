@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/icon-512.png">
   <link rel="apple-touch-icon" href="assets/icon-512.png">
-  <link rel="stylesheet" href="assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
@@ -44,6 +44,7 @@
         <a href="#events">Events</a>
         <a href="#data">Data</a>
         <a href="#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Language">EN</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">What Eldoria does</h2>
       <div class="grid">
-      <article class="card"><h3>One map, six kinds of place</h3><p>Castles, fortresses, chateaux and palaces, manor houses, historic towns and villages, ancient sites. Filter by type, country, condition, UNESCO World Heritage and visited. The map starts with castles and fortresses; add the other kinds in the filters.</p></article>
-      <article class="card"><h3>A parchment-style map</h3><p>Zoom out and places group into numbered bubbles. Zoom in and each place gets its own medieval icon, or a dot where it is crowded. In crowded areas the most-read places are drawn first.</p></article>
-      <article class="card"><h3>Near me</h3><p>The closest places with distances, and optional alerts while the app is open. Your approximate location stays on the phone.</p></article>
-      <article class="card"><h3>Read the story</h3><p>Open a place and read its Wikipedia article inside the app, in any of 14 languages where it exists, including history and legends. Photos come from Wikimedia Commons with the author credited.</p></article>
-      <article class="card"><h3>Your castle journal</h3><p>Mark visits with a date, add a star rating, notes and up to three photos. Bookmark places you want to visit. See your visits by country and type. Export a backup file and restore it on a new phone.</p></article>
-      <article class="card"><h3>Medieval events</h3><p>A list of upcoming fairs, tournaments and festivals in the countries you choose, with a link to the organiser’s page and to the place in Maps.</p></article>
+      <details class="card feature" data-resp open><summary><h3>One map, six kinds of place</h3></summary><p>Castles, fortresses, chateaux and palaces, manor houses, historic towns and villages, ancient sites. Filter by type, country, condition, UNESCO World Heritage and visited. The map starts with castles and fortresses; add the other kinds in the filters.</p></details>
+      <details class="card feature" data-resp open><summary><h3>A parchment-style map</h3></summary><p>Zoom out and places group into numbered bubbles. Zoom in and each place gets its own medieval icon, or a dot where it is crowded. In crowded areas the most-read places are drawn first.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Near me</h3></summary><p>The closest places with distances, and optional alerts while the app is open. Your approximate location stays on the phone.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Read the story</h3></summary><p>Open a place and read its Wikipedia article inside the app, in any of 14 languages where it exists, including history and legends. Photos come from Wikimedia Commons with the author credited.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Your castle journal</h3></summary><p>Mark visits with a date, add a star rating, notes and up to three photos. Bookmark places you want to visit. See your visits by country and type. Export a backup file and restore it on a new phone.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Medieval events</h3></summary><p>A list of upcoming fairs, tournaments and festivals in the countries you choose, with a link to the organiser’s page and to the place in Maps.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Upcoming medieval events</h2>
       <p class="lead">The same list the app shows on its Events tab. It is compiled by hand from the organisers’ own announcements and covers only a few countries so far. Suggest an event through Contact in the app.</p>
-      <ul class="events" id="events-list" data-src="events.json" data-empty="No upcoming events are published yet." data-error="The events list could not be loaded." data-more="Organiser’s page" data-all="All types" data-categories="{&quot;festival&quot;:&quot;Festivals&quot;,&quot;market&quot;:&quot;Markets&quot;,&quot;tournament&quot;:&quot;Tournaments and battles&quot;,&quot;performance&quot;:&quot;Performances&quot;,&quot;tour&quot;:&quot;Tours and open days&quot;,&quot;local&quot;:&quot;Local events&quot;}" data-expected-h="Dates not announced yet" data-expected-note="Yearly events whose dates for the coming edition have not been published. The month is taken from earlier editions and is not confirmed. Check with the organiser before you plan a trip." data-expected-when="Expected: {month}" data-search="Search events" data-all-countries="All countries" data-no-results="No events match your search." data-limit="6"><li class="status">Loading the events…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="events.json" data-empty="No upcoming events are published yet." data-error="The events list could not be loaded." data-more="Organiser’s page" data-all="All types" data-categories="{&quot;festival&quot;:&quot;Festivals&quot;,&quot;market&quot;:&quot;Markets&quot;,&quot;tournament&quot;:&quot;Tournaments and battles&quot;,&quot;performance&quot;:&quot;Performances&quot;,&quot;tour&quot;:&quot;Tours and open days&quot;,&quot;local&quot;:&quot;Local events&quot;}" data-expected-h="Dates not announced yet" data-expected-note="Yearly events whose dates for the coming edition have not been published. The month is taken from earlier editions and is not confirmed. Check with the organiser before you plan a trip." data-expected-when="Expected: {month}" data-search="Search events" data-all-countries="All countries" data-no-results="No events match your search." data-show-more="Show more ({n})" data-read-more="Read more" data-read-less="Show less" data-calendar="Add to calendar" data-map="Map" data-limit="6"><li class="status">Loading the events…</li></ul>
       <noscript><p class="status">The events list needs JavaScript. You will find it in the app as well.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">All events, with filter and search</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Where the data comes from</h2>
-      <p class="lead">Eldoria combines public data. Places can be incomplete or contain mistakes.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Where the data comes from</h2></summary>
+        <p class="lead">Eldoria combines public data. Places can be incomplete or contain mistakes.</p>
+        <dl class="sources">
       <div><dt>Places and names</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Condition</dt><dd>Wikidata, Wikipedia categories and infoboxes, Wikimedia Commons categories and DBpedia infobox data (CC BY-SA). Where none of them states it, some conditions are inferred and marked unverified; the rest stay unclassified.</dd></div>
       <div><dt>Which places come first</dt><dd>Views of the places’ Wikipedia articles in the 60 days before the data was built (Wikimedia pageviews, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Photos</dt><dd>Wikimedia Commons, with author and licence shown for each photo.</dd></div>
       <div><dt>Map</dt><dd>Google Maps.</dd></div>
       <div><dt>Design</dt><dd>Marker symbols from the Fantasy RPG GUI pack by Artsystack; heading font MedievalSharp by wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Figures on this page are as of November 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Figures on this page are as of November 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Privacy policy</a>
       <a href="#data">Where the data comes from</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Contact: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldoria is published by Adrián Pažický.</p>
     <p>This site sets no cookies and uses no analytics or third-party scripts. It is hosted by GitHub Pages, which receives your IP address like any web host.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="assets/site.js?v=fa986f8c" defer></script>
+<script src="assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

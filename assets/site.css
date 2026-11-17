@@ -18,6 +18,8 @@
   --on-hero: #f5ecd8;
   --heading: "MedievalSharp", Georgia, "Times New Roman", serif;
   --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: 20px;
+  color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -40,7 +42,7 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 400; line-height: 1.2; ma
 h2 { font-size: 30px; margin-bottom: 12px; }
 h3 { font-size: 20px; margin-bottom: 6px; }
 p { margin: 0 0 12px; }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter); }
 .muted { color: var(--muted); font-size: 14px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--card); color: var(--text); padding: 8px 12px; border-radius: 8px; z-index: 10; }
 .skip:focus { left: 8px; }
@@ -137,7 +139,7 @@ section { padding: 36px 0; }
 .chips button { font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: inherit; cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-hero); }
 .chips button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-.event-tools { display: grid; gap: 12px; margin-top: 16px; }
+.event-tools { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 16px; }
 .event-search { display: flex; flex-wrap: wrap; gap: 12px; }
 .event-search input { flex: 1 1 240px; }
 .event-tools select { font: inherit; flex: 0 1 240px; box-sizing: border-box; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: inherit; }
@@ -176,3 +178,137 @@ section { padding: 36px 0; }
 .site-footer { border-top: 1px solid var(--border); padding: 28px 0 44px; margin-top: 12px; }
 .site-footer p { font-size: 14px; color: var(--muted); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 14px; font-size: 15px; }
+
+/* ---------------------------------------------------------------- folding sections and feature cards */
+/* On a wide screen a <details data-resp> is open all the time and its summary is a plain heading. */
+.feature > summary, .fold > summary { list-style: none; cursor: default; }
+.feature > summary::-webkit-details-marker, .fold > summary::-webkit-details-marker { display: none; }
+.feature > summary h3 { margin: 0 0 6px; }
+.fold > summary h2 { margin: 0 0 12px; }
+.feature > p { margin: 0 0 12px; }
+.feature > p:last-child { margin-bottom: 0; }
+
+/* ---------------------------------------------------------------- events: cards, actions, months, show more */
+.events .card { display: flex; flex-direction: column; }
+.events .desc { margin: 0 0 8px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+.events .desc.open { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; }
+.events .toggle, .events .actions button { font: inherit; font-size: 14px; background: none; border: 0; padding: 0; color: var(--link); cursor: pointer; text-decoration: underline; }
+.events .toggle { align-self: flex-start; padding: 2px 0 8px; }
+.events .actions { display: flex; flex-wrap: wrap; gap: 2px 18px; margin: auto 0 0; padding-top: 4px; font-size: 14px; }
+.events .actions a, .events .actions button { padding: 6px 0; min-height: 32px; display: inline-flex; align-items: center; }
+.events .toggle:focus-visible, .events .actions button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.events .month { grid-column: 1 / -1; margin: 14px 0 -4px; }
+.events .month:first-child { margin-top: 0; }
+.events .month h3 { font-size: 22px; margin: 0; color: var(--brand); }
+@media (prefers-color-scheme: dark) { .events .month h3 { color: var(--gold); } }
+button.btn { border: 0; font: inherit; font-weight: 600; cursor: pointer; }
+.show-more { display: block; margin: 20px auto 0; }
+.show-more[hidden] { display: none; }
+.expected summary { cursor: pointer; padding: 6px 0; }
+.expected summary h3 { display: inline; font-size: 21px; }
+.expected[open] summary { margin-bottom: 4px; }
+
+/* ---------------------------------------------------------------- contact form */
+.contact-form { display: grid; gap: 2px; margin-top: 20px; max-width: 640px; }
+.contact-form[hidden] { display: none; }
+.contact-form .field { display: grid; gap: 6px; margin: 8px 0; }
+.contact-form label { font-weight: 600; font-size: 15px; }
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form select, .contact-form textarea { font: inherit; font-size: 16px; width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: inherit; }
+.contact-form textarea { resize: vertical; min-height: 150px; }
+.contact-form input:focus-visible, .contact-form select:focus-visible, .contact-form textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.contact-form .btn { padding: 12px 24px; }
+.contact-form .btn[disabled] { opacity: 0.6; cursor: progress; }
+.form-status { min-height: 1.6em; font-weight: 600; margin: 0; }
+.form-status.ok { color: #2e6b32; }
+.form-status.error { color: #a3261c; }
+@media (prefers-color-scheme: dark) { .form-status.ok { color: #8fd18f; } .form-status.error { color: #ff9b91; } }
+
+/* ---------------------------------------------------------------- phones */
+@media (max-width: 759px) {
+  :root { --gutter: 16px; --sticky: 44px; }
+  html { scroll-padding-top: calc(var(--sticky) + 14px); }
+
+  /* Header: brand and language on one row that scrolls away; the menu strip below it stays at the top. */
+  .site-header { position: sticky; top: -56px; z-index: 30; }
+  .bar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0 12px; padding-top: 0; padding-bottom: 0; }
+  .brand { grid-area: 1 / 1; height: 56px; margin: 0; font-size: 22px; }
+  .lang-menu { grid-area: 1 / 2; }
+  .site-nav { grid-area: 2 / 1 / 3 / 3; position: relative; display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 8px; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - 28px), transparent 100%); }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { flex: none; padding: 8px 12px; border-radius: 999px; font-size: 15px; line-height: 20px; white-space: nowrap; opacity: 1; }
+  .site-nav a[aria-current] { background: rgba(245, 236, 216, 0.2); font-weight: 600; }
+  .lang-menu ul { max-height: 60vh; }
+
+  /* Hero: shorter, without the big icon (the header has one). */
+  .hero { padding: 26px 0 40px; }
+  .hero .icon { display: none; }
+  .hero h1 { font-size: 30px; margin-bottom: 10px; }
+  .hero p { font-size: 16px; margin-bottom: 10px; }
+  .hero .badge { margin: 2px 0 16px; font-size: 13px; }
+  .buttons { gap: 10px; }
+  .buttons .btn { flex: 1 1 140px; text-align: center; padding: 12px 14px; }
+
+  .facts { gap: 8px; transform: translateY(-24px); margin-bottom: -12px; }
+  .facts li { padding: 10px 8px; font-size: 13px; line-height: 1.35; }
+  .facts strong { font-size: 22px; }
+
+  section { padding: 22px 0; }
+  h2 { font-size: 26px; margin-bottom: 10px; }
+
+  /* Features: a list of headings that open on tap. */
+  .grid { gap: 8px; margin-top: 14px; }
+  .feature { padding: 0 16px; }
+  .feature > summary, .fold > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; }
+  .feature > summary { min-height: 52px; }
+  .feature > summary h3 { margin: 0; font-size: 18px; }
+  .feature > summary::after, .fold > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: 0 4px 3px 0; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); opacity: 0.7; transition: transform 0.15s; }
+  .feature[open] > summary::after, .fold[open] > summary::after { transform: rotate(-135deg); margin-bottom: -3px; }
+  .feature > p { margin: 0 0 14px; }
+  .fold > summary { padding-bottom: 10px; border-bottom: 1px solid var(--border); min-height: 48px; }
+  .fold > summary h2 { margin: 0; }
+  .fold[open] > summary { margin-bottom: 14px; }
+
+  .shots { margin-top: 14px; }
+  .shots li { width: 210px; }
+
+  .looks { gap: 8px; margin: 14px 0; }
+  .look { padding: 10px 14px; gap: 12px; }
+  .look .sample { width: 78px; }
+  .kinds { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+
+  /* The home page's events: a row of cards that swipes sideways. */
+  .events.carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 14px calc(var(--gutter) * -1) 0; padding: 2px var(--gutter) 14px; scroll-padding: 0 var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .events.carousel::-webkit-scrollbar { display: none; }
+  .events.carousel > .card { flex: 0 0 84%; max-width: 340px; scroll-snap-align: start; }
+  .events.carousel > .status { flex: 0 0 100%; }
+  .more-link { margin-top: 6px; }
+  /* The events page: a single column, so a month heading can stay at the top while its cards pass. */
+  .events:not(.carousel) { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+  .events .month { position: sticky; top: var(--sticky); z-index: 5; margin: 0; padding: 8px 0 6px; background: var(--bg); }
+  .events .card { padding: 14px 16px; }
+  .events .card h3 { font-size: 18px; }
+
+  .event-tools { gap: 10px; margin-top: 12px; }
+  .event-search { flex-wrap: nowrap; gap: 8px; }
+  .event-search input { flex: 1 1 0; min-width: 0; }
+  .event-tools select { flex: 0 0 42%; min-width: 0; }
+  .event-tools .chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 4px; scrollbar-width: none; }
+  .event-tools .chips::-webkit-scrollbar { display: none; }
+  .chips button { flex: none; white-space: nowrap; padding: 8px 14px; }
+  .expected { margin-top: 26px; }
+
+  #faq details { margin-bottom: 8px; }
+  .legal { padding-top: 22px; }
+
+  .site-footer { padding: 22px 0 36px; }
+  .site-footer .links { flex-direction: column; gap: 0; }
+  .site-footer .links a { padding: 7px 0; }
+}
+
+/* ---------------------------------------------------------------- everywhere */
+.site-nav a[aria-current] { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
+@media (max-width: 759px) { .site-nav a[aria-current] { text-decoration: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .feature > summary::after, .fold > summary::after { transition: none; }
+}

@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Aller au contenu</a>
@@ -44,6 +44,7 @@
         <a href="#events">Événements</a>
         <a href="#data">Données</a>
         <a href="#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Langue">FR</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Ce que fait Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>Une carte, six types de lieux</h3><p>Châteaux forts, forteresses, châteaux et palais, manoirs, villes et villages historiques, sites antiques. Filtrez par type, pays, état, patrimoine mondial de l’UNESCO et lieux visités. La carte démarre avec les châteaux forts et les forteresses ; ajoutez les autres types dans les filtres.</p></article>
-      <article class="card"><h3>Une carte façon parchemin</h3><p>Si vous éloignez la vue, les lieux se regroupent en bulles numérotées. Si vous zoomez, chaque lieu reçoit sa propre icône médiévale, ou un point lorsque les lieux sont nombreux. Dans les zones denses, les lieux les plus consultés sont dessinés en premier.</p></article>
-      <article class="card"><h3>Près de moi</h3><p>Les lieux les plus proches avec leur distance, et des alertes facultatives tant que l’application est ouverte. Votre position approximative reste sur le téléphone.</p></article>
-      <article class="card"><h3>Lire l’histoire</h3><p>Ouvrez un lieu et lisez son article Wikipédia dans l’application, dans n’importe laquelle des 14 langues où il existe, y compris l’histoire et les légendes. Les photos proviennent de Wikimedia Commons, avec mention de l’auteur.</p></article>
-      <article class="card"><h3>Votre journal de châteaux</h3><p>Marquez vos visites avec une date, ajoutez une note en étoiles, des remarques et jusqu’à trois photos. Ajoutez un marque-page aux lieux que vous voulez visiter. Consultez vos visites par pays et par type. Exportez un fichier de sauvegarde et restaurez-le sur un nouveau téléphone.</p></article>
-      <article class="card"><h3>Événements médiévaux</h3><p>Une liste des foires, tournois et festivals à venir dans les pays que vous choisissez, avec un lien vers la page de l’organisateur et vers le lieu dans l’application de cartes.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Une carte, six types de lieux</h3></summary><p>Châteaux forts, forteresses, châteaux et palais, manoirs, villes et villages historiques, sites antiques. Filtrez par type, pays, état, patrimoine mondial de l’UNESCO et lieux visités. La carte démarre avec les châteaux forts et les forteresses ; ajoutez les autres types dans les filtres.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Une carte façon parchemin</h3></summary><p>Si vous éloignez la vue, les lieux se regroupent en bulles numérotées. Si vous zoomez, chaque lieu reçoit sa propre icône médiévale, ou un point lorsque les lieux sont nombreux. Dans les zones denses, les lieux les plus consultés sont dessinés en premier.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Près de moi</h3></summary><p>Les lieux les plus proches avec leur distance, et des alertes facultatives tant que l’application est ouverte. Votre position approximative reste sur le téléphone.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Lire l’histoire</h3></summary><p>Ouvrez un lieu et lisez son article Wikipédia dans l’application, dans n’importe laquelle des 14 langues où il existe, y compris l’histoire et les légendes. Les photos proviennent de Wikimedia Commons, avec mention de l’auteur.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Votre journal de châteaux</h3></summary><p>Marquez vos visites avec une date, ajoutez une note en étoiles, des remarques et jusqu’à trois photos. Ajoutez un marque-page aux lieux que vous voulez visiter. Consultez vos visites par pays et par type. Exportez un fichier de sauvegarde et restaurez-le sur un nouveau téléphone.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Événements médiévaux</h3></summary><p>Une liste des foires, tournois et festivals à venir dans les pays que vous choisissez, avec un lien vers la page de l’organisateur et vers le lieu dans l’application de cartes.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Événements médiévaux à venir</h2>
       <p class="lead">La même liste que celle de l’onglet Événements de l’application. Elle est établie à la main à partir des annonces des organisateurs eux-mêmes et ne couvre pour l’instant que quelques pays. Proposez un événement via Contact dans l’application.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Aucun événement à venir n’est encore publié." data-error="La liste des événements n’a pas pu être chargée." data-more="Page de l’organisateur" data-all="Tous les types" data-categories="{&quot;festival&quot;:&quot;Festivals&quot;,&quot;market&quot;:&quot;Marchés&quot;,&quot;tournament&quot;:&quot;Tournois et batailles&quot;,&quot;performance&quot;:&quot;Spectacles&quot;,&quot;tour&quot;:&quot;Visites et journées portes ouvertes&quot;,&quot;local&quot;:&quot;Événements locaux&quot;}" data-expected-h="Dates pas encore annoncées" data-expected-note="Événements annuels dont les dates de la prochaine édition n'ont pas encore été publiées. Le mois provient des éditions précédentes et n'est pas confirmé. Vérifiez auprès de l'organisateur avant de planifier un voyage." data-expected-when="Attendu en {month}" data-search="Rechercher des événements" data-all-countries="Tous les pays" data-no-results="Aucun événement ne correspond à la recherche." data-limit="6"><li class="status">Chargement des événements…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Aucun événement à venir n’est encore publié." data-error="La liste des événements n’a pas pu être chargée." data-more="Page de l’organisateur" data-all="Tous les types" data-categories="{&quot;festival&quot;:&quot;Festivals&quot;,&quot;market&quot;:&quot;Marchés&quot;,&quot;tournament&quot;:&quot;Tournois et batailles&quot;,&quot;performance&quot;:&quot;Spectacles&quot;,&quot;tour&quot;:&quot;Visites et journées portes ouvertes&quot;,&quot;local&quot;:&quot;Événements locaux&quot;}" data-expected-h="Dates pas encore annoncées" data-expected-note="Événements annuels dont les dates de la prochaine édition n'ont pas encore été publiées. Le mois provient des éditions précédentes et n'est pas confirmé. Vérifiez auprès de l'organisateur avant de planifier un voyage." data-expected-when="Attendu en {month}" data-search="Rechercher des événements" data-all-countries="Tous les pays" data-no-results="Aucun événement ne correspond à la recherche." data-show-more="Afficher plus ({n})" data-read-more="Lire la suite" data-read-less="Afficher moins" data-calendar="Ajouter au calendrier" data-map="Carte" data-limit="6"><li class="status">Chargement des événements…</li></ul>
       <noscript><p class="status">La liste des événements nécessite JavaScript. Vous la trouverez aussi dans l’application.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Tous les événements, avec filtre et recherche</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">D’où viennent les données</h2>
-      <p class="lead">Eldoria combine des données publiques. Les lieux peuvent être incomplets ou comporter des erreurs.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">D’où viennent les données</h2></summary>
+        <p class="lead">Eldoria combine des données publiques. Les lieux peuvent être incomplets ou comporter des erreurs.</p>
+        <dl class="sources">
       <div><dt>Lieux et noms</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>État</dt><dd>Wikidata, catégories et infobox de Wikipédia, catégories de Wikimedia Commons et données d’infobox de DBpedia (CC BY-SA). Lorsqu’aucune de ces sources ne l’indique, certains états sont déduits et signalés comme non vérifiés ; les autres restent non classés.</dd></div>
       <div><dt>Quels lieux apparaissent en premier</dt><dd>Consultations des articles Wikipédia des lieux pendant les 60 jours précédant la génération des données (pages vues Wikimedia, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Photos</dt><dd>Wikimedia Commons, avec l’auteur et la licence indiqués pour chaque photo.</dd></div>
       <div><dt>Carte</dt><dd>Google Maps.</dd></div>
       <div><dt>Graphisme</dt><dd>Symboles de repères du pack Fantasy RPG GUI d’Artsystack ; police des titres MedievalSharp de wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Les chiffres de cette page correspondent à la situation en novembre 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Les chiffres de cette page correspondent à la situation en novembre 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Politique de confidentialité</a>
       <a href="#data">D’où viennent les données</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Contact: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldoria est publiée par Adrián Pažický.</p>
     <p>Ce site ne dépose aucun cookie et n’utilise ni outil d’analyse ni script tiers. Il est hébergé par GitHub Pages, qui reçoit votre adresse IP comme tout hébergeur web.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

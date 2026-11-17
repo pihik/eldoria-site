@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Перейти до вмісту</a>
@@ -44,6 +44,7 @@
         <a href="#events">Події</a>
         <a href="#data">Дані</a>
         <a href="#faq">Запитання</a>
+        <a href="contact.html">Зв’язок</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Мова">UK</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Що вміє Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>Одна карта, шість типів місць</h3><p>Замки, фортеці, палаци та шато, садиби, історичні міста й села, археологічні пам’ятки. Фільтруйте за типом, країною, станом, Всесвітньою спадщиною ЮНЕСКО та відвідуванням. Спочатку на карті показано замки й фортеці; інші типи додайте у фільтрах.</p></article>
-      <article class="card"><h3>Карта в стилі пергаменту</h3><p>Віддаліть карту — і місця групуються в пронумеровані кружечки. Наблизьте її — і кожне місце отримає власний середньовічний значок, а на переповнених ділянках — крапку. На переповнених ділянках першими малюються найчитаніші місця.</p></article>
-      <article class="card"><h3>Поруч зі мною</h3><p>Найближчі місця з відстанями та за бажанням сповіщення, поки застосунок відкритий. Ваше приблизне місцезнаходження залишається на телефоні.</p></article>
-      <article class="card"><h3>Читайте історію</h3><p>Відкрийте місце й читайте його статтю Wikipedia просто в застосунку, будь-якою з 14 мов, якщо стаття існує, зокрема про історію та легенди. Фото беруться з Wikimedia Commons із зазначенням автора.</p></article>
-      <article class="card"><h3>Ваш щоденник замків</h3><p>Позначайте відвідування з датою, додавайте оцінку зірками, нотатки та до трьох фото. Додавайте в закладки місця, які хочете відвідати. Переглядайте відвідування за країнами й типами. Експортуйте файл резервної копії та відновіть його на новому телефоні.</p></article>
-      <article class="card"><h3>Середньовічні події</h3><p>Список майбутніх ярмарків, турнірів і фестивалів в обраних вами країнах із посиланням на сторінку організатора та на місце на карті.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Одна карта, шість типів місць</h3></summary><p>Замки, фортеці, палаци та шато, садиби, історичні міста й села, археологічні пам’ятки. Фільтруйте за типом, країною, станом, Всесвітньою спадщиною ЮНЕСКО та відвідуванням. Спочатку на карті показано замки й фортеці; інші типи додайте у фільтрах.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Карта в стилі пергаменту</h3></summary><p>Віддаліть карту — і місця групуються в пронумеровані кружечки. Наблизьте її — і кожне місце отримає власний середньовічний значок, а на переповнених ділянках — крапку. На переповнених ділянках першими малюються найчитаніші місця.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Поруч зі мною</h3></summary><p>Найближчі місця з відстанями та за бажанням сповіщення, поки застосунок відкритий. Ваше приблизне місцезнаходження залишається на телефоні.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Читайте історію</h3></summary><p>Відкрийте місце й читайте його статтю Wikipedia просто в застосунку, будь-якою з 14 мов, якщо стаття існує, зокрема про історію та легенди. Фото беруться з Wikimedia Commons із зазначенням автора.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Ваш щоденник замків</h3></summary><p>Позначайте відвідування з датою, додавайте оцінку зірками, нотатки та до трьох фото. Додавайте в закладки місця, які хочете відвідати. Переглядайте відвідування за країнами й типами. Експортуйте файл резервної копії та відновіть його на новому телефоні.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Середньовічні події</h3></summary><p>Список майбутніх ярмарків, турнірів і фестивалів в обраних вами країнах із посиланням на сторінку організатора та на місце на карті.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Майбутні середньовічні події</h2>
       <p class="lead">Той самий список, який застосунок показує на вкладці «Події». Його складають вручну на основі власних оголошень організаторів, і наразі він охоплює лише кілька країн. Запропонуйте подію через розділ «Зв’язок» у застосунку.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Майбутніх подій ще не опубліковано." data-error="Не вдалося завантажити список подій." data-more="Сторінка організатора" data-all="Усі види" data-categories="{&quot;festival&quot;:&quot;Фестивалі&quot;,&quot;market&quot;:&quot;Ярмарки&quot;,&quot;tournament&quot;:&quot;Турніри та битви&quot;,&quot;performance&quot;:&quot;Виступи&quot;,&quot;tour&quot;:&quot;Екскурсії та дні відкритих дверей&quot;,&quot;local&quot;:&quot;Місцеві події&quot;}" data-expected-h="Дати ще не оголошено" data-expected-note="Щорічні події, дати найближчого проведення яких ще не опубліковано. Місяць узято з попередніх років, і він не підтверджений. Перед поїздкою уточніть в організатора." data-expected-when="Очікується: {month}" data-search="Пошук подій" data-all-countries="Усі країни" data-no-results="Жодна подія не відповідає запиту." data-limit="6"><li class="status">Завантаження подій…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Майбутніх подій ще не опубліковано." data-error="Не вдалося завантажити список подій." data-more="Сторінка організатора" data-all="Усі види" data-categories="{&quot;festival&quot;:&quot;Фестивалі&quot;,&quot;market&quot;:&quot;Ярмарки&quot;,&quot;tournament&quot;:&quot;Турніри та битви&quot;,&quot;performance&quot;:&quot;Виступи&quot;,&quot;tour&quot;:&quot;Екскурсії та дні відкритих дверей&quot;,&quot;local&quot;:&quot;Місцеві події&quot;}" data-expected-h="Дати ще не оголошено" data-expected-note="Щорічні події, дати найближчого проведення яких ще не опубліковано. Місяць узято з попередніх років, і він не підтверджений. Перед поїздкою уточніть в організатора." data-expected-when="Очікується: {month}" data-search="Пошук подій" data-all-countries="Усі країни" data-no-results="Жодна подія не відповідає запиту." data-show-more="Показати ще ({n})" data-read-more="Читати далі" data-read-less="Згорнути" data-calendar="Додати до календаря" data-map="Карта" data-limit="6"><li class="status">Завантаження подій…</li></ul>
       <noscript><p class="status">Для списку подій потрібен JavaScript. Його також можна знайти в застосунку.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Усі події з фільтром і пошуком</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Звідки беруться дані</h2>
-      <p class="lead">Eldoria поєднує публічні дані. Записи про місця можуть бути неповними або містити помилки.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Звідки беруться дані</h2></summary>
+        <p class="lead">Eldoria поєднує публічні дані. Записи про місця можуть бути неповними або містити помилки.</p>
+        <dl class="sources">
       <div><dt>Місця й назви</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Стан</dt><dd>Wikidata, категорії та інфобокси Вікіпедії, категорії Wikimedia Commons і дані інфобоксів з DBpedia (CC BY-SA). Якщо жодне з них його не вказує, частину станів виведено й позначено як неперевірені; решта залишається некласифікованою.</dd></div>
       <div><dt>Які місця показуються першими</dt><dd>Перегляди статей Wikipedia про ці місця за 60 днів до збирання даних (дані Wikimedia про перегляди сторінок, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Фото</dt><dd>Wikimedia Commons; для кожного фото вказано автора та ліцензію.</dd></div>
       <div><dt>Карта</dt><dd>Google Maps.</dd></div>
       <div><dt>Оформлення</dt><dd>Значки маркерів із пакета Fantasy RPG GUI від Artsystack; шрифт заголовків — MedievalSharp від wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Дані на цій сторінці актуальні станом на листопад 2026 р..</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Дані на цій сторінці актуальні станом на листопад 2026 р..</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Політика конфіденційності</a>
       <a href="#data">Звідки беруться дані</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Зв’язок: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Зв’язок</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldoria публікує Adrián Pažický.</p>
     <p>Цей сайт не встановлює cookie-файли й не використовує аналітику чи сторонні скрипти. Його розміщує GitHub Pages, який, як і будь-який вебхостинг, отримує вашу IP-адресу.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

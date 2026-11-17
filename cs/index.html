@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Přeskočit na obsah</a>
@@ -44,6 +44,7 @@
         <a href="#events">Akce</a>
         <a href="#data">Data</a>
         <a href="#faq">Časté otázky</a>
+        <a href="contact.html">Kontakt</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Jazyk">CS</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Co Eldoria nabízí</h2>
       <div class="grid">
-      <article class="card"><h3>Jedna mapa, šest druhů míst</h3><p>Hrady, pevnosti, zámky a paláce, tvrze, historická města a vesnice, archeologické lokality. Filtrujte podle typu, země, stavu, UNESCO a navštívených. Mapa začíná hrady a pevnostmi; ostatní druhy přidáte ve filtrech.</p></article>
-      <article class="card"><h3>Mapa v pergamenovém stylu</h3><p>Po oddálení se místa seskupí do číslovaných bublin. Po přiblížení má každé místo vlastní středověkou ikonu, v přeplněných oblastech jen tečku. V přeplněných oblastech se jako první kreslí nejčtenější místa.</p></article>
-      <article class="card"><h3>V mém okolí</h3><p>Nejbližší místa se vzdálenostmi a volitelná upozornění při otevřené aplikaci. Přibližná poloha zůstává v telefonu.</p></article>
-      <article class="card"><h3>Čtěte příběh</h3><p>Otevřete místo a přečtěte si jeho článek z Wikipedie přímo v aplikaci, v kterémkoli ze 14 jazyků, ve kterém existuje, včetně historie a pověstí. Fotografie pocházejí z Wikimedia Commons s uvedením autora.</p></article>
-      <article class="card"><h3>Váš hradní deník</h3><p>Označte návštěvy s datem, přidejte hodnocení hvězdičkami, poznámky a až tři fotky. Označte si záložkou místa, která chcete navštívit. Prohlédněte si návštěvy podle země a typu. Exportujte zálohu a obnovte ji v novém telefonu.</p></article>
-      <article class="card"><h3>Středověké akce</h3><p>Seznam nadcházejících trhů, turnajů a slavností v zemích, které si vyberete, s odkazem na stránku pořadatele a na místo v mapách.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Jedna mapa, šest druhů míst</h3></summary><p>Hrady, pevnosti, zámky a paláce, tvrze, historická města a vesnice, archeologické lokality. Filtrujte podle typu, země, stavu, UNESCO a navštívených. Mapa začíná hrady a pevnostmi; ostatní druhy přidáte ve filtrech.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Mapa v pergamenovém stylu</h3></summary><p>Po oddálení se místa seskupí do číslovaných bublin. Po přiblížení má každé místo vlastní středověkou ikonu, v přeplněných oblastech jen tečku. V přeplněných oblastech se jako první kreslí nejčtenější místa.</p></details>
+      <details class="card feature" data-resp open><summary><h3>V mém okolí</h3></summary><p>Nejbližší místa se vzdálenostmi a volitelná upozornění při otevřené aplikaci. Přibližná poloha zůstává v telefonu.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Čtěte příběh</h3></summary><p>Otevřete místo a přečtěte si jeho článek z Wikipedie přímo v aplikaci, v kterémkoli ze 14 jazyků, ve kterém existuje, včetně historie a pověstí. Fotografie pocházejí z Wikimedia Commons s uvedením autora.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Váš hradní deník</h3></summary><p>Označte návštěvy s datem, přidejte hodnocení hvězdičkami, poznámky a až tři fotky. Označte si záložkou místa, která chcete navštívit. Prohlédněte si návštěvy podle země a typu. Exportujte zálohu a obnovte ji v novém telefonu.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Středověké akce</h3></summary><p>Seznam nadcházejících trhů, turnajů a slavností v zemích, které si vyberete, s odkazem na stránku pořadatele a na místo v mapách.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Nadcházející středověké akce</h2>
       <p class="lead">Stejný seznam, jaký aplikace ukazuje na kartě Akce. Sestavuje se ručně z oznámení pořadatelů a zatím pokrývá jen několik zemí. Akci můžete navrhnout přes Kontakt v aplikaci.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Zatím nejsou zveřejněny žádné nadcházející akce." data-error="Seznam akcí se nepodařilo načíst." data-more="Stránka pořadatele" data-all="Všechny druhy" data-categories="{&quot;festival&quot;:&quot;Festivaly&quot;,&quot;market&quot;:&quot;Trhy&quot;,&quot;tournament&quot;:&quot;Turnaje a bitvy&quot;,&quot;performance&quot;:&quot;Představení&quot;,&quot;tour&quot;:&quot;Prohlídky a dny otevřených dveří&quot;,&quot;local&quot;:&quot;Místní akce&quot;}" data-expected-h="Termíny zatím neoznámeny" data-expected-note="Každoroční akce, jejichž termíny na nejbližší ročník ještě nebyly zveřejněny. Měsíc vychází z předchozích ročníků a není potvrzený. Před plánováním cesty si to ověřte u pořadatele." data-expected-when="Očekává se: {month}" data-search="Hledat akce" data-all-countries="Všechny země" data-no-results="Hledání neodpovídá žádná akce." data-limit="6"><li class="status">Načítám akce…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Zatím nejsou zveřejněny žádné nadcházející akce." data-error="Seznam akcí se nepodařilo načíst." data-more="Stránka pořadatele" data-all="Všechny druhy" data-categories="{&quot;festival&quot;:&quot;Festivaly&quot;,&quot;market&quot;:&quot;Trhy&quot;,&quot;tournament&quot;:&quot;Turnaje a bitvy&quot;,&quot;performance&quot;:&quot;Představení&quot;,&quot;tour&quot;:&quot;Prohlídky a dny otevřených dveří&quot;,&quot;local&quot;:&quot;Místní akce&quot;}" data-expected-h="Termíny zatím neoznámeny" data-expected-note="Každoroční akce, jejichž termíny na nejbližší ročník ještě nebyly zveřejněny. Měsíc vychází z předchozích ročníků a není potvrzený. Před plánováním cesty si to ověřte u pořadatele." data-expected-when="Očekává se: {month}" data-search="Hledat akce" data-all-countries="Všechny země" data-no-results="Hledání neodpovídá žádná akce." data-show-more="Zobrazit další ({n})" data-read-more="Číst více" data-read-less="Zobrazit méně" data-calendar="Přidat do kalendáře" data-map="Mapa" data-limit="6"><li class="status">Načítám akce…</li></ul>
       <noscript><p class="status">Seznam akcí vyžaduje JavaScript. Najdete ho i v aplikaci.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Všechny akce s filtrem a vyhledáváním</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Odkud data pocházejí</h2>
-      <p class="lead">Eldoria spojuje veřejná data. Místa mohou být neúplná nebo obsahovat chyby.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Odkud data pocházejí</h2></summary>
+        <p class="lead">Eldoria spojuje veřejná data. Místa mohou být neúplná nebo obsahovat chyby.</p>
+        <dl class="sources">
       <div><dt>Místa a názvy</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Stav</dt><dd>Wikidata, kategorie a infoboxy Wikipedie, kategorie Wikimedia Commons a údaje z infoboxů přes DBpedii (CC BY-SA). Pokud jej neuvádí žádný z nich, některé stavy jsou odvozené a označené jako neověřené; ostatní zůstanou nezařazeny.</dd></div>
       <div><dt>Která místa se kreslí první</dt><dd>Počet zobrazení článků o místě na Wikipedii za 60 dní před sestavením dat (zobrazení stránek Wikimedie, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Fotografie</dt><dd>Wikimedia Commons, u každé fotografie s uvedením autora a licence.</dd></div>
       <div><dt>Mapa</dt><dd>Google Maps.</dd></div>
       <div><dt>Design</dt><dd>Symboly na mapě ze sady Fantasy RPG GUI od Artsystack; písmo nadpisů MedievalSharp od wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Čísla na této stránce platí k listopad 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Čísla na této stránce platí k listopad 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Zásadách ochrany osobních údajů</a>
       <a href="#data">Odkud data pocházejí</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Kontakt: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldorii vydává Adrián Pažický.</p>
     <p>Tato stránka nenastavuje cookies a nepoužívá analytiku ani skripty třetích stran. Hostuje ji GitHub Pages, který, jako každý webhosting, obdrží vaši IP adresu.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Przejdź do treści</a>
@@ -44,6 +44,7 @@
         <a href="#events">Wydarzenia</a>
         <a href="#data">Dane</a>
         <a href="#faq">FAQ</a>
+        <a href="contact.html">Kontakt</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Język">PL</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Co robi Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>Jedna mapa, sześć rodzajów miejsc</h3><p>Zamki, twierdze, pałace i rezydencje, dwory, zabytkowe miasta i wsie, stanowiska archeologiczne. Filtrowanie według typu, kraju, stanu, światowego dziedzictwa UNESCO i odwiedzin. Mapa na początku pokazuje zamki i twierdze; pozostałe rodzaje można dodać w filtrach.</p></article>
-      <article class="card"><h3>Mapa w stylu pergaminu</h3><p>Po oddaleniu miejsca grupują się w ponumerowane bąbelki. Po przybliżeniu każde miejsce ma własną średniowieczną ikonę, a w zatłoczonych obszarach kropkę. W zatłoczonych obszarach najpierw rysowane są najczęściej czytane miejsca.</p></article>
-      <article class="card"><h3>W pobliżu</h3><p>Najbliższe miejsca wraz z odległościami oraz opcjonalne powiadomienia przy otwartej aplikacji. Twoja przybliżona lokalizacja pozostaje na telefonie.</p></article>
-      <article class="card"><h3>Przeczytaj historię</h3><p>Po otwarciu miejsca można przeczytać jego artykuł z Wikipedii w samej aplikacji, w dowolnym z 14 języków, w którym istnieje, wraz z historią i legendami. Zdjęcia pochodzą z Wikimedia Commons, z podaniem autora.</p></article>
-      <article class="card"><h3>Twój dziennik zamków</h3><p>Wizyty można zapisywać z datą, dodawać ocenę w gwiazdkach, notatki i do trzech zdjęć. Miejsca, które chce się odwiedzić, można zapisać zakładką na liście „Chcę odwiedzić”. Wizyty można przeglądać według kraju i typu. Kopię zapasową można wyeksportować do pliku i przywrócić na nowym telefonie.</p></article>
-      <article class="card"><h3>Wydarzenia średniowieczne</h3><p>Lista nadchodzących jarmarków, turniejów i festiwali w wybranych krajach, z odnośnikiem do strony organizatora i do miejsca w mapach.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Jedna mapa, sześć rodzajów miejsc</h3></summary><p>Zamki, twierdze, pałace i rezydencje, dwory, zabytkowe miasta i wsie, stanowiska archeologiczne. Filtrowanie według typu, kraju, stanu, światowego dziedzictwa UNESCO i odwiedzin. Mapa na początku pokazuje zamki i twierdze; pozostałe rodzaje można dodać w filtrach.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Mapa w stylu pergaminu</h3></summary><p>Po oddaleniu miejsca grupują się w ponumerowane bąbelki. Po przybliżeniu każde miejsce ma własną średniowieczną ikonę, a w zatłoczonych obszarach kropkę. W zatłoczonych obszarach najpierw rysowane są najczęściej czytane miejsca.</p></details>
+      <details class="card feature" data-resp open><summary><h3>W pobliżu</h3></summary><p>Najbliższe miejsca wraz z odległościami oraz opcjonalne powiadomienia przy otwartej aplikacji. Twoja przybliżona lokalizacja pozostaje na telefonie.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Przeczytaj historię</h3></summary><p>Po otwarciu miejsca można przeczytać jego artykuł z Wikipedii w samej aplikacji, w dowolnym z 14 języków, w którym istnieje, wraz z historią i legendami. Zdjęcia pochodzą z Wikimedia Commons, z podaniem autora.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Twój dziennik zamków</h3></summary><p>Wizyty można zapisywać z datą, dodawać ocenę w gwiazdkach, notatki i do trzech zdjęć. Miejsca, które chce się odwiedzić, można zapisać zakładką na liście „Chcę odwiedzić”. Wizyty można przeglądać według kraju i typu. Kopię zapasową można wyeksportować do pliku i przywrócić na nowym telefonie.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Wydarzenia średniowieczne</h3></summary><p>Lista nadchodzących jarmarków, turniejów i festiwali w wybranych krajach, z odnośnikiem do strony organizatora i do miejsca w mapach.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Nadchodzące wydarzenia średniowieczne</h2>
       <p class="lead">Ta sama lista, którą aplikacja pokazuje w zakładce Wydarzenia. Jest opracowywana ręcznie na podstawie ogłoszeń samych organizatorów i obejmuje na razie tylko kilka krajów. Wydarzenie można zaproponować przez Kontakt w aplikacji.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Nie opublikowano jeszcze żadnych nadchodzących wydarzeń." data-error="Nie udało się wczytać listy wydarzeń." data-more="Strona organizatora" data-all="Wszystkie rodzaje" data-categories="{&quot;festival&quot;:&quot;Festiwale&quot;,&quot;market&quot;:&quot;Jarmarki&quot;,&quot;tournament&quot;:&quot;Turnieje i bitwy&quot;,&quot;performance&quot;:&quot;Występy&quot;,&quot;tour&quot;:&quot;Zwiedzanie i dni otwarte&quot;,&quot;local&quot;:&quot;Wydarzenia lokalne&quot;}" data-expected-h="Terminy jeszcze nieogłoszone" data-expected-note="Coroczne wydarzenia, których terminy najbliższej edycji nie zostały jeszcze opublikowane. Miesiąc pochodzi z poprzednich edycji i nie jest potwierdzony. Przed planowaniem podróży sprawdź to u organizatora." data-expected-when="Oczekiwane: {month}" data-search="Szukaj wydarzeń" data-all-countries="Wszystkie kraje" data-no-results="Żadne wydarzenie nie pasuje do wyszukiwania." data-limit="6"><li class="status">Wczytywanie wydarzeń…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Nie opublikowano jeszcze żadnych nadchodzących wydarzeń." data-error="Nie udało się wczytać listy wydarzeń." data-more="Strona organizatora" data-all="Wszystkie rodzaje" data-categories="{&quot;festival&quot;:&quot;Festiwale&quot;,&quot;market&quot;:&quot;Jarmarki&quot;,&quot;tournament&quot;:&quot;Turnieje i bitwy&quot;,&quot;performance&quot;:&quot;Występy&quot;,&quot;tour&quot;:&quot;Zwiedzanie i dni otwarte&quot;,&quot;local&quot;:&quot;Wydarzenia lokalne&quot;}" data-expected-h="Terminy jeszcze nieogłoszone" data-expected-note="Coroczne wydarzenia, których terminy najbliższej edycji nie zostały jeszcze opublikowane. Miesiąc pochodzi z poprzednich edycji i nie jest potwierdzony. Przed planowaniem podróży sprawdź to u organizatora." data-expected-when="Oczekiwane: {month}" data-search="Szukaj wydarzeń" data-all-countries="Wszystkie kraje" data-no-results="Żadne wydarzenie nie pasuje do wyszukiwania." data-show-more="Pokaż więcej ({n})" data-read-more="Czytaj dalej" data-read-less="Pokaż mniej" data-calendar="Dodaj do kalendarza" data-map="Mapa" data-limit="6"><li class="status">Wczytywanie wydarzeń…</li></ul>
       <noscript><p class="status">Lista wydarzeń wymaga JavaScript. Jest ona dostępna także w aplikacji.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Wszystkie wydarzenia z filtrem i wyszukiwarką</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Skąd pochodzą dane</h2>
-      <p class="lead">Eldoria łączy dane publiczne. Miejsca mogą być niekompletne lub zawierać błędy.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Skąd pochodzą dane</h2></summary>
+        <p class="lead">Eldoria łączy dane publiczne. Miejsca mogą być niekompletne lub zawierać błędy.</p>
+        <dl class="sources">
       <div><dt>Miejsca i nazwy</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Stan</dt><dd>Wikidata, kategorie i infoboksy Wikipedii, kategorie Wikimedia Commons oraz dane infoboksów z DBpedii (CC BY-SA). Gdy żadne z nich go nie podaje, niektóre stany są wywnioskowane i oznaczone jako niezweryfikowane; pozostałe zostają nieokreślone.</dd></div>
       <div><dt>Kolejność miejsc</dt><dd>Liczba wyświetleń artykułów o tych miejscach w Wikipedii w ciągu 60 dni przed zbudowaniem danych (Wikimedia pageviews, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Zdjęcia</dt><dd>Wikimedia Commons, z podaniem autora i licencji przy każdym zdjęciu.</dd></div>
       <div><dt>Mapa</dt><dd>Google Maps.</dd></div>
       <div><dt>Oprawa graficzna</dt><dd>Symbole znaczników z pakietu Fantasy RPG GUI autorstwa Artsystack; czcionka nagłówków MedievalSharp autorstwa wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Liczby na tej stronie są aktualne na listopad 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Liczby na tej stronie są aktualne na listopad 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Polityka prywatności</a>
       <a href="#data">Skąd pochodzą dane</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Kontakt: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Wydawcą aplikacji Eldoria jest Adrián Pažický.</p>
     <p>Ta strona nie ustawia plików cookie i nie używa analityki ani skryptów podmiotów trzecich. Jest hostowana w usłudze GitHub Pages, która, podobnie jak każdy dostawca hostingu, otrzymuje Twój adres IP.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

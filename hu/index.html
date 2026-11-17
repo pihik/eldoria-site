@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Ugrás a tartalomra</a>
@@ -44,6 +44,7 @@
         <a href="#events">Események</a>
         <a href="#data">Adatok</a>
         <a href="#faq">GYIK</a>
+        <a href="contact.html">Kapcsolat</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Nyelv">HU</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Mit tud az Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>Egy térkép, hatféle hely</h3><p>Várak, erődök, kastélyok és paloták, udvarházak és kúriák, történelmi városok és falvak, régészeti lelőhelyek. Szűrhet típus, ország, állapot, UNESCO világörökség és meglátogatott helyek szerint. A térkép a várakkal és az erődökkel indul; a többi típust a szűrőkben adhatja hozzá.</p></article>
-      <article class="card"><h3>Pergamenstílusú térkép</h3><p>Kicsinyítéskor a helyek számozott buborékokba csoportosulnak. Nagyításkor minden hely saját középkori ikont kap, a zsúfolt részeken pedig egy pontot. A zsúfolt területeken a legtöbbet olvasott helyek jelennek meg elsőként.</p></article>
-      <article class="card"><h3>A közelemben</h3><p>A legközelebbi helyek a távolságukkal, valamint választható értesítések, amíg az alkalmazás nyitva van. Hozzávetőleges helyzete a telefonon marad.</p></article>
-      <article class="card"><h3>A történet elolvasása</h3><p>Nyisson meg egy helyet, és olvassa el a Wikipédia-cikkét az alkalmazáson belül, a 14 nyelv bármelyikén, amelyen létezik, a történelemmel és a legendákkal együtt. A fotók a Wikimedia Commonsból származnak, a szerző megnevezésével.</p></article>
-      <article class="card"><h3>Az Ön várnaplója</h3><p>Jelölje meg a látogatásokat dátummal, adjon hozzá csillagos értékelést, jegyzeteket és legfeljebb három fotót. Tegyen könyvjelzőt a helyekre, amelyeket meg szeretne látogatni. Tekintse meg a látogatásait ország és típus szerint. Exportáljon biztonsági mentési fájlt, és állítsa vissza új telefonon.</p></article>
-      <article class="card"><h3>Középkori események</h3><p>A közelgő vásárok, lovagi tornák és fesztiválok listája az Ön által kiválasztott országokban, hivatkozással a szervező oldalára és a helyre a térképen.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Egy térkép, hatféle hely</h3></summary><p>Várak, erődök, kastélyok és paloták, udvarházak és kúriák, történelmi városok és falvak, régészeti lelőhelyek. Szűrhet típus, ország, állapot, UNESCO világörökség és meglátogatott helyek szerint. A térkép a várakkal és az erődökkel indul; a többi típust a szűrőkben adhatja hozzá.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Pergamenstílusú térkép</h3></summary><p>Kicsinyítéskor a helyek számozott buborékokba csoportosulnak. Nagyításkor minden hely saját középkori ikont kap, a zsúfolt részeken pedig egy pontot. A zsúfolt területeken a legtöbbet olvasott helyek jelennek meg elsőként.</p></details>
+      <details class="card feature" data-resp open><summary><h3>A közelemben</h3></summary><p>A legközelebbi helyek a távolságukkal, valamint választható értesítések, amíg az alkalmazás nyitva van. Hozzávetőleges helyzete a telefonon marad.</p></details>
+      <details class="card feature" data-resp open><summary><h3>A történet elolvasása</h3></summary><p>Nyisson meg egy helyet, és olvassa el a Wikipédia-cikkét az alkalmazáson belül, a 14 nyelv bármelyikén, amelyen létezik, a történelemmel és a legendákkal együtt. A fotók a Wikimedia Commonsból származnak, a szerző megnevezésével.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Az Ön várnaplója</h3></summary><p>Jelölje meg a látogatásokat dátummal, adjon hozzá csillagos értékelést, jegyzeteket és legfeljebb három fotót. Tegyen könyvjelzőt a helyekre, amelyeket meg szeretne látogatni. Tekintse meg a látogatásait ország és típus szerint. Exportáljon biztonsági mentési fájlt, és állítsa vissza új telefonon.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Középkori események</h3></summary><p>A közelgő vásárok, lovagi tornák és fesztiválok listája az Ön által kiválasztott országokban, hivatkozással a szervező oldalára és a helyre a térképen.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Közelgő középkori események</h2>
       <p class="lead">Ugyanaz a lista, amelyet az alkalmazás az Események fülön mutat. Kézzel készül a szervezők saját közleményei alapján, és egyelőre csak néhány országra terjed ki. Eseményt az alkalmazás Kapcsolat képernyőjén keresztül javasolhat.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Egyelőre nincs közzétett közelgő esemény." data-error="Az események listáját nem sikerült betölteni." data-more="A szervező oldala" data-all="Minden típus" data-categories="{&quot;festival&quot;:&quot;Fesztiválok&quot;,&quot;market&quot;:&quot;Vásárok&quot;,&quot;tournament&quot;:&quot;Tornák és csaták&quot;,&quot;performance&quot;:&quot;Előadások&quot;,&quot;tour&quot;:&quot;Túrák és nyílt napok&quot;,&quot;local&quot;:&quot;Helyi rendezvények&quot;}" data-expected-h="A dátumok még nem ismertek" data-expected-note="Évente ismétlődő események, amelyek következő időpontját még nem tették közzé. A hónap a korábbi évekből származik, és nem megerősített. Utazás tervezése előtt érdeklődjön a szervezőnél." data-expected-when="Várhatóan: {month}" data-search="Események keresése" data-all-countries="Minden ország" data-no-results="Nincs a keresésnek megfelelő esemény." data-limit="6"><li class="status">Az események betöltése…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Egyelőre nincs közzétett közelgő esemény." data-error="Az események listáját nem sikerült betölteni." data-more="A szervező oldala" data-all="Minden típus" data-categories="{&quot;festival&quot;:&quot;Fesztiválok&quot;,&quot;market&quot;:&quot;Vásárok&quot;,&quot;tournament&quot;:&quot;Tornák és csaták&quot;,&quot;performance&quot;:&quot;Előadások&quot;,&quot;tour&quot;:&quot;Túrák és nyílt napok&quot;,&quot;local&quot;:&quot;Helyi rendezvények&quot;}" data-expected-h="A dátumok még nem ismertek" data-expected-note="Évente ismétlődő események, amelyek következő időpontját még nem tették közzé. A hónap a korábbi évekből származik, és nem megerősített. Utazás tervezése előtt érdeklődjön a szervezőnél." data-expected-when="Várhatóan: {month}" data-search="Események keresése" data-all-countries="Minden ország" data-no-results="Nincs a keresésnek megfelelő esemény." data-show-more="Továbbiak megjelenítése ({n})" data-read-more="Tovább" data-read-less="Kevesebb" data-calendar="Hozzáadás a naptárhoz" data-map="Térkép" data-limit="6"><li class="status">Az események betöltése…</li></ul>
       <noscript><p class="status">Az események listájához JavaScript szükséges. Az alkalmazásban is megtalálja.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Összes esemény szűrővel és kereséssel</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">Honnan származnak az adatok</h2>
-      <p class="lead">Az Eldoria nyilvános adatokat egyesít. A helyek adatai hiányosak lehetnek, vagy hibákat tartalmazhatnak.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">Honnan származnak az adatok</h2></summary>
+        <p class="lead">Az Eldoria nyilvános adatokat egyesít. A helyek adatai hiányosak lehetnek, vagy hibákat tartalmazhatnak.</p>
+        <dl class="sources">
       <div><dt>Helyek és nevek</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Állapot</dt><dd>Wikidata, a Wikipédia kategóriái és infoboxai, a Wikimedia Commons kategóriái és a DBpedia infobox-adatai (CC BY-SA). Ahol egyik sem közli, néhány állapotot következtetéssel állapítunk meg, és ellenőrizetlenként jelöljük; a többi besorolatlan marad.</dd></div>
       <div><dt>Mely helyek jelennek meg elsőként</dt><dd>A helyek Wikipédia-cikkeinek megtekintései az adatok összeállítását megelőző 60 napban (Wikimedia-oldalmegtekintések, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Fotók</dt><dd>Wikimedia Commons, minden fotónál a szerző és a licenc feltüntetésével.</dd></div>
       <div><dt>Térkép</dt><dd>Google Maps.</dd></div>
       <div><dt>Megjelenés</dt><dd>A jelölőszimbólumok az Artsystack Fantasy RPG GUI csomagjából származnak; a címsorok betűtípusa a wmk69 által készített MedievalSharp (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Az oldalon szereplő számadatok állapota: 2026. november.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Az oldalon szereplő számadatok állapota: 2026. november.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Adatvédelmi irányelvek</a>
       <a href="#data">Honnan származnak az adatok</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Kapcsolat: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Kapcsolat</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Az Eldoriát Adrián Pažický adja ki.</p>
     <p>Ez az oldal nem helyez el sütiket, és nem használ analitikát vagy harmadik féltől származó szkripteket. Az oldalt a GitHub Pages szolgáltatja, amely, mint minden webes tárhelyszolgáltató, megkapja az Ön IP-címét.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>

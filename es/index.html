@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
   <link rel="apple-touch-icon" href="../assets/icon-512.png">
-  <link rel="stylesheet" href="../assets/site.css?v=d2bf984a">
+  <link rel="stylesheet" href="../assets/site.css?v=dc22b001">
 </head>
 <body>
 <a class="skip" href="#content">Saltar al contenido</a>
@@ -44,6 +44,7 @@
         <a href="#events">Eventos</a>
         <a href="#data">Datos</a>
         <a href="#faq">Preguntas</a>
+        <a href="contact.html">Contacto</a>
     </nav>
     <details class="lang-menu">
       <summary aria-label="Idioma">ES</summary>
@@ -94,12 +95,12 @@
     <section id="features" aria-labelledby="h-features">
       <h2 id="h-features">Qué hace Eldoria</h2>
       <div class="grid">
-      <article class="card"><h3>Un mapa, seis tipos de lugar</h3><p>Castillos, fortalezas, palacios y residencias, casas señoriales, ciudades y pueblos históricos, sitios arqueológicos. Filtre por tipo, país, estado, Patrimonio Mundial de la UNESCO y visitados. El mapa empieza con los castillos y las fortalezas; añada los demás tipos en los filtros.</p></article>
-      <article class="card"><h3>Un mapa de estilo pergamino</h3><p>Al alejar el mapa, los lugares se agrupan en burbujas numeradas. Al acercarlo, cada lugar recibe su propio icono medieval, o un punto en las zonas saturadas. En las zonas saturadas se dibujan primero los lugares más leídos.</p></article>
-      <article class="card"><h3>Cerca de mí</h3><p>Los lugares más cercanos con sus distancias y, si lo desea, avisos mientras la aplicación está abierta. Su ubicación aproximada se queda en el teléfono.</p></article>
-      <article class="card"><h3>Leer la historia</h3><p>Abra un lugar y lea su artículo de Wikipedia dentro de la aplicación, en cualquiera de los 14 idiomas en que exista, con su historia y sus leyendas. Las fotos proceden de Wikimedia Commons, con el autor indicado.</p></article>
-      <article class="card"><h3>Su diario de castillos</h3><p>Marque las visitas con fecha, añada una valoración con estrellas, notas y hasta tres fotos. Guarde en «Quiero visitar» los lugares que desea visitar. Consulte sus visitas por país y tipo. Exporte un archivo de copia de seguridad y restáurelo en un teléfono nuevo.</p></article>
-      <article class="card"><h3>Eventos medievales</h3><p>Una lista de próximas ferias, torneos y festivales en los países que elija, con un enlace a la página del organizador y al lugar en Mapas.</p></article>
+      <details class="card feature" data-resp open><summary><h3>Un mapa, seis tipos de lugar</h3></summary><p>Castillos, fortalezas, palacios y residencias, casas señoriales, ciudades y pueblos históricos, sitios arqueológicos. Filtre por tipo, país, estado, Patrimonio Mundial de la UNESCO y visitados. El mapa empieza con los castillos y las fortalezas; añada los demás tipos en los filtros.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Un mapa de estilo pergamino</h3></summary><p>Al alejar el mapa, los lugares se agrupan en burbujas numeradas. Al acercarlo, cada lugar recibe su propio icono medieval, o un punto en las zonas saturadas. En las zonas saturadas se dibujan primero los lugares más leídos.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Cerca de mí</h3></summary><p>Los lugares más cercanos con sus distancias y, si lo desea, avisos mientras la aplicación está abierta. Su ubicación aproximada se queda en el teléfono.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Leer la historia</h3></summary><p>Abra un lugar y lea su artículo de Wikipedia dentro de la aplicación, en cualquiera de los 14 idiomas en que exista, con su historia y sus leyendas. Las fotos proceden de Wikimedia Commons, con el autor indicado.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Su diario de castillos</h3></summary><p>Marque las visitas con fecha, añada una valoración con estrellas, notas y hasta tres fotos. Guarde en «Quiero visitar» los lugares que desea visitar. Consulte sus visitas por país y tipo. Exporte un archivo de copia de seguridad y restáurelo en un teléfono nuevo.</p></details>
+      <details class="card feature" data-resp open><summary><h3>Eventos medievales</h3></summary><p>Una lista de próximas ferias, torneos y festivales en los países que elija, con un enlace a la página del organizador y al lugar en Mapas.</p></details>
       </div>
     </section>
 
@@ -142,15 +143,16 @@
     <section id="events" aria-labelledby="h-events">
       <h2 id="h-events">Próximos eventos medievales</h2>
       <p class="lead">La misma lista que muestra la aplicación en su pestaña Eventos. Se recopila a mano a partir de los anuncios de los propios organizadores y por ahora abarca solo unos pocos países. Proponga un evento a través de Contacto en la aplicación.</p>
-      <ul class="events" id="events-list" data-src="../events.json" data-empty="Todavía no hay próximos eventos publicados." data-error="No se pudo cargar la lista de eventos." data-more="Página del organizador" data-all="Todos los tipos" data-categories="{&quot;festival&quot;:&quot;Festivales&quot;,&quot;market&quot;:&quot;Mercados&quot;,&quot;tournament&quot;:&quot;Torneos y batallas&quot;,&quot;performance&quot;:&quot;Espectáculos&quot;,&quot;tour&quot;:&quot;Visitas y jornadas de puertas abiertas&quot;,&quot;local&quot;:&quot;Eventos locales&quot;}" data-expected-h="Fechas aún sin anunciar" data-expected-note="Eventos anuales cuyas fechas de la próxima edición aún no se han publicado. El mes procede de ediciones anteriores y no está confirmado. Consulta con el organizador antes de planificar un viaje." data-expected-when="Previsto en {month}" data-search="Buscar eventos" data-all-countries="Todos los países" data-no-results="Ningún evento coincide con la búsqueda." data-limit="6"><li class="status">Cargando los eventos…</li></ul>
+      <ul class="events carousel" id="events-list" data-src="../events.json" data-empty="Todavía no hay próximos eventos publicados." data-error="No se pudo cargar la lista de eventos." data-more="Página del organizador" data-all="Todos los tipos" data-categories="{&quot;festival&quot;:&quot;Festivales&quot;,&quot;market&quot;:&quot;Mercados&quot;,&quot;tournament&quot;:&quot;Torneos y batallas&quot;,&quot;performance&quot;:&quot;Espectáculos&quot;,&quot;tour&quot;:&quot;Visitas y jornadas de puertas abiertas&quot;,&quot;local&quot;:&quot;Eventos locales&quot;}" data-expected-h="Fechas aún sin anunciar" data-expected-note="Eventos anuales cuyas fechas de la próxima edición aún no se han publicado. El mes procede de ediciones anteriores y no está confirmado. Consulta con el organizador antes de planificar un viaje." data-expected-when="Previsto en {month}" data-search="Buscar eventos" data-all-countries="Todos los países" data-no-results="Ningún evento coincide con la búsqueda." data-show-more="Mostrar más ({n})" data-read-more="Leer más" data-read-less="Mostrar menos" data-calendar="Añadir al calendario" data-map="Mapa" data-limit="6"><li class="status">Cargando los eventos…</li></ul>
       <noscript><p class="status">La lista de eventos requiere JavaScript. También la encontrará en la aplicación.</p></noscript>
       <p class="more-link"><a class="btn primary" href="events.html">Todos los eventos, con filtro y búsqueda</a></p>
     </section>
 
     <section id="data" aria-labelledby="h-data">
-      <h2 id="h-data">De dónde proceden los datos</h2>
-      <p class="lead">Eldoria combina datos públicos. Los lugares pueden estar incompletos o contener errores.</p>
-      <dl class="sources">
+      <details class="fold" data-resp open>
+        <summary><h2 id="h-data">De dónde proceden los datos</h2></summary>
+        <p class="lead">Eldoria combina datos públicos. Los lugares pueden estar incompletos o contener errores.</p>
+        <dl class="sources">
       <div><dt>Lugares y nombres</dt><dd>Wikidata (CC0).</dd></div>
       <div><dt>Estado</dt><dd>Wikidata, categorías e infoboxes de Wikipedia, categorías de Wikimedia Commons y datos de infobox de DBpedia (CC BY-SA). Cuando ninguna de estas fuentes lo indica, algunos estados se deducen y se marcan como sin verificar; el resto queda sin clasificar.</dd></div>
       <div><dt>Qué lugares van primero</dt><dd>Visitas a los artículos de Wikipedia de los lugares en los 60 días anteriores a la generación de los datos (datos de visitas a páginas de Wikimedia, CC0).</dd></div>
@@ -158,8 +160,9 @@
       <div><dt>Fotos</dt><dd>Wikimedia Commons, con el autor y la licencia indicados en cada foto.</dd></div>
       <div><dt>Mapa</dt><dd>Google Maps.</dd></div>
       <div><dt>Diseño</dt><dd>Símbolos de los marcadores del paquete Fantasy RPG GUI de Artsystack; fuente de los títulos MedievalSharp, de wmk69 (SIL Open Font License).</dd></div>
-      </dl>
-      <p class="muted" style="margin-top:14px">Las cifras de esta página corresponden a noviembre de 2026.</p>
+        </dl>
+        <p class="muted" style="margin-top:14px">Las cifras de esta página corresponden a noviembre de 2026.</p>
+      </details>
     </section>
 
     <section id="faq" aria-labelledby="h-faq">
@@ -181,13 +184,14 @@
     <div class="links">
       <a href="privacy.html">Política de privacidad</a>
       <a href="#data">De dónde proceden los datos</a>
-      <a href="mailto:mythicforgeinteractive@gmail.com">Contacto: mythicforgeinteractive@gmail.com</a>
+      <a href="contact.html">Contacto</a>
+      <a href="mailto:mythicforgeinteractive@gmail.com">mythicforgeinteractive@gmail.com</a>
     </div>
     <p>Eldoria está publicada por Adrián Pažický.</p>
     <p>Este sitio no establece cookies y no utiliza analíticas ni scripts de terceros. Está alojado en GitHub Pages, que recibe su dirección IP como cualquier proveedor de alojamiento web.</p>
     <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="https://pihik.github.io/eldoria-site/osm-places.json">osm-places.json</a></p>
   </div>
 </footer>
-<script src="../assets/site.js?v=fa986f8c" defer></script>
+<script src="../assets/site.js?v=7dbbb3c5" defer></script>
 </body>
 </html>
