@@ -128,26 +128,6 @@
       "lng": 8.9674
     },
     {
-      "id": "hohensalzburg-sword-fighting-workshop-2026",
-      "title": "Sword Fighting Workshop at Hohensalzburg Fortress",
-      "titles": {
-        "de": "Schwertkampf-Workshop auf der Festung Hohensalzburg"
-      },
-      "category": "local",
-      "country": "AT",
-      "city": "Salzburg",
-      "venue": "Festung Hohensalzburg",
-      "start": "2026-11-20",
-      "end": "2026-11-20",
-      "description": "Two-hour introduction to sword fighting with theory and practice, 17:00 to 19:00. For ages 14 and over; 5 to 20 participants. Fortress admission is not included.",
-      "descriptions": {
-        "de": "Zweistündige Einführung in den Schwertkampf mit Theorie und Praxis, 17:00 bis 19:00 Uhr. Ab 14 Jahren; 5 bis 20 Teilnehmende. Festungseintritt nicht inbegriffen."
-      },
-      "url": "https://www.festung-hohensalzburg.at/en/event-details/sword-fighting-workshop",
-      "lat": 47.795,
-      "lng": 13.0473
-    },
-    {
       "id": "ch-gruyeres-castle-great-christmas-2026",
       "title": "\"The Great Christmas\" exhibition at Gruyères Castle",
       "titles": {
@@ -744,6 +724,66 @@
       "url": "https://www.schlossweihnacht.at/"
     },
     {
+      "id": "strakonice-adventni-trhy-pod-rumpalem-2026",
+      "title": "Advent Market under the Rumpál at Strakonice Castle",
+      "titles": {
+        "cs": "Adventní trhy pod Rumpálem na strakonickém hradě"
+      },
+      "category": "market",
+      "country": "CZ",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "city": "Strakonice",
+      "venue": "Strakonice Castle, courtyards",
+      "description": "Advent market in the three courtyards of Strakonice Castle on the second Advent weekend, with craft and gift stalls, craft demonstrations and refreshments. St Nicholas visits on Friday, local choirs and bands perform on Saturday with an evening concert, and a living nativity closes the weekend on Sunday.",
+      "descriptions": {
+        "cs": "Adventní trhy na třech nádvořích strakonického hradu o druhém adventním víkendu: stánky s řemeslnými výrobky a dárky, ukázky řemesel a občerstvení. V pátek přijde Mikuláš, v sobotu vystoupí pěvecké sbory a soubory a večer se koná koncert, v neděli je na programu živý betlém."
+      },
+      "url": "https://muzeum-st.cz/program/adventni-trhy-pod-rumpalem",
+      "lat": 49.258,
+      "lng": 13.9023
+    },
+    {
+      "id": "pl-malbork-swiateczny-weekend-na-zamku-2026",
+      "title": "Christmas Weekend at Malbork Castle",
+      "titles": {
+        "pl": "Świąteczny Weekend na Zamku w Malborku"
+      },
+      "category": "market",
+      "country": "PL",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "city": "Malbork",
+      "venue": "Malbork Castle (Karwan and Middle Castle courtyard)",
+      "description": "Three-day Christmas programme at the castle museum: a Christmas market in the Karwan building with stalls, concerts, workshops and seasonal food, a tree lighting in the Middle Castle courtyard on Friday evening, a visit from St Nicholas, a family Christmas route and a Christmas night tour on Saturday. Market entry costs a symbolic 1 zloty; the themed routes are ticketed.",
+      "descriptions": {
+        "pl": "Trzydniowy program świąteczny w muzeum zamkowym: jarmark bożonarodzeniowy w Karwanie ze stoiskami, koncertami, warsztatami i świątecznymi przysmakami, zapalenie choinki na dziedzińcu Zamku Średniego w piątek wieczorem, wizyta Świętego Mikołaja, Świąteczna Trasa Rodzinna oraz Świąteczna Noc na Zamku w sobotę. Wstęp na jarmark kosztuje symboliczną złotówkę, trasy zwiedzania są biletowane."
+      },
+      "url": "https://zamek.malbork.pl/aktualnosci/powraca-swiateczny-weekend-na-zamku-4-6-grudnia-2026/",
+      "lat": 54.04,
+      "lng": 19.0278
+    },
+    {
+      "id": "pl-szczecin-castle-christmas-fair-2026",
+      "title": "Christmas Fair at the Castle of the Pomeranian Dukes, Szczecin",
+      "titles": {
+        "pl": "Jarmark Bożonarodzeniowy na Zamku Książąt Pomorskich"
+      },
+      "category": "market",
+      "country": "PL",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "city": "Szczecin",
+      "venue": "Castle of the Pomeranian Dukes (terraces and interiors)",
+      "description": "18th edition of the Christmas fair, held for the first time on both the castle terraces and inside the castle. Over three days: stalls with crafts, gifts and regional food, visits from St Nicholas, children's and family workshops including wreath making, and a concert programme. Free entry; stalls open from 14:00 on Friday and from 12:00 on Saturday and Sunday.",
+      "descriptions": {
+        "pl": "XVIII edycja jarmarku, po raz pierwszy zarówno na Tarasach Zamkowych, jak i we wnętrzach zamku. Przez trzy dni: stoiska z rękodziełem, prezentami i regionalnymi przysmakami, spotkania ze Świętym Mikołajem, warsztaty dla dzieci i rodzin, w tym wieńce świąteczne, oraz program koncertowy. Wstęp wolny."
+      },
+      "url": "https://zamek.szczecin.pl/wydarzenie/wydarzenia-plenerowe/jarmark-bozonarodzeniowy-2026/",
+      "lat": 53.4262,
+      "lng": 14.561
+    },
+    {
       "id": "godollo-advent-at-the-palace-2026",
       "title": "Advent at the Palace, Gödöllő Royal Palace",
       "titles": {
@@ -954,6 +994,92 @@
       "lng": -3.20083
     },
     {
+      "id": "grabstejn-vanoce-2026",
+      "title": "Christmas at Grabštejn Castle",
+      "titles": {
+        "cs": "Grabštejnské Vánoce"
+      },
+      "category": "tour",
+      "country": "CZ",
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "city": "Hrádek nad Nisou",
+      "venue": "Grabštejn Castle",
+      "description": "Advent weekend at the state castle, 10:00 to 15:00 on both days: a staged tour performed by an amateur theatre group, tower access, workshops in heated rooms and a small indoor Advent market. A carol concert takes place in the castle chapel on 5 December at 16:00. Tours are ticketed; online booking is recommended.",
+      "descriptions": {
+        "cs": "Adventní víkend na státním hradě, oba dny od 10 do 15 hodin: hraná prohlídka v podání ochotnického spolku, výstup na věž, dílničky ve vytápěných prostorách a malé adventní tržiště uvnitř. V sobotu 5. prosince v 16:00 zazní koledy v hradní kapli. Prohlídky jsou zpoplatněny, doporučen je nákup vstupenky online."
+      },
+      "url": "https://www.hrad-grabstejn.cz/cs/akce/129645-grabstejnske-vanoce"
+    },
+    {
+      "id": "rochester-dickensian-christmas-2026",
+      "title": "Rochester Dickensian Christmas Festival 2026",
+      "category": "festival",
+      "country": "GB",
+      "city": "Rochester",
+      "venue": "Historic centre and Castle Gardens, Rochester",
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "description": "Two-day Dickensian festival in Rochester's historic centre, 10am to 6pm: street entertainers, costumed parades, Dickens-themed workshops and readings, a Bavarian food village and a funfair. The Rochester Christmas Market runs in the Castle Gardens over the same weekend. Entry to the festival is free.",
+      "url": "https://www.visitmedway.org/events/rochester-dickensian-christmas-festival",
+      "lat": 51.38998,
+      "lng": 0.50071
+    },
+    {
+      "id": "carew-castle-tudor-christmas-2026",
+      "title": "Tudor Christmas at Carew Castle",
+      "category": "festival",
+      "country": "GB",
+      "city": "Carew",
+      "venue": "Carew Castle",
+      "start": "2026-12-05",
+      "end": "2026-12-13",
+      "description": "Tudor-themed Christmas at Carew Castle on two weekends (5-6 and 12-13 December), 10am to 4pm: decorated castle rooms, performances by local choirs, musicians and storytellers, free children's crafts, a Twelve Days of Christmas treasure trail and a Santa's Grotto (advance booking). Castle admission applies.",
+      "url": "https://www.pembrokeshirecoast.wales/carew-castle/events-at-carew-castle/winter-events/",
+      "lat": 51.69847,
+      "lng": -4.82999
+    },
+    {
+      "id": "gradara-castello-di-natale-2026",
+      "title": "Castello di Natale 2026 in Gradara",
+      "titles": {
+        "it": "Castello di Natale 2026 a Gradara"
+      },
+      "category": "festival",
+      "country": "IT",
+      "city": "Gradara",
+      "venue": "Rocca and medieval village of Gradara",
+      "start": "2026-12-05",
+      "end": "2027-01-06",
+      "description": "Christmas programme in the medieval village and the Rocca of Gradara: guided Christmas visits, a jester-led tour ending inside the castle, storytelling walks, theatre shows, Santa's house, a brass band, an Irish music concert and a Sunday craft market. Dates differ by activity; several need booking.",
+      "descriptions": {
+        "it": "Programma natalizio nel borgo medievale e nella Rocca di Gradara: visite guidate, percorso con il giullare che termina nella Rocca, racconti itineranti, spettacoli teatrali, casa di Babbo Natale, banda di ottoni, un concerto di musica irlandese e il bazar domenicale. Le date variano per attività; alcune richiedono prenotazione."
+      },
+      "url": "https://www.gradara.org/eventi-a-gradara/castello-di-natale/",
+      "lat": 43.94277,
+      "lng": 12.77439
+    },
+    {
+      "id": "sk-oravsky-hrad-mikulas-na-hrade-2026",
+      "title": "St Nicholas at Orava Castle",
+      "titles": {
+        "sk": "Mikuláš na Oravskom hrade"
+      },
+      "category": "local",
+      "country": "SK",
+      "start": "2026-12-06",
+      "end": "2026-12-06",
+      "city": "Oravský Podzámok",
+      "venue": "Oravský hrad",
+      "description": "Family afternoon at the castle with St Nicholas and his helpers: fairy-tale characters, playful tasks for children and a personal meeting with St Nicholas at the end. The programme runs 11:00 to 16:00 with entry every 15 minutes. Ticketed; tickets are also sold online.",
+      "descriptions": {
+        "sk": "Rodinné popoludnie na Oravskom hrade s Mikulášom a jeho pomocníkmi: rozprávkové postavičky, hravé úlohy pre deti a na záver osobné stretnutie s Mikulášom. Program trvá od 11:00 do 16:00, vstupy sú každých 15 minút. Vstupné je platené, vstupenky sa predávajú aj online."
+      },
+      "url": "https://www.oravskemuzeum.sk/podujatia/mikulas-na-hrade-2/",
+      "lat": 49.2612,
+      "lng": 19.35783
+    },
+    {
       "id": "pl-moszna-castle-christmas-market-2026",
       "title": "Christmas Market at Moszna Castle",
       "titles": {
@@ -986,6 +1112,84 @@
       "url": "https://www.english-heritage.org.uk/visit/whats-on/audley-end-christmas-markets-fri-11-to-sun-13-dec/",
       "lat": 52.02083,
       "lng": 0.22056
+    },
+    {
+      "id": "zakupy-popelciny-vanocni-trhy-2026",
+      "title": "Cinderella's Christmas Market at Zákupy Chateau",
+      "titles": {
+        "cs": "Popelčiny vánoční trhy na zámku Zákupy"
+      },
+      "category": "market",
+      "country": "CZ",
+      "start": "2026-12-11",
+      "end": "2026-12-13",
+      "city": "Zákupy",
+      "venue": "Zákupy Chateau, baroque stables",
+      "description": "Three-day Christmas market in the baroque stables of the state chateau, themed on a classic Cinderella fairy-tale film. Stalls with gifts, crafts and food, a Cinderella character, children's shows, falconry, crossbow shooting and a ball with a prince, plus a light show on Saturday evening. Open Fri 15:00-19:00, Sat 10:00-19:00, Sun 10:00-18:00.",
+      "descriptions": {
+        "cs": "Třídenní vánoční trhy v barokních konírnách státního zámku s motivem známé pohádky o Popelce. Stánky s dárky, rukodělnými výrobky a občerstvením, Popelka, pohádky pro děti, sokolníci, střelba z kuše, bál s princem a v sobotu večer světelná show. Otevřeno v pátek 15-19, v sobotu 10-19, v neděli 10-18."
+      },
+      "url": "https://pohadkovy-zamek.cz/popelciny-vanocni-trhy-na-zamku-zakupy/"
+    },
+    {
+      "id": "sk-devin-vianoca-na-devine-2026",
+      "title": "Christmas at Devín Castle (family programme)",
+      "titles": {
+        "sk": "Vianoca na Devíne (rodinný program)"
+      },
+      "category": "local",
+      "country": "SK",
+      "start": "2026-12-11",
+      "end": "2026-12-11",
+      "city": "Bratislava-Devín",
+      "venue": "Hrad Devín",
+      "description": "Early-evening family programme at the castle, 17:00 to 19:00: Christmas customs from different periods, creative activities, carols and a shared decoration of the castle tree, which is lit at 18:15. Visitors can bring a handmade ornament or make one from natural materials on site. Admission 2 euro.",
+      "descriptions": {
+        "sk": "Podvečerný rodinný program na hrade od 17:00 do 19:00: vianočné zvyky z rôznych období, tvorivé aktivity, koledy a spoločné zdobenie hradného stromčeka, ktorý sa rozsvieti o 18:15. Vlastnú ručne vyrobenú ozdobu si môžete priniesť alebo ju vyrobiť z prírodných materiálov priamo na hrade. Vstupné 2 €, deti do 3 rokov zdarma."
+      },
+      "url": "https://hraddevin.mmb.sk/podujatie/vianoca-na-devine-rodinny-program/",
+      "lat": 48.17446,
+      "lng": 16.97924
+    },
+    {
+      "id": "ch-geneva-escalade-2026",
+      "title": "Fête de l'Escalade 2026, Geneva",
+      "titles": {
+        "fr": "Fête de l'Escalade 2026 à Genève"
+      },
+      "category": "festival",
+      "country": "CH",
+      "city": "Genève",
+      "venue": "Old Town and Parc des Bastions",
+      "start": "2026-12-11",
+      "end": "2026-12-13",
+      "description": "Annual commemoration of the Escalade of 11-12 December 1602, the failed night assault on Geneva, organised by the Compagnie de 1602. Costumed fifers, drummers, arquebusiers, pikemen and cavalry patrols with the cannon Falco march through the Old Town, with torchbearers in the evening and a grand procession. The organiser still has to announce the detailed timetable.",
+      "descriptions": {
+        "fr": "Commémoration annuelle de l'Escalade des 11-12 décembre 1602, organisée par la Compagnie de 1602. Fifres, tambours, arquebusiers, piquiers et patrouilles de cavaliers en costume défilent dans la Vieille-Ville avec le canon Falco; porteurs de torches le soir et grand cortège. L'organisateur doit encore annoncer les horaires détaillés."
+      },
+      "url": "https://www.1602.ch/",
+      "lat": 46.19939,
+      "lng": 6.1453
+    },
+    {
+      "id": "at-schallaburg-christkindlmarkt-2026",
+      "title": "Christkindlmarkt at Schallaburg Castle",
+      "titles": {
+        "de": "Christkindlmarkt auf der Schallaburg"
+      },
+      "category": "market",
+      "country": "AT",
+      "city": "Schallaburg",
+      "venue": "Schallaburg Renaissance castle",
+      "start": "2026-12-11",
+      "end": "2026-12-13",
+      "description": "Three-day Advent market at the Lower Austrian Renaissance castle, open daily 11:00 to 19:00. Artisans sell handmade gifts and seasonal treats, choirs, ensembles and brass groups perform, and there are Perchten processions and an evening fire show. Children can enjoy puppet theatre, a carousel, ponies and workshops. Ticketed entry.",
+      "descriptions": {
+        "de": "Dreitägiger Adventmarkt auf dem niederösterreichischen Renaissanceschloss, täglich 11 bis 19 Uhr. Kunsthandwerker verkaufen Handgemachtes und Saisonales, Chöre, Ensembles und Blasmusik treten auf, dazu gibt es Perchtenläufe und eine abendliche Feuershow. Für Kinder: Figurentheater, Karussell, Ponys und Workshops. Eintritt kostenpflichtig."
+      },
+      "url": "https://www.schallaburg.at/en/besuch/veranstaltung/christkindlmarkt",
+      "lat": 48.18906,
+      "lng": 15.35619
     },
     {
       "id": "pl-warsaw-royal-castle-carol-concert-2026",
@@ -1060,6 +1264,26 @@
         "sk": "Zvyky stridžích dní pred Vianocami v skanzene pod hradom. Komentované prehliadky o 15:30, 16:30 a 17:30, ozdobovanie stromčeka, výroba ozdôb a pečenie oblátok."
       },
       "url": "https://www.hradlubovna.sk/podujatia/"
+    },
+    {
+      "id": "de-cochem-burgweihnacht-2026",
+      "title": "Burgweihnacht: living nativity play at Reichsburg Cochem",
+      "titles": {
+        "de": "Cochemer Burgweihnacht auf der Reichsburg"
+      },
+      "category": "performance",
+      "country": "DE",
+      "city": "Cochem",
+      "venue": "Reichsburg Cochem",
+      "start": "2026-12-12",
+      "end": "2026-12-13",
+      "description": "Living nativity play in the castle courtyards, performed by costumed lay actors. Visitors follow a shepherd who leads Joseph and Mary from inn to inn, past the shepherds' fire to the stable, where the angel and the Three Kings appear. Decorated stalls with sweets and seasonal goods follow. Tickets are sold only in the castle's online shop.",
+      "descriptions": {
+        "de": "Lebendiges Krippenspiel in den Burghöfen, gespielt von Laiendarstellern in Gewändern. Die Besucher folgen einem Hirten, der Josef und Maria von Herberge zu Herberge führt, vorbei am Hirtenfeuer zum Stall, wo Engel und Heilige Drei Könige erscheinen. Danach gibt es geschmückte Stände mit Süssigkeiten und saisonalen Waren. Tickets nur im Online-Shop der Burg."
+      },
+      "url": "https://reichsburg-cochem.de/event/cochemer-burgweihnacht/",
+      "lat": 50.14223,
+      "lng": 7.16709
     },
     {
       "id": "donegal-castle-carols-bluestack-chorale-2026",
@@ -1254,6 +1478,46 @@
       "lng": -3.601111
     },
     {
+      "id": "ch-murten-light-festival-2027",
+      "title": "Murten Light Festival 2027",
+      "titles": {
+        "de": "Murten Licht-Festival 2027"
+      },
+      "category": "performance",
+      "country": "CH",
+      "city": "Murten",
+      "venue": "Medieval old town of Murten",
+      "start": "2027-01-20",
+      "end": "2027-01-31",
+      "description": "Twelve evenings of light art in the medieval old town, 18:00 to 22:00. Swiss and international artists show installations on buildings, streets and the old-town towers, with some works in the museum and along the lakeshore and an evening performance in the German church. Ticketed.",
+      "descriptions": {
+        "de": "Zwölf Abende Lichtkunst in der mittelalterlichen Altstadt, täglich 18 bis 22 Uhr. Nationale und internationale Künstler zeigen Installationen an Gebäuden, Gassen und Altstadttürmen, einzelne Werke im Museum und am Seeufer, dazu eine Abendvorstellung in der Deutschen Kirche. Eintritt kostenpflichtig."
+      },
+      "url": "https://www.murtenlichtfestival.ch",
+      "lat": 46.92795,
+      "lng": 7.11515
+    },
+    {
+      "id": "josefov-masopust-2027",
+      "title": "Josefov Carnival (Masopust) 2027",
+      "titles": {
+        "cs": "Josefovský masopust 2027"
+      },
+      "category": "local",
+      "country": "CZ",
+      "start": "2027-02-06",
+      "end": "2027-02-06",
+      "city": "Jaroměř-Josefov",
+      "venue": "Josefov Fortress, Bastion I",
+      "description": "Tenth annual carnival in the fortress town, 09:00 to 16:00: a colourful procession blessed by the fortress commander, a ceremonial salute, a craft fair with traditional carnival food, local beer, a best-doughnut contest, games for children and a sausage harvest. The Bastion I programme is ticketed; small children and people in costume enter free.",
+      "descriptions": {
+        "cs": "Desátý ročník masopustu v pevnostním městě, 9:00 až 16:00: barevný průvod požehnaný velitelem pevnosti, slavnostní střelba, řemeslný jarmark s masopustními pochutinami, místní pivo, soutěž o nejlepší koblihu, hry pro děti a sklizeň jitrnic. Na Bastionu I je vstupné, děti do 6 let a masky mají vstup zdarma."
+      },
+      "url": "https://www.pevnostjosefov.cz/ud/josefovsky-masopust-2027/",
+      "lat": 50.3385,
+      "lng": 15.9293
+    },
+    {
       "id": "katzenberg-easter-market-2027",
       "title": "Easter Market at Katzenberg Castle",
       "titles": {
@@ -1270,6 +1534,46 @@
         "de": "Ostermarkt mit über 100 Ausstellern für Handgemachtes, regionale Kulinarik und Kinderaktionen. Schlossführungen gegen Aufpreis. Freitag 12:00-18:00, Samstag und Sonntag 10:00-18:00 Uhr."
       },
       "url": "https://www.schloss-katzenberg.at/ostermarkt/"
+    },
+    {
+      "id": "josefov-velikonoce-na-pevnosti-2027",
+      "title": "Easter at Josefov Fortress 2027",
+      "titles": {
+        "cs": "Velikonoce na pevnosti Josefov 2027"
+      },
+      "category": "tour",
+      "country": "CZ",
+      "start": "2027-03-26",
+      "end": "2027-03-29",
+      "city": "Jaroměř-Josefov",
+      "venue": "Josefov Fortress, Bastion I and underground",
+      "description": "Bastion I and the underground are open over the Easter holidays, 09:00 to 17:00, with tours on the hour (last tour at 16:00) through Easter-decorated casemates, led by guides in period costume. From Friday to Sunday there are also Easter workshops and a game for children.",
+      "descriptions": {
+        "cs": "Přes velikonoční svátky je Bastion I a podzemí otevřen od 9 do 17 hodin. Prohlídky začínají každou celou hodinu (poslední v 16:00), kasematy jsou vyzdobené a provázejí průvodci v dobových kostýmech. Od pátku do neděle jsou pro děti navíc velikonoční dílničky a hra."
+      },
+      "url": "https://www.pevnostjosefov.cz/ud/velikonoce-na-pevnosti-2027/",
+      "lat": 50.3385,
+      "lng": 15.9293
+    },
+    {
+      "id": "blois-son-et-lumiere-2027",
+      "title": "Son et lumière at the Royal Château of Blois, 2027 season",
+      "titles": {
+        "fr": "Spectacle Son et Lumière au château royal de Blois, saison 2027"
+      },
+      "category": "performance",
+      "country": "FR",
+      "city": "Blois",
+      "venue": "Château royal de Blois (courtyard)",
+      "start": "2027-03-27",
+      "end": "2027-11-06",
+      "description": "Evening sound-and-light show in the courtyard of the Château royal de Blois, 45 minutes of famous episodes from the castle's history. The 2027 season runs in the periods listed by the château between 27 March and 6 November, except 21 June and 11 September; start time moves from 22:00 to 19:15. Ticketed.",
+      "descriptions": {
+        "fr": "Spectacle son et lumière dans la cour du château royal de Blois : 45 minutes d'épisodes célèbres de l'histoire du château. La saison 2027 couvre les périodes indiquées par le château entre le 27 mars et le 6 novembre, sauf les 21 juin et 11 septembre ; l'heure de début passe de 22h00 à 19h15. Payant."
+      },
+      "url": "https://www.chateaudeblois.fr/2052-son-et-lumiere.htm",
+      "lat": 47.58559,
+      "lng": 1.33024
     },
     {
       "id": "montblanc-setmana-medieval-2027",
@@ -1350,6 +1654,26 @@
       "url": "https://burg-hohenzollern.com/de/veranstaltungen/seide-samt-gold-restauratoren-tage",
       "lat": 48.3236,
       "lng": 8.9674
+    },
+    {
+      "id": "at-esterhazy-vienna-philharmonic-2027",
+      "title": "Vienna Philharmonic with Riccardo Muti at Schloss Esterházy",
+      "titles": {
+        "de": "Wiener Philharmoniker unter Riccardo Muti im Schloss Esterházy"
+      },
+      "category": "performance",
+      "country": "AT",
+      "city": "Eisenstadt",
+      "venue": "Schloss Esterházy, Haydnsaal",
+      "start": "2027-05-13",
+      "end": "2027-05-13",
+      "description": "Whitsun concert in the palace's Haydn Hall, the highlight of the 2027 classic.Esterhazy season. As announced by the organiser, the Vienna Philharmonic under Riccardo Muti plays Haydn's Symphony No. 88, a work by Richard Strauss and Beethoven's Symphony No. 4. Ticketed.",
+      "descriptions": {
+        "de": "Pfingstkonzert im Haydnsaal des Schlosses, Höhepunkt der Saison 2027 von classic.Esterhazy. Laut Ankündigung des Veranstalters spielen die Wiener Philharmoniker unter Riccardo Muti Haydns Sinfonie Nr. 88, ein Werk von Richard Strauss und Beethovens Sinfonie Nr. 4. Eintritt kostenpflichtig."
+      },
+      "url": "https://esterhazy.at/classic-esterhazy/programm-classic-2027",
+      "lat": 47.8465,
+      "lng": 16.5189
     },
     {
       "id": "de-rothenburg-meistertrunk-2027",
@@ -1448,6 +1772,20 @@
       "lng": 16.4244
     },
     {
+      "id": "live-at-lincoln-castle-2027",
+      "title": "Live at Lincoln Castle 2027: Jack Savoretti and James Morrison",
+      "category": "performance",
+      "country": "GB",
+      "city": "Lincoln",
+      "venue": "Lincoln Castle",
+      "start": "2027-06-13",
+      "end": "2027-06-13",
+      "description": "Summer concert at Lincoln Castle with a double bill of Jack Savoretti and James Morrison, the first date of a seven-show tour across England, Scotland and Wales. Staged by Lincolnshire County Council with Live Nation promoters. Tickets are sold through Ticketmaster.",
+      "url": "https://www.lincolnshire.gov.uk/news/article/2916/first-headline-announcement-for-live-at-lincoln-castle-2027",
+      "lat": 53.23493,
+      "lng": -0.54101
+    },
+    {
       "id": "cesky-krumlov-five-petalled-rose-2027",
       "title": "Five-Petalled Rose Celebrations",
       "titles": {
@@ -1467,7 +1805,7 @@
         "sk": "Historické slávnosti v starom meste Českého Krumlova v renesančnom duchu: sprievody v kostýmoch, hudba, vystúpenia a ohnivý sprievod. 39. ročník.",
         "de": "Historisches Fest in der Altstadt von Český Krumlov im Stil der Renaissance: Kostümumzüge, Musik, Vorführungen und ein Feuerumzug. 39. Ausgabe."
       },
-      "url": "https://www.ckrumlov.info/cz/akce-17513-slavnosti-petiliste-ruze/",
+      "url": "https://www.slavnostipetilisteruze.cz/cz/slavnosti-petiliste-ruze-cesky-krumlov/",
       "lat": 48.8127,
       "lng": 14.3175
     },
@@ -1490,6 +1828,80 @@
       "url": "https://stribreni.cz/",
       "lat": 49.9483,
       "lng": 15.2686
+    },
+    {
+      "id": "de-landshuter-hochzeit-2027",
+      "title": "Landshuter Hochzeit 1475 historical festival",
+      "titles": {
+        "de": "Landshuter Hochzeit 1475"
+      },
+      "category": "festival",
+      "country": "DE",
+      "city": "Landshut",
+      "venue": "Historic old town of Landshut",
+      "start": "2027-06-25",
+      "end": "2027-07-18",
+      "description": "Historical festival reenacting the 1475 wedding of Duke Georg the Rich and a Polish princess, staged by the townspeople every four years since 1903. About 2,500 participants in period dress take part in a wedding parade, jousting tournaments and camp life in the old town. Runs from 25 June to 18 July 2027.",
+      "descriptions": {
+        "de": "Historisches Fest zur Nachstellung der Fürstenhochzeit von 1475 zwischen Herzog Georg dem Reichen und einer polnischen Königstochter, seit 1903 alle vier Jahre von den Landshuter Bürgern gefeiert. Rund 2.500 Mitwirkende in historischen Gewändern gestalten Hochzeitszug, Ritterturniere und Lagerleben in der Altstadt. Vom 25. Juni bis 18. Juli 2027."
+      },
+      "url": "https://landshuter-hochzeit.de",
+      "lat": 48.5361,
+      "lng": 12.1542
+    },
+    {
+      "id": "de-neuburg-schlossfest-2027",
+      "title": "Neuburger Schloßfest 2027",
+      "titles": {
+        "de": "Neuburger Schloßfest 2027"
+      },
+      "category": "festival",
+      "country": "DE",
+      "city": "Neuburg an der Donau",
+      "venue": "Schloss Neuburg and old town",
+      "start": "2027-06-25",
+      "end": "2027-07-04",
+      "description": "Biennial historical festival at the Renaissance castle on two weekends, 25 to 27 June and 2 to 4 July 2027. Programme includes a historical fair, courtly dances, equestrian games, the Steckenreiter dance in the castle courtyard, a large festive parade and fireworks over the Danube.",
+      "descriptions": {
+        "de": "Historisches Fest alle zwei Jahre am Renaissanceschloss an zwei Wochenenden, 25. bis 27. Juni und 2. bis 4. Juli 2027. Auf dem Programm stehen ein historischer Markt, höfische Tänze, Reiterspiele, der Steckenreitertanz im Schlosshof, ein grosser Festumzug und ein Feuerwerk über der Donau."
+      },
+      "url": "https://www.schlossfest.de",
+      "lat": 48.7371,
+      "lng": 11.1805
+    },
+    {
+      "id": "slane-castle-fontaines-dc-2027",
+      "title": "Fontaines D.C. at Slane Castle",
+      "category": "performance",
+      "country": "IE",
+      "city": "Slane",
+      "venue": "Slane Castle",
+      "start": "2027-06-26",
+      "end": "2027-06-27",
+      "description": "Irish band Fontaines D.C. headline Slane Castle in County Meath over two nights. Hayley Williams, Damien Dempsey and Madra Salach are announced as support for the first night. Large ticketed concert at the castle; the venue's announcement notes it is subject to licence.",
+      "url": "https://www.slanecastle.ie/",
+      "lat": 53.70951,
+      "lng": -6.56128
+    },
+    {
+      "id": "de-jagsthausen-goetz-2027",
+      "title": "Götz von Berlichingen at the Jagsthausen Castle Festival 2027",
+      "titles": {
+        "de": "Götz von Berlichingen bei den Burgfestspielen Jagsthausen 2027"
+      },
+      "category": "performance",
+      "country": "DE",
+      "city": "Jagsthausen",
+      "venue": "Götzenburg, Burghof",
+      "start": "2027-07-01",
+      "end": "2027-08-21",
+      "description": "Goethe's play staged in the courtyard of the Götzenburg, the castle associated with the historical knight. Seven performances on selected dates: 1 (premiere), 7, 8, 15 and 24 July and 13 and 21 August 2027, at 20:30 except 21 August at 18:00. The organiser states a minimum age of 12.",
+      "descriptions": {
+        "de": "Goethes Schauspiel im Burghof der Götzenburg, der Burg des historischen Ritters. Sieben Vorstellungen an ausgewählten Tagen: 1. (Premiere), 7., 8., 15. und 24. Juli sowie 13. und 21. August 2027, jeweils 20:30 Uhr, am 21. August um 18:00 Uhr. Der Veranstalter nennt ein Mindestalter von 12 Jahren."
+      },
+      "url": "https://burgfestspiele-jagsthausen.de/programm/goetz-von-berlichingen/",
+      "lat": 49.31216,
+      "lng": 9.4694
     },
     {
       "id": "valtice-letni-piti-vina-2027",
@@ -1644,6 +2056,26 @@
       "url": "https://www.tewkesburymedievalfestival.co.uk/"
     },
     {
+      "id": "de-heidelberg-castle-illumination-2027-07",
+      "title": "Heidelberg Castle Illumination, 10 July 2027",
+      "titles": {
+        "de": "Heidelberger Schlossbeleuchtung am 10. Juli 2027"
+      },
+      "category": "performance",
+      "country": "DE",
+      "city": "Heidelberg",
+      "venue": "Heidelberger Schloss",
+      "start": "2027-07-10",
+      "end": "2027-07-10",
+      "description": "Traditional illumination of the castle ruin in red light, usually starting around 22:15, followed by a fireworks display of about 15 minutes over the Neckar. It recalls the castle's destruction in the wars of 1689 and 1693. Free of charge. A second illumination is scheduled for 4 September 2027.",
+      "descriptions": {
+        "de": "Traditionelle Beleuchtung der Schlossruine in rotem Licht, üblicherweise ab etwa 22:15 Uhr, danach ein rund 15-minütiges Feuerwerk über dem Neckar. Sie erinnert an die Zerstörung des Schlosses in den Kriegen von 1689 und 1693. Kostenlos. Eine zweite Schlossbeleuchtung ist für den 4. September 2027 angesetzt."
+      },
+      "url": "https://www.heidelberg-marketing.de/en/events/heidelberg-castle-illumination",
+      "lat": 49.41047,
+      "lng": 8.7152
+    },
+    {
       "id": "de-plassenburg-open-air-2027",
       "title": "Plassenburg Open Air 2027",
       "titles": {
@@ -1740,6 +2172,74 @@
       "url": "https://www.hradycz.cz/vstupenky/",
       "lat": 49.0508,
       "lng": 14.4419
+    },
+    {
+      "id": "highclere-battle-proms-2027",
+      "title": "Battle Proms Picnic Concert at Highclere Castle 2027",
+      "category": "performance",
+      "country": "GB",
+      "city": "Highclere",
+      "venue": "Highclere Castle",
+      "start": "2027-07-31",
+      "end": "2027-07-31",
+      "description": "Open-air Battle Proms picnic concert at Highclere Castle in Hampshire, one of three 2027 dates the organiser lists (with Burghley House and Hatfield Park). The series describes itself as the longest-running picnic proms in the UK. Ticketed.",
+      "url": "https://www.battleproms.com/highclere-castle",
+      "lat": 51.3266,
+      "lng": -1.36051
+    },
+    {
+      "id": "edinburgh-tattoo-2027",
+      "title": "The Royal Edinburgh Military Tattoo 2027: The Same Heart Beat",
+      "category": "performance",
+      "country": "GB",
+      "city": "Edinburgh",
+      "venue": "Edinburgh Castle Esplanade",
+      "start": "2027-08-06",
+      "end": "2027-08-28",
+      "description": "The Royal Edinburgh Military Tattoo returns to the Esplanade of Edinburgh Castle with its 2027 show, The Same Heart Beat, described by the organiser as a show about what connects us. Evening performances during the August run; ticketed, so check the organiser's calendar for show days and times.",
+      "url": "https://www.edintattoo.co.uk/tickets/tattoo-2027",
+      "lat": 55.94869,
+      "lng": -3.20043
+    },
+    {
+      "id": "domfront-medievales-2027",
+      "title": "Les Médiévales de Domfront 2027",
+      "titles": {
+        "fr": "Les Médiévales de Domfront 2027"
+      },
+      "category": "festival",
+      "country": "FR",
+      "city": "Domfront en Poiraie",
+      "venue": "Cité médiévale, Place Saint-Julien",
+      "start": "2027-08-06",
+      "end": "2027-08-08",
+      "description": "Medieval festival in the old town of Domfront en Poiraie, listed in Normandy's 2027 Millennium programme (European Year of the Normans). Live entertainment, shows and traditional folklore in the medieval quarter below the castle site. The tourism listing gives no detailed programme yet.",
+      "descriptions": {
+        "fr": "Fête médiévale dans la cité de Domfront en Poiraie, inscrite au programme Millenium 2027 (Année européenne des Normands) : spectacles, animations et traditions dans le quartier médiéval, au pied du site du château. La fiche touristique ne donne pas encore de programme détaillé."
+      },
+      "url": "https://en.normandie-tourisme.fr/programme/les-medievales-de-domfront/",
+      "lat": 48.59417,
+      "lng": -0.65257
+    },
+    {
+      "id": "at-grafenegg-festival-2027",
+      "title": "Grafenegg Festival 2027",
+      "titles": {
+        "de": "Grafenegg Festival 2027"
+      },
+      "category": "performance",
+      "country": "AT",
+      "city": "Grafenegg",
+      "venue": "Schloss Grafenegg, Wolkenturm and Auditorium",
+      "start": "2027-08-13",
+      "end": "2027-09-05",
+      "description": "Summer classical music festival at Schloss Grafenegg on four extended weekends: 13-15 and 18-22 August, 26-29 August and 2-5 September 2027. International orchestras and soloists give orchestral concerts, concert opera, recitals and chamber music at the open-air Wolkenturm, the Auditorium and other halls. Ticketed.",
+      "descriptions": {
+        "de": "Klassikfestival im Sommer bei Schloss Grafenegg an vier verlängerten Wochenenden: 13.-15. und 18.-22. August, 26.-29. August sowie 2.-5. September 2027. Internationale Orchester und Solisten spielen Orchesterkonzerte, konzertante Opern, Recitals und Kammermusik am Wolkenturm, im Auditorium und in weiteren Sälen. Eintritt kostenpflichtig."
+      },
+      "url": "https://www.grafenegg.com/de/konzertreihen/festival",
+      "lat": 48.42863,
+      "lng": 15.74598
     },
     {
       "id": "falaise-medievales-millenium-2027",

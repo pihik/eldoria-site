@@ -333,6 +333,14 @@
   }
 
   function render(events, expected) {
+    // A one-day event may leave out "end" (the app reads it as the same day); without this it would never be listed.
+    events = events.map(function (e) {
+      if (!e || e.end !== undefined || typeof e.start !== 'string') return e;
+      var copy = {};
+      for (var k in e) if (Object.prototype.hasOwnProperty.call(e, k)) copy[k] = e[k];
+      copy.end = e.start;
+      return copy;
+    });
     var upcoming = events
       .filter(function (e) {
         return e && typeof e.title === 'string' && parseDay(e.start) && parseDay(e.end) && String(e.end) >= today;
