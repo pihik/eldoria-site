@@ -247,6 +247,7 @@ button.btn { border: 0; font: inherit; font-weight: 600; cursor: pointer; }
   .hero .badge { margin: 2px 0 16px; font-size: 13px; }
   .buttons { gap: 10px; }
   .buttons .btn { flex: 1 1 140px; text-align: center; padding: 12px 14px; }
+  .buttons .btn.play { flex: 1 1 100%; }
 
   .facts { gap: 8px; transform: translateY(-24px); margin-bottom: -12px; }
   .facts li { padding: 10px 8px; font-size: 13px; line-height: 1.35; }
