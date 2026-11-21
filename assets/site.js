@@ -48,6 +48,366 @@
   update();
 })();
 
+// Small, local-only page controls: theme, reading progress, back-to-top and screenshot lightbox.
+(function () {
+  var words = {
+    en: ['Use light theme', 'Use dark theme', 'Back to top', 'Open screenshot', 'Close screenshot', 'Previous screenshot', 'Next screenshot'],
+    cs: ['Použít světlý motiv', 'Použít tmavý motiv', 'Zpět nahoru', 'Otevřít snímek obrazovky', 'Zavřít snímek obrazovky', 'Předchozí snímek', 'Další snímek'],
+    sk: ['Použiť svetlý motív', 'Použiť tmavý motív', 'Späť nahor', 'Otvoriť snímku obrazovky', 'Zavrieť snímku obrazovky', 'Predchádzajúca snímka', 'Ďalšia snímka'],
+    de: ['Helles Design verwenden', 'Dunkles Design verwenden', 'Nach oben', 'Screenshot öffnen', 'Screenshot schließen', 'Vorheriger Screenshot', 'Nächster Screenshot'],
+    pl: ['Włącz jasny motyw', 'Włącz ciemny motyw', 'Wróć na górę', 'Otwórz zrzut ekranu', 'Zamknij zrzut ekranu', 'Poprzedni zrzut ekranu', 'Następny zrzut ekranu'],
+    ru: ['Включить светлую тему', 'Включить тёмную тему', 'Наверх', 'Открыть снимок экрана', 'Закрыть снимок экрана', 'Предыдущий снимок', 'Следующий снимок'],
+    sl: ['Uporabi svetlo temo', 'Uporabi temno temo', 'Na vrh', 'Odpri posnetek zaslona', 'Zapri posnetek zaslona', 'Prejšnji posnetek', 'Naslednji posnetek'],
+    hu: ['Világos téma', 'Sötét téma', 'Ugrás az oldal tetejére', 'Képernyőkép megnyitása', 'Képernyőkép bezárása', 'Előző képernyőkép', 'Következő képernyőkép'],
+    uk: ['Увімкнути світлу тему', 'Увімкнути темну тему', 'На початок', 'Відкрити знімок екрана', 'Закрити знімок екрана', 'Попередній знімок', 'Наступний знімок'],
+    hr: ['Uključi svijetlu temu', 'Uključi tamnu temu', 'Na vrh', 'Otvori snimku zaslona', 'Zatvori snimku zaslona', 'Prethodna snimka', 'Sljedeća snimka'],
+    ro: ['Folosește tema deschisă', 'Folosește tema închisă', 'Înapoi sus', 'Deschide captura de ecran', 'Închide captura de ecran', 'Captura anterioară', 'Captura următoare'],
+    it: ['Usa il tema chiaro', 'Usa il tema scuro', 'Torna in cima', 'Apri screenshot', 'Chiudi screenshot', 'Screenshot precedente', 'Screenshot successivo'],
+    fr: ['Utiliser le thème clair', 'Utiliser le thème sombre', 'Retour en haut', 'Ouvrir la capture d’écran', 'Fermer la capture d’écran', 'Capture précédente', 'Capture suivante'],
+    es: ['Usar tema claro', 'Usar tema oscuro', 'Volver arriba', 'Abrir captura de pantalla', 'Cerrar captura de pantalla', 'Captura anterior', 'Captura siguiente'],
+  };
+  var lang = document.documentElement.lang || 'en';
+  var t = words[lang] || words.en;
+  var root = document.documentElement;
+  var bar = document.querySelector('.bar');
+  var languageMenu = document.querySelector('.lang-menu');
+
+  if (bar && languageMenu) {
+    var theme = document.createElement('button');
+    theme.type = 'button';
+    theme.className = 'theme-toggle';
+    theme.textContent = '☾';
+    bar.insertBefore(theme, languageMenu);
+    function updateThemeButton(dark) {
+      theme.textContent = dark ? '☼' : '☾';
+      theme.setAttribute('aria-label', dark ? t[0] : t[1]);
+      theme.setAttribute('title', dark ? t[0] : t[1]);
+      theme.setAttribute('aria-pressed', String(dark));
+    }
+    updateThemeButton(root.dataset.theme ? root.dataset.theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    theme.addEventListener('click', function () {
+      var dark = root.dataset.theme ? root.dataset.theme !== 'dark' : !window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'dark' : 'light';
+      updateThemeButton(dark);
+    });
+  }
+
+  var progress = document.createElement('div');
+  progress.className = 'reading-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+  var top = document.createElement('button');
+  top.type = 'button';
+  top.className = 'scroll-top';
+  top.textContent = '↑';
+  top.setAttribute('aria-label', t[2]);
+  top.setAttribute('title', t[2]);
+  document.body.appendChild(top);
+  top.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+  var scheduled = false;
+  function updateScroll() {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0) + '%';
+      top.classList.toggle('visible', window.scrollY > 500);
+      scheduled = false;
+    });
+  }
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  window.addEventListener('resize', updateScroll);
+  updateScroll();
+
+  var gallery = document.querySelector('.gallery');
+  var shots = gallery && Array.prototype.slice.call(gallery.querySelectorAll('.shots figure'));
+  if (!shots || !shots.length || !window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;
+  var dialog = document.createElement('dialog');
+  dialog.className = 'shot-dialog';
+  dialog.setAttribute('aria-label', gallery.querySelector('.shots').getAttribute('aria-label') || 'Screenshots');
+  var close = document.createElement('button');
+  close.type = 'button'; close.className = 'shot-close'; close.textContent = '×';
+  close.setAttribute('aria-label', t[4]);
+  var prev = document.createElement('button');
+  prev.type = 'button'; prev.className = 'shot-prev'; prev.textContent = '‹';
+  prev.setAttribute('aria-label', t[5]);
+  var next = document.createElement('button');
+  next.type = 'button'; next.className = 'shot-next'; next.textContent = '›';
+  next.setAttribute('aria-label', t[6]);
+  var figure = document.createElement('figure');
+  var image = document.createElement('img');
+  image.alt = '';
+  var caption = document.createElement('figcaption');
+  figure.appendChild(image); figure.appendChild(caption);
+  dialog.appendChild(close); dialog.appendChild(prev); dialog.appendChild(next); dialog.appendChild(figure);
+  document.body.appendChild(dialog);
+  var index = 0;
+  function show(i) {
+    index = (i + shots.length) % shots.length;
+    var original = shots[index].querySelector('img');
+    var text = shots[index].querySelector('figcaption');
+    image.src = original.currentSrc || original.src;
+    image.alt = original.alt;
+    caption.textContent = text ? text.textContent : original.alt;
+    prev.hidden = next.hidden = shots.length < 2;
+  }
+  shots.forEach(function (item, i) {
+    var original = item.querySelector('img');
+    if (!original) return;
+    var opener = document.createElement('button');
+    opener.type = 'button'; opener.className = 'shot-open';
+    opener.setAttribute('aria-label', t[3] + ': ' + (original.alt || ''));
+    item.insertBefore(opener, original);
+    opener.appendChild(original);
+    opener.addEventListener('click', function () { show(i); dialog.showModal(); close.focus(); });
+  });
+  close.addEventListener('click', function () { dialog.close(); });
+  prev.addEventListener('click', function () { show(index - 1); });
+  next.addEventListener('click', function () { show(index + 1); });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+  });
+})();
+
+// Living Atlas: an offline-friendly, searchable canvas atlas built from Eldoria's public place data.
+(function () {
+  var mount = document.querySelector('.atlas-mount');
+  if (!mount) return;
+  var copy = {
+    en: ['Explore the living atlas', 'A world of history, one place at a time.', 'Search places', 'Search a castle, town or country', 'Place type', 'Country', 'All places', 'Surprise me', 'Reset filters', 'places found', 'Choose a marker or try a surprise discovery.', 'Selected place', 'Type', 'Condition', 'Coordinates', 'Open source', 'Copy coordinates', 'Copied', 'The atlas could not load. Try again when online.', 'Loading the atlas…', 'Zoom in', 'Zoom out', 'Reset view', 'Interactive atlas with historic places', 'Add to journey', 'Your journey', 'Clear journey', 'Open directions', 'Added to journey', 'Maximum 5 stops', 'Choose a place, then add it here.'],
+    cs: ['Prozkoumat živý atlas', 'Svět historie, jedno místo po druhém.', 'Hledat místa', 'Hrad, město nebo zemi', 'Typ místa', 'Země', 'Všechna místa', 'Překvap mě', 'Vymazat filtry', 'nalezených míst', 'Vyberte bod na mapě nebo objevte místo náhodně.', 'Vybrané místo', 'Typ', 'Stav', 'Souřadnice', 'Otevřít zdroj', 'Kopírovat souřadnice', 'Zkopírováno', 'Atlas se nepodařilo načíst. Zkuste to znovu online.', 'Načítání atlasu…', 'Přiblížit', 'Oddálit', 'Obnovit pohled', 'Interaktivní atlas historických míst', 'Přidat do cesty', 'Vaše cesta', 'Vymazat cestu', 'Otevřít trasu', 'Přidáno do cesty', 'Nejvýše 5 zastávek', 'Vyberte místo a přidejte ho sem.'],
+    sk: ['Preskúmať živý atlas', 'Svet histórie, jedno miesto za druhým.', 'Hľadať miesta', 'Hrad, mesto alebo krajina', 'Typ miesta', 'Krajina', 'Všetky miesta', 'Prekvap ma', 'Vymazať filtre', 'nájdených miest', 'Vyberte bod na mape alebo objavte miesto náhodne.', 'Vybrané miesto', 'Typ', 'Stav', 'Súradnice', 'Otvoriť zdroj', 'Kopírovať súradnice', 'Skopírované', 'Atlas sa nepodarilo načítať. Skúste to znova online.', 'Načítava sa atlas…', 'Priblížiť', 'Oddialiť', 'Obnoviť pohľad', 'Interaktívny atlas historických miest', 'Pridať do cesty', 'Vaša cesta', 'Vymazať cestu', 'Otvoriť trasu', 'Pridané do cesty', 'Najviac 5 zastávok', 'Vyberte miesto a pridajte ho sem.'],
+    de: ['Den lebendigen Atlas erkunden', 'Eine Welt voller Geschichte, Ort für Ort.', 'Orte suchen', 'Burg, Stadt oder Land suchen', 'Ortstyp', 'Land', 'Alle Orte', 'Überrasch mich', 'Filter zurücksetzen', 'Orte gefunden', 'Wähle einen Punkt oder entdecke einen zufälligen Ort.', 'Ausgewählter Ort', 'Typ', 'Zustand', 'Koordinaten', 'Quelle öffnen', 'Koordinaten kopieren', 'Kopiert', 'Atlas konnte nicht geladen werden. Bitte später erneut versuchen.', 'Atlas wird geladen…', 'Vergrößern', 'Verkleinern', 'Ansicht zurücksetzen', 'Interaktiver Atlas historischer Orte', 'Zur Route hinzufügen', 'Deine Route', 'Route leeren', 'Route öffnen', 'Zur Route hinzugefügt', 'Maximal 5 Stopps', 'Ort auswählen und hier hinzufügen.'],
+    pl: ['Odkryj żywy atlas', 'Świat historii, miejsce po miejscu.', 'Szukaj miejsc', 'Szukaj zamku, miasta lub kraju', 'Rodzaj miejsca', 'Kraj', 'Wszystkie miejsca', 'Zaskocz mnie', 'Wyczyść filtry', 'znalezionych miejsc', 'Wybierz punkt na mapie lub odkryj miejsce losowo.', 'Wybrane miejsce', 'Rodzaj', 'Stan', 'Współrzędne', 'Otwórz źródło', 'Kopiuj współrzędne', 'Skopiowano', 'Nie udało się wczytać atlasu. Spróbuj ponownie online.', 'Wczytywanie atlasu…', 'Powiększ', 'Pomniejsz', 'Resetuj widok', 'Interaktywny atlas miejsc historycznych', 'Dodaj do trasy', 'Twoja trasa', 'Wyczyść trasę', 'Otwórz trasę', 'Dodano do trasy', 'Maksymalnie 5 przystanków', 'Wybierz miejsce i dodaj je tutaj.'],
+    ru: ['Открыть живой атлас', 'Мир истории, место за местом.', 'Поиск мест', 'Найти замок, город или страну', 'Тип места', 'Страна', 'Все места', 'Удиви меня', 'Сбросить фильтры', 'мест найдено', 'Выберите точку на карте или откройте случайное место.', 'Выбранное место', 'Тип', 'Состояние', 'Координаты', 'Открыть источник', 'Скопировать координаты', 'Скопировано', 'Не удалось загрузить атлас. Попробуйте позже.', 'Загрузка атласа…', 'Приблизить', 'Отдалить', 'Сбросить вид', 'Интерактивный атлас исторических мест', 'Добавить в маршрут', 'Ваш маршрут', 'Очистить маршрут', 'Открыть маршрут', 'Добавлено в маршрут', 'Не более 5 остановок', 'Выберите место и добавьте его сюда.'],
+    sl: ['Razišči živi atlas', 'Svet zgodovine, kraj za krajem.', 'Išči kraje', 'Poišči grad, mesto ali državo', 'Vrsta kraja', 'Država', 'Vsi kraji', 'Preseneti me', 'Počisti filtre', 'najdenih krajev', 'Izberi točko na zemljevidu ali naključno odkrij kraj.', 'Izbrani kraj', 'Vrsta', 'Stanje', 'Koordinate', 'Odpri vir', 'Kopiraj koordinate', 'Kopirano', 'Atlasa ni bilo mogoče naložiti. Poskusi znova pozneje.', 'Nalaganje atlasa…', 'Povečaj', 'Pomanjšaj', 'Ponastavi pogled', 'Interaktivni atlas zgodovinskih krajev', 'Dodaj na pot', 'Tvoja pot', 'Počisti pot', 'Odpri pot', 'Dodano na pot', 'Največ 5 postankov', 'Izberi kraj in ga dodaj sem.'],
+    hu: ['Fedezd fel az élő atlaszt', 'A történelem világa, helyről helyre.', 'Helyek keresése', 'Vár, város vagy ország keresése', 'Hely típusa', 'Ország', 'Minden hely', 'Lepj meg', 'Szűrők törlése', 'találat', 'Válassz egy pontot vagy fedezz fel egy véletlen helyet.', 'Kiválasztott hely', 'Típus', 'Állapot', 'Koordináták', 'Forrás megnyitása', 'Koordináták másolása', 'Másolva', 'Az atlasz nem tölthető be. Próbáld újra később.', 'Atlasz betöltése…', 'Nagyítás', 'Kicsinyítés', 'Nézet visszaállítása', 'Történelmi helyek interaktív atlasza', 'Hozzáadás az útvonalhoz', 'Útvonalad', 'Útvonal törlése', 'Útvonal megnyitása', 'Hozzáadva az útvonalhoz', 'Legfeljebb 5 megálló', 'Válassz egy helyet, és add hozzá itt.'],
+    uk: ['Дослідити живий атлас', 'Світ історії — місце за місцем.', 'Пошук місць', 'Знайти замок, місто або країну', 'Тип місця', 'Країна', 'Усі місця', 'Здивуй мене', 'Скинути фільтри', 'місць знайдено', 'Оберіть точку на мапі або відкрийте випадкове місце.', 'Обране місце', 'Тип', 'Стан', 'Координати', 'Відкрити джерело', 'Копіювати координати', 'Скопійовано', 'Не вдалося завантажити атлас. Спробуйте пізніше.', 'Завантаження атласу…', 'Збільшити', 'Зменшити', 'Скинути вигляд', 'Інтерактивний атлас історичних місць', 'Додати до маршруту', 'Ваш маршрут', 'Очистити маршрут', 'Відкрити маршрут', 'Додано до маршруту', 'Не більше 5 зупинок', 'Оберіть місце й додайте його сюди.'],
+    hr: ['Istraži živi atlas', 'Svijet povijesti, mjesto po mjesto.', 'Pretraži mjesta', 'Traži dvorac, grad ili državu', 'Vrsta mjesta', 'Država', 'Sva mjesta', 'Iznenadi me', 'Poništi filtre', 'pronađenih mjesta', 'Odaberi točku na karti ili otkrij nasumično mjesto.', 'Odabrano mjesto', 'Vrsta', 'Stanje', 'Koordinate', 'Otvori izvor', 'Kopiraj koordinate', 'Kopirano', 'Atlas se nije mogao učitati. Pokušaj ponovno kasnije.', 'Učitavanje atlasa…', 'Povećaj', 'Smanji', 'Poništi prikaz', 'Interaktivni atlas povijesnih mjesta', 'Dodaj na putovanje', 'Tvoje putovanje', 'Izbriši putovanje', 'Otvori rutu', 'Dodano na putovanje', 'Najviše 5 postaja', 'Odaberi mjesto i dodaj ga ovdje.'],
+    ro: ['Explorează atlasul viu', 'O lume a istoriei, loc cu loc.', 'Caută locuri', 'Caută un castel, un oraș sau o țară', 'Tipul locului', 'Țara', 'Toate locurile', 'Surprinde-mă', 'Resetează filtrele', 'locuri găsite', 'Alege un punct sau descoperă un loc la întâmplare.', 'Loc selectat', 'Tip', 'Stare', 'Coordonate', 'Deschide sursa', 'Copiază coordonatele', 'Copiat', 'Atlasul nu a putut fi încărcat. Încearcă din nou mai târziu.', 'Se încarcă atlasul…', 'Mărește', 'Micșorează', 'Resetează vederea', 'Atlas interactiv al locurilor istorice', 'Adaugă la traseu', 'Traseul tău', 'Șterge traseul', 'Deschide traseul', 'Adăugat la traseu', 'Maximum 5 opriri', 'Alege un loc și adaugă-l aici.'],
+    it: ['Esplora l’atlante vivente', 'Un mondo di storia, un luogo alla volta.', 'Cerca luoghi', 'Cerca un castello, una città o un paese', 'Tipo di luogo', 'Paese', 'Tutti i luoghi', 'Sorprendimi', 'Reimposta filtri', 'luoghi trovati', 'Scegli un punto o scopri un luogo a caso.', 'Luogo selezionato', 'Tipo', 'Stato', 'Coordinate', 'Apri la fonte', 'Copia coordinate', 'Copiato', 'Impossibile caricare l’atlante. Riprova più tardi.', 'Caricamento atlante…', 'Ingrandisci', 'Riduci', 'Reimposta vista', 'Atlante interattivo dei luoghi storici', 'Aggiungi al viaggio', 'Il tuo viaggio', 'Svuota il viaggio', 'Apri percorso', 'Aggiunto al viaggio', 'Massimo 5 tappe', 'Scegli un luogo e aggiungilo qui.'],
+    fr: ['Explorer l’atlas vivant', 'Un monde d’histoire, lieu après lieu.', 'Rechercher des lieux', 'Chercher un château, une ville ou un pays', 'Type de lieu', 'Pays', 'Tous les lieux', 'Surprends-moi', 'Effacer les filtres', 'lieux trouvés', 'Choisissez un point ou découvrez un lieu au hasard.', 'Lieu sélectionné', 'Type', 'État', 'Coordonnées', 'Ouvrir la source', 'Copier les coordonnées', 'Copié', 'Impossible de charger l’atlas. Réessayez plus tard.', 'Chargement de l’atlas…', 'Zoom avant', 'Zoom arrière', 'Réinitialiser la vue', 'Atlas interactif des lieux historiques', 'Ajouter au parcours', 'Votre parcours', 'Effacer le parcours', 'Ouvrir l’itinéraire', 'Ajouté au parcours', '5 étapes maximum', 'Choisissez un lieu et ajoutez-le ici.'],
+    es: ['Explora el atlas vivo', 'Un mundo de historia, lugar a lugar.', 'Buscar lugares', 'Busca un castillo, ciudad o país', 'Tipo de lugar', 'País', 'Todos los lugares', 'Sorpréndeme', 'Restablecer filtros', 'lugares encontrados', 'Elige un punto o descubre un lugar al azar.', 'Lugar seleccionado', 'Tipo', 'Estado', 'Coordenadas', 'Abrir fuente', 'Copiar coordenadas', 'Copiado', 'No se pudo cargar el atlas. Inténtalo más tarde.', 'Cargando el atlas…', 'Acercar', 'Alejar', 'Restablecer vista', 'Atlas interactivo de lugares históricos', 'Añadir al viaje', 'Tu viaje', 'Borrar viaje', 'Abrir ruta', 'Añadido al viaje', 'Máximo 5 paradas', 'Elige un lugar y añádelo aquí.'],
+  };
+  var kinds = {
+    en: ['Castle', 'Fortress', 'Chateau or palace', 'Manor house', 'Historic town', 'Ancient site'], cs: ['Hrad', 'Pevnost', 'Zámek nebo palác', 'Tvrz', 'Historické město', 'Starověké místo'],
+    sk: ['Hrad', 'Pevnosť', 'Zámok alebo palác', 'Kaštieľ', 'Historické mesto', 'Staroveké miesto'], de: ['Burg', 'Festung', 'Schloss oder Palast', 'Herrenhaus', 'Historische Stadt', 'Antike Stätte'],
+    pl: ['Zamek', 'Twierdza', 'Pałac', 'Dwór', 'Historyczne miasto', 'Stanowisko starożytne'], ru: ['Замок', 'Крепость', 'Дворец', 'Усадьба', 'Исторический город', 'Древнее место'],
+    sl: ['Grad', 'Trdnjava', 'Palača', 'Dvorec', 'Zgodovinsko mesto', 'Starodavno najdišče'], hu: ['Vár', 'Erőd', 'Kastély vagy palota', 'Kúria', 'Történelmi város', 'Ókori helyszín'],
+    uk: ['Замок', 'Фортеця', 'Палац', 'Садиба', 'Історичне місто', 'Стародавня пам’ятка'], hr: ['Dvorac', 'Tvrđava', 'Palača', 'Dvorac', 'Povijesni grad', 'Antičko nalazište'],
+    ro: ['Castel', 'Fortăreață', 'Palat', 'Conac', 'Oraș istoric', 'Sit antic'], it: ['Castello', 'Fortezza', 'Palazzo', 'Dimora signorile', 'Città storica', 'Sito antico'],
+    fr: ['Château', 'Forteresse', 'Château ou palais', 'Manoir', 'Ville historique', 'Site antique'], es: ['Castillo', 'Fortaleza', 'Palacio', 'Casa señorial', 'Ciudad histórica', 'Yacimiento antiguo'],
+  };
+  var conditions = {
+    en: { intact: 'Standing', restored: 'Restored', rebuilt: 'Rebuilt', ruin: 'Ruins', destroyed: 'Destroyed', unknown: 'Unknown', '': 'Not classified' },
+    cs: { intact: 'Zachovalý', restored: 'Obnovený', rebuilt: 'Přestavěný', ruin: 'Zřícenina', destroyed: 'Zaniklý', unknown: 'Neznámý', '': 'Nezařazený' },
+    sk: { intact: 'Zachovaný', restored: 'Obnovený', rebuilt: 'Prestavaný', ruin: 'Zrúcanina', destroyed: 'Zaniknutý', unknown: 'Neznámy', '': 'Nezaradený' },
+    de: { intact: 'Erhalten', restored: 'Restauriert', rebuilt: 'Wiederaufgebaut', ruin: 'Ruine', destroyed: 'Zerstört', unknown: 'Unbekannt', '': 'Nicht eingestuft' },
+    pl: { intact: 'Zachowany', restored: 'Odrestaurowany', rebuilt: 'Odbudowany', ruin: 'Ruina', destroyed: 'Zniszczony', unknown: 'Nieznany', '': 'Nie sklasyfikowano' },
+    ru: { intact: 'Сохранился', restored: 'Реставрирован', rebuilt: 'Восстановлен', ruin: 'Руины', destroyed: 'Уничтожен', unknown: 'Неизвестно', '': 'Не классифицировано' },
+    sl: { intact: 'Ohranjen', restored: 'Obnovljen', rebuilt: 'Ponovno zgrajen', ruin: 'Ruševina', destroyed: 'Porušen', unknown: 'Neznano', '': 'Nerazvrščeno' },
+    hu: { intact: 'Épen áll', restored: 'Felújított', rebuilt: 'Újjáépített', ruin: 'Rom', destroyed: 'Elpusztult', unknown: 'Ismeretlen', '': 'Nincs besorolva' },
+    uk: { intact: 'Збережений', restored: 'Відреставрований', rebuilt: 'Відбудований', ruin: 'Руїни', destroyed: 'Зруйнований', unknown: 'Невідомо', '': 'Не класифіковано' },
+    hr: { intact: 'Očuvan', restored: 'Obnovljen', rebuilt: 'Ponovno izgrađen', ruin: 'Ruševina', destroyed: 'Uništen', unknown: 'Nepoznato', '': 'Nerazvrstano' },
+    ro: { intact: 'Păstrat', restored: 'Restaurat', rebuilt: 'Reconstruit', ruin: 'Ruine', destroyed: 'Distrus', unknown: 'Necunoscut', '': 'Neclasificat' },
+    it: { intact: 'Integro', restored: 'Restaurato', rebuilt: 'Ricostruito', ruin: 'Rovina', destroyed: 'Distrutto', unknown: 'Sconosciuto', '': 'Non classificato' },
+    fr: { intact: 'Préservé', restored: 'Restauré', rebuilt: 'Reconstruit', ruin: 'Ruine', destroyed: 'Détruit', unknown: 'Inconnu', '': 'Non classé' },
+    es: { intact: 'Conservado', restored: 'Restaurado', rebuilt: 'Reconstruido', ruin: 'Ruinas', destroyed: 'Destruido', unknown: 'Desconocido', '': 'Sin clasificar' },
+  };
+  var lang = document.documentElement.lang || 'en';
+  var t = copy[lang] || copy.en;
+  var kindNames = kinds[lang] || kinds.en;
+  var conditionNames = conditions[lang] || conditions.en;
+  var categoryKeys = ['castle', 'fortress', 'chateau', 'manor', 'town', 'ancient'];
+  var categoryColors = ['#56a6ff', '#d0dae0', '#ff786d', '#ffad5c', '#e879c1', '#aab55e'];
+  var atlas = document.createElement('section');
+  atlas.id = 'atlas'; atlas.className = 'atlas-section';
+  atlas.setAttribute('aria-label', t[23]);
+  atlas.innerHTML = '<div class="wrap"><div class="atlas-shell"><div class="atlas-tools"><label class="atlas-search-label"><span></span><input class="atlas-search" type="search" autocomplete="off"></label><label class="atlas-select-label atlas-kind-label"><span></span><select class="atlas-kind"></select></label><label class="atlas-select-label atlas-country-label"><span></span><select class="atlas-country"></select></label><button class="atlas-button atlas-surprise" type="button"></button><button class="atlas-button atlas-reset" type="button"></button></div><div class="atlas-grid"><div class="atlas-mapbox"><canvas class="atlas-canvas" tabindex="0" role="img"></canvas><div class="atlas-zoom"><button type="button" data-zoom="in" aria-label=""></button><button type="button" data-zoom="out" aria-label=""></button><button type="button" data-zoom="reset" aria-label=""></button></div><div class="atlas-map-caption"></div></div><aside class="atlas-side"><div class="atlas-count"></div><div class="atlas-selection" aria-live="polite"></div><div class="atlas-results"></div></aside></div><div class="atlas-journey"><div class="atlas-journey-head"><h3></h3><p></p></div><ol class="atlas-journey-list" aria-live="polite"></ol><div class="atlas-journey-actions"><button class="atlas-clear-journey" type="button"></button><a class="atlas-directions" target="_blank" rel="noopener noreferrer"></a></div></div></div></div>';
+  mount.appendChild(atlas);
+  var pageTitle = document.getElementById('atlas-title');
+  var pageIntro = document.getElementById('atlas-intro');
+  if (pageTitle) pageTitle.textContent = t[0];
+  if (pageIntro) pageIntro.textContent = t[1];
+  atlas.querySelector('.atlas-search-label span').textContent = t[2];
+  atlas.querySelector('.atlas-search').placeholder = t[3];
+  atlas.querySelector('.atlas-search').setAttribute('aria-label', t[2]);
+  atlas.querySelector('.atlas-kind-label span').textContent = t[4];
+  atlas.querySelector('.atlas-country-label span').textContent = t[5];
+  atlas.querySelector('.atlas-surprise').textContent = t[7];
+  atlas.querySelector('.atlas-reset').textContent = t[8];
+  atlas.querySelector('.atlas-canvas').setAttribute('aria-label', t[23]);
+  atlas.querySelector('.atlas-map-caption').textContent = t[10];
+  atlas.querySelector('.atlas-journey-head h3').textContent = t[25];
+  atlas.querySelector('.atlas-journey-head p').textContent = t[30];
+  atlas.querySelector('.atlas-clear-journey').textContent = t[26];
+  atlas.querySelector('.atlas-directions').textContent = t[27];
+  atlas.querySelector('[data-zoom="in"]').textContent = '+';
+  atlas.querySelector('[data-zoom="out"]').textContent = '−';
+  atlas.querySelector('[data-zoom="reset"]').textContent = '⌂';
+  atlas.querySelector('[data-zoom="in"]').setAttribute('aria-label', t[20]);
+  atlas.querySelector('[data-zoom="out"]').setAttribute('aria-label', t[21]);
+  atlas.querySelector('[data-zoom="reset"]').setAttribute('aria-label', t[22]);
+  var type = atlas.querySelector('.atlas-kind');
+  var country = atlas.querySelector('.atlas-country');
+  function option(select, value, label) { var o = document.createElement('option'); o.value = value; o.textContent = label; select.appendChild(o); }
+  option(type, '', t[6]);
+  categoryKeys.forEach(function (key, i) { option(type, key, kindNames[i]); });
+
+  var data = null;
+  var filtered = [];
+  var selected = null;
+  var journey = [];
+  var surprisePending = false;
+  var zoom = 1; var panX = 0; var panY = 0;
+  var canvas = atlas.querySelector('.atlas-canvas');
+  var ctx = canvas.getContext('2d');
+  var palette = { castle: 0, fortress: 1, chateau: 2, manor: 3, town: 4, ancient: 5 };
+  var shapes = [
+    [[-168,72],[-140,70],[-128,58],[-122,48],[-116,33],[-104,25],[-98,18],[-86,21],[-82,9],[-78,9],[-76,25],[-66,45],[-57,52],[-64,61],[-79,61],[-91,72],[-112,75],[-130,70]],
+    [[-74,12],[-62,9],[-49,2],[-35,-8],[-42,-23],[-50,-34],[-55,-50],[-67,-56],[-73,-35],[-77,-14]],
+    [[-52,82],[-27,77],[-20,64],[-34,59],[-49,64],[-58,73]],
+    [[-11,36],[-9,56],[4,70],[28,71],[38,60],[54,57],[69,69],[91,73],[113,66],[132,55],[150,59],[169,51],[157,41],[140,37],[132,31],[121,24],[111,16],[102,7],[95,8],[88,20],[78,8],[69,23],[60,25],[53,36],[45,38],[35,32],[30,37],[20,36],[10,37],[2,43],[-4,42]],
+    [[-17,36],[-6,37],[9,35],[23,33],[34,29],[43,12],[51,11],[49,-11],[40,-22],[32,-34],[20,-35],[14,-27],[9,-4],[0,5],[-7,5],[-14,15]],
+    [[40,31],[52,26],[57,14],[50,12],[43,18]],
+    [[112,-11],[132,-10],[153,-22],[150,-37],[135,-44],[116,-35],[113,-22]],
+    [[95,22],[109,20],[121,8],[117,-4],[105,-7],[98,2]],
+    [[-8,59],[-2,58],[0,51],[-6,50],[-8,55]],
+  ];
+
+  function dimensions() {
+    var rect = canvas.getBoundingClientRect();
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (!rect.width || !rect.height) return null;
+    if (canvas.width !== Math.round(rect.width * dpr) || canvas.height !== Math.round(rect.height * dpr)) {
+      canvas.width = Math.round(rect.width * dpr); canvas.height = Math.round(rect.height * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { w: rect.width, h: rect.height };
+  }
+  function xy(lon, lat, w, h) { return [(lon + 180) / 360 * w * zoom + w * (1 - zoom) / 2 + panX, (90 - lat) / 180 * h * zoom + h * (1 - zoom) / 2 + panY]; }
+  function draw() {
+    if (!data) return;
+    var size = dimensions(); if (!size) return;
+    var w = size.w, h = size.h;
+    ctx.clearRect(0, 0, w, h);
+    var bg = ctx.createLinearGradient(0, 0, w, h); bg.addColorStop(0, '#091c25'); bg.addColorStop(.55, '#102c35'); bg.addColorStop(1, '#171d2e');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+    var glow = ctx.createRadialGradient(w * .52, h * .47, 4, w * .52, h * .47, w * .62); glow.addColorStop(0, 'rgba(54,137,145,.13)'); glow.addColorStop(1, 'rgba(5,14,21,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, w, h);
+    ctx.save(); ctx.strokeStyle = 'rgba(183,208,190,.13)'; ctx.lineWidth = 1;
+    for (var lon = -150; lon <= 180; lon += 30) { var gx = xy(lon, 0, w, h)[0]; ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
+    for (var lat = -60; lat <= 60; lat += 30) { var gy = xy(0, lat, w, h)[1]; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
+    shapes.forEach(function (poly) { ctx.beginPath(); poly.forEach(function (p, i) { var point = xy(p[0], p[1], w, h); if (i) ctx.lineTo(point[0], point[1]); else ctx.moveTo(point[0], point[1]); }); ctx.closePath(); ctx.fillStyle = 'rgba(133,154,111,.20)'; ctx.fill(); ctx.strokeStyle = 'rgba(219,189,115,.38)'; ctx.lineWidth = 1; ctx.stroke(); });
+    ctx.restore();
+    ctx.save(); ctx.globalAlpha = filtered.length > 18000 ? .48 : .78;
+    filtered.forEach(function (p) { var point = xy(p[1], p[0], w, h); if (point[0] < -4 || point[0] > w + 4 || point[1] < -4 || point[1] > h + 4) return; ctx.beginPath(); ctx.arc(point[0], point[1], filtered.length > 30000 ? 1.2 : 1.8, 0, Math.PI * 2); ctx.fillStyle = categoryColors[palette[p[4]] ?? 0]; ctx.fill(); });
+    if (journey.length) { ctx.beginPath(); journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); if (i) ctx.lineTo(pt[0], pt[1]); else ctx.moveTo(pt[0], pt[1]); }); ctx.strokeStyle = '#f2ce7e'; ctx.lineWidth = 2.5; ctx.shadowColor = '#f2ce7e'; ctx.shadowBlur = 9; ctx.stroke(); ctx.shadowBlur = 0; journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); ctx.beginPath(); ctx.arc(pt[0], pt[1], 5, 0, Math.PI * 2); ctx.fillStyle = '#f2ce7e'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#10232b'; ctx.stroke(); ctx.font = 'bold 10px system-ui'; ctx.fillStyle = '#10232b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(i + 1), pt[0], pt[1]); }); }
+    if (selected) { var selectedPoint = xy(selected[1], selected[0], w, h); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 8, 0, Math.PI * 2); ctx.strokeStyle = '#ffe49b'; ctx.lineWidth = 2; ctx.stroke(); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 3, 0, Math.PI * 2); ctx.fillStyle = '#fff2c5'; ctx.fill(); }
+    ctx.restore();
+  }
+  function countryName(code) { var entry = data.countries[code] || {}; return entry[lang] || entry.en || code; }
+  function refreshCountryOptions() {
+    var previous = country.value;
+    country.textContent = ''; option(country, '', t[6]);
+    Object.keys(data.countries).sort(function (a, b) { return countryName(a).localeCompare(countryName(b), lang); }).forEach(function (code) { option(country, code, countryName(code)); });
+    country.value = previous;
+  }
+  function matchData() {
+    if (!data) return;
+    var query = atlas.querySelector('.atlas-search').value.trim().toLocaleLowerCase(lang);
+    var k = type.value, c = country.value;
+    filtered = data.items.filter(function (p) {
+      if (k && p[4] !== k) return false;
+      if (c && p[3] !== c) return false;
+      if (!query) return true;
+      return p[2].toLocaleLowerCase(lang).indexOf(query) !== -1 || countryName(p[3]).toLocaleLowerCase(lang).indexOf(query) !== -1;
+    });
+    atlas.querySelector('.atlas-count').textContent = new Intl.NumberFormat(lang).format(filtered.length) + ' / ' + new Intl.NumberFormat(lang).format(data.total) + ' ' + t[9];
+    draw(); renderResults();
+    if (selected && filtered.indexOf(selected) < 0) selected = null;
+    if (!selected && filtered.length) selected = filtered[0];
+    renderSelection(); draw();
+  }
+  function renderResults() {
+    var list = atlas.querySelector('.atlas-results'); list.textContent = '';
+    var query = atlas.querySelector('.atlas-search').value.trim();
+    if (!query) return;
+    filtered.slice(0, 7).forEach(function (p) { var b = document.createElement('button'); b.type = 'button'; b.className = 'atlas-result'; b.textContent = p[2] + ' · ' + countryName(p[3]); b.addEventListener('click', function () { select(p, true); }); list.appendChild(b); });
+    if (!filtered.length) { var empty = document.createElement('p'); empty.className = 'atlas-empty'; empty.textContent = t[10]; list.appendChild(empty); }
+  }
+  function select(p, panTo) {
+    selected = p; renderSelection();
+    if (panTo) { zoom = Math.max(zoom, 1.7); var size = dimensions(); if (size) { var pt = xy(p[1], p[0], size.w, size.h); panX += size.w / 2 - pt[0]; panY += size.h / 2 - pt[1]; } }
+    draw();
+  }
+  function renderSelection() {
+    var box = atlas.querySelector('.atlas-selection'); box.textContent = '';
+    if (!selected) { var prompt = document.createElement('p'); prompt.textContent = t[10]; box.appendChild(prompt); return; }
+    var title = document.createElement('p'); title.className = 'atlas-selected-kicker'; title.textContent = t[11];
+    var name = document.createElement('h3'); name.textContent = selected[2];
+    var countryLine = document.createElement('p'); countryLine.className = 'atlas-country-name'; countryLine.textContent = countryName(selected[3]);
+    var dl = document.createElement('dl'); dl.className = 'atlas-metadata';
+    [[t[12], kindNames[Math.max(0, categoryKeys.indexOf(selected[4]))]], [t[13], conditionNames[selected[5]] || conditionNames['']], [t[14], selected[0].toFixed(4) + ', ' + selected[1].toFixed(4)]].forEach(function (pair) { var wrap = document.createElement('div'); var dt = document.createElement('dt'); dt.textContent = pair[0]; var dd = document.createElement('dd'); dd.textContent = pair[1]; wrap.appendChild(dt); wrap.appendChild(dd); dl.appendChild(wrap); });
+    var actions = document.createElement('div'); actions.className = 'atlas-card-actions';
+    var source = document.createElement('a'); source.className = 'atlas-link'; source.href = selected[6] ? 'https://www.wikidata.org/wiki/' + selected[6] : 'https://www.openstreetmap.org/?mlat=' + selected[0] + '&mlon=' + selected[1] + '#map=15/' + selected[0] + '/' + selected[1]; source.target = '_blank'; source.rel = 'noopener noreferrer'; source.textContent = t[15];
+    var copy = document.createElement('button'); copy.type = 'button'; copy.className = 'atlas-copy'; copy.textContent = t[16];
+    copy.addEventListener('click', function () { if (!navigator.clipboard || !navigator.clipboard.writeText) return; navigator.clipboard.writeText(selected[0].toFixed(5) + ', ' + selected[1].toFixed(5)).then(function () { copy.textContent = t[17]; setTimeout(function () { copy.textContent = t[16]; }, 1800); }).catch(function () {}); });
+    var add = document.createElement('button'); add.type = 'button'; add.className = 'atlas-add'; add.textContent = t[24];
+    add.addEventListener('click', function () {
+      if (journey.length >= 5) { add.textContent = t[29]; setTimeout(function () { add.textContent = t[24]; }, 1600); return; }
+      if (!journey.some(function (p) { return p[0] === selected[0] && p[1] === selected[1] && p[2] === selected[2]; })) journey.push(selected);
+      add.textContent = t[28]; setTimeout(function () { if (add.isConnected) add.textContent = t[24]; }, 1600);
+      renderJourney(); draw();
+    });
+    actions.appendChild(source); actions.appendChild(copy); actions.appendChild(add);
+    box.appendChild(title); box.appendChild(name); box.appendChild(countryLine); box.appendChild(dl); box.appendChild(actions);
+  }
+  function renderJourney() {
+    var list = atlas.querySelector('.atlas-journey-list'); list.textContent = '';
+    if (!journey.length) { var empty = document.createElement('li'); empty.textContent = t[30]; list.appendChild(empty); }
+    journey.forEach(function (p, i) { var li = document.createElement('li'); var stop = document.createElement('span'); stop.textContent = (i + 1) + '. ' + p[2] + ' · ' + countryName(p[3]); li.appendChild(stop); list.appendChild(li); });
+    var directions = atlas.querySelector('.atlas-directions');
+    directions.hidden = journey.length === 0;
+    directions.href = journey.length ? 'https://www.google.com/maps/dir/' + journey.map(function (p) { return encodeURIComponent(p[0] + ',' + p[1]); }).join('/') : '#';
+  }
+  function load() {
+    if (atlas.dataset.loading) return;
+    atlas.dataset.loading = '1'; atlas.querySelector('.atlas-count').textContent = t[19];
+    var script = document.querySelector('script[src*="site.js"]');
+    var url = new URL('../atlas.json', script ? script.src : location.href);
+    fetch(url.href).then(function (response) { if (!response.ok) throw new Error('Atlas request failed'); return response.json(); }).then(function (json) {
+      data = json; atlas.dataset.loading = ''; refreshCountryOptions(); matchData(); renderJourney();
+      if (surprisePending && filtered.length) { surprisePending = false; select(filtered[Math.floor(Math.random() * filtered.length)], true); }
+    }).catch(function () { atlas.dataset.loading = ''; atlas.querySelector('.atlas-count').textContent = t[18]; });
+  }
+  var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) { if (entries.some(function (e) { return e.isIntersecting; })) { load(); observer.disconnect(); } }, { rootMargin: '180px' }) : null;
+  if (observer) observer.observe(atlas); else load();
+  var searchTimer = 0;
+  atlas.querySelector('.atlas-search').addEventListener('input', function () { window.clearTimeout(searchTimer); searchTimer = window.setTimeout(matchData, 120); });
+  type.addEventListener('change', matchData); country.addEventListener('change', matchData);
+  atlas.querySelector('.atlas-surprise').addEventListener('click', function () { if (!data) { surprisePending = true; load(); return; } if (!filtered.length) return; select(filtered[Math.floor(Math.random() * filtered.length)], true); });
+  atlas.querySelector('.atlas-clear-journey').addEventListener('click', function () { journey = []; renderJourney(); draw(); });
+  atlas.querySelector('.atlas-reset').addEventListener('click', function () { atlas.querySelector('.atlas-search').value = ''; type.value = ''; country.value = ''; zoom = 1; panX = panY = 0; matchData(); });
+  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { zoom = Math.min(5, zoom * 1.35); draw(); });
+  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { zoom = Math.max(1, zoom / 1.35); if (zoom === 1) panX = panY = 0; draw(); });
+  atlas.querySelector('[data-zoom="reset"]').addEventListener('click', function () { zoom = 1; panX = panY = 0; draw(); });
+  var dragging = false, moved = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+  canvas.addEventListener('pointerdown', function (e) { dragging = true; moved = false; startX = e.clientX; startY = e.clientY; startPanX = panX; startPanY = panY; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', function (e) { if (!dragging) return; var dx = e.clientX - startX, dy = e.clientY - startY; if (Math.abs(dx) + Math.abs(dy) > 5) moved = true; if (moved) { panX = startPanX + dx; panY = startPanY + dy; draw(); } });
+  canvas.addEventListener('pointerup', function (e) {
+    if (!dragging) return; dragging = false;
+    if (!moved && data && filtered.length) { var rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top, best = null, bestD = 18 * 18; filtered.forEach(function (p) { var pt = xy(p[1], p[0], rect.width, rect.height), dx = pt[0] - x, dy = pt[1] - y, d = dx * dx + dy * dy; if (d < bestD) { bestD = d; best = p; } }); if (best) select(best, false); }
+  });
+  canvas.addEventListener('pointercancel', function () { dragging = false; });
+  canvas.addEventListener('wheel', function (e) { e.preventDefault(); zoom = Math.max(1, Math.min(5, zoom * (e.deltaY < 0 ? 1.12 : .89))); draw(); }, { passive: false });
+  canvas.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === '=') { zoom = Math.min(5, zoom * 1.2); draw(); } if (e.key === '-') { zoom = Math.max(1, zoom / 1.2); draw(); } });
+  window.addEventListener('resize', draw);
+})();
+
 // Folding sections: open on a wide screen (where the summaries are plain headings), folded on a phone.
 (function () {
   var items = document.querySelectorAll('details[data-resp]');

@@ -1,6 +1,6 @@
 # Eldoria website
 
-Web page of the Eldoria castle map app in the 14 app languages (English at the root, the others in `cs/`, `sk/`, `de/`, `pl/`, `ru/`, `sl/`, `hu/`, `uk/`, `hr/`, `ro/`, `it/`, `fr/`, `es/`). Every language has a home page (`index.html`), an events page (`events.html`), a contact page (`contact.html`) and a privacy policy (`privacy.html`). `events.json` is the list of medieval events that the app downloads and the pages show.
+Web page of the Eldoria castle map app in the 14 app languages (English at the root, the others in `cs/`, `sk/`, `de/`, `pl/`, `ru/`, `sl/`, `hu/`, `uk/`, `hr/`, `ro/`, `it/`, `fr/`, `es/`). Every language has a home page (`index.html`), a standalone interactive atlas (`atlas.html`), an events page (`events.html`), a contact page (`contact.html`) and a privacy policy (`privacy.html`). `events.json` is the list of medieval events that the app downloads and the pages show. `atlas.json` is generated with the site from public place data and loaded only when a visitor reaches the interactive atlas.
 
 Published with GitHub Pages: Settings > Pages > Source "GitHub Actions"; `.github/workflows/pages.yml` deploys every push to `main`.
 
