@@ -529,7 +529,7 @@ section > h2 { text-wrap: balance; }
 .atlas-photo.is-loading { height: 170px; background: linear-gradient(100deg, rgba(255,255,255,.04) 20%, rgba(226,189,114,.11) 42%, rgba(255,255,255,.04) 64%); background-size: 220% 100%; animation: atlas-shimmer 1.5s ease-in-out infinite; }
 .atlas-photo img { display: block; width: 100%; max-height: 240px; object-fit: cover; border-radius: 12px; background: #10232b; }
 .atlas-photo.is-empty { padding: 12px 14px; border: 1px solid rgba(219,201,159,.16); color: rgba(243,239,223,.6); font-size: 12px; }
-.atlas-photo-credit { margin: 8px 0 0 22px; padding-left: 12px; color: rgba(243,239,223,.6); font-size: 11px; line-height: 1.5; }
+.atlas-photo-credit { margin: 8px 0 0 8px; padding-left: 2px; color: rgba(243,239,223,.6); font-size: 11px; line-height: 1.5; }
 .atlas-photo-credit a { color: #f0d68f; }
 @keyframes atlas-shimmer { to { background-position: -220% 0; } }
 .atlas-country-name { color: #d7c9a5; }
