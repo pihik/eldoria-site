@@ -481,8 +481,12 @@
   atlas.querySelector('.atlas-surprise').addEventListener('click', function () { if (!data) { surprisePending = true; load(); return; } if (!filtered.length) return; select(filtered[Math.floor(Math.random() * filtered.length)], true); });
   atlas.querySelector('.atlas-clear-journey').addEventListener('click', function () { journey = []; renderJourney(); draw(); });
   atlas.querySelector('.atlas-reset').addEventListener('click', function () { atlas.querySelector('.atlas-search').value = ''; type.value = ''; country.value = ''; zoom = 1; panX = panY = 0; matchData(); });
-  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { var size = dimensions(); if (size) zoomBy(1.5, size.w / 2, size.h / 2); });
-  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { var size = dimensions(); if (size) zoomBy(1 / 1.5, size.w / 2, size.h / 2); });
+  function zoomFromButton(e, factor) {
+    var rect = canvas.getBoundingClientRect();
+    zoomBy(factor, e.clientX - rect.left, e.clientY - rect.top);
+  }
+  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function (e) { zoomFromButton(e, 1.5); });
+  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function (e) { zoomFromButton(e, 1 / 1.5); });
   atlas.querySelector('[data-zoom="reset"]').addEventListener('click', function () { zoom = 1; panX = panY = 0; draw(); });
   var dragging = false, moved = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
   canvas.addEventListener('pointerdown', function (e) { dragging = true; moved = false; startX = e.clientX; startY = e.clientY; startPanX = panX; startPanY = panY; canvas.setPointerCapture(e.pointerId); });
