@@ -367,7 +367,7 @@
   }
   function select(p, panTo) {
     selected = p; renderSelection();
-    if (panTo) { zoom = Math.max(zoom, 3); var size = dimensions(); if (size) { var pt = xy(p[1], p[0], size.w, size.h); panX += size.w / 2 - pt[0]; panY += size.h / 2 - pt[1]; clampPan(size.w, size.h); } }
+    if (panTo) { zoom = Math.max(zoom, 32); var size = dimensions(); if (size) { var pt = xy(p[1], p[0], size.w, size.h); panX += size.w / 2 - pt[0]; panY += size.h / 2 - pt[1]; clampPan(size.w, size.h); } }
     draw();
   }
   function renderSelection() {
