@@ -194,13 +194,13 @@
     es: ['Explora el atlas vivo', 'Un mundo de historia, lugar a lugar.', 'Buscar lugares', 'Busca un castillo, ciudad o país', 'Tipo de lugar', 'País', 'Todos los lugares', 'Sorpréndeme', 'Restablecer filtros', 'lugares encontrados', 'Elige un punto o descubre un lugar al azar.', 'Lugar seleccionado', 'Tipo', 'Estado', 'Coordenadas', 'Abrir fuente', 'Copiar coordenadas', 'Copiado', 'No se pudo cargar el atlas. Inténtalo más tarde.', 'Cargando el atlas…', 'Acercar', 'Alejar', 'Restablecer vista', 'Atlas interactivo de lugares históricos', 'Añadir al viaje', 'Tu viaje', 'Borrar viaje', 'Abrir ruta', 'Añadido al viaje', 'Máximo 5 paradas', 'Elige un lugar y añádelo aquí.'],
   };
   var kinds = {
-    en: ['Castle', 'Fortress', 'Chateau or palace', 'Manor house', 'Historic town', 'Ancient site'], cs: ['Hrad', 'Pevnost', 'Zámek nebo palác', 'Tvrz', 'Historické město', 'Starověké místo'],
-    sk: ['Hrad', 'Pevnosť', 'Zámok alebo palác', 'Kaštieľ', 'Historické mesto', 'Staroveké miesto'], de: ['Burg', 'Festung', 'Schloss oder Palast', 'Herrenhaus', 'Historische Stadt', 'Antike Stätte'],
-    pl: ['Zamek', 'Twierdza', 'Pałac', 'Dwór', 'Historyczne miasto', 'Stanowisko starożytne'], ru: ['Замок', 'Крепость', 'Дворец', 'Усадьба', 'Исторический город', 'Древнее место'],
-    sl: ['Grad', 'Trdnjava', 'Palača', 'Dvorec', 'Zgodovinsko mesto', 'Starodavno najdišče'], hu: ['Vár', 'Erőd', 'Kastély vagy palota', 'Kúria', 'Történelmi város', 'Ókori helyszín'],
-    uk: ['Замок', 'Фортеця', 'Палац', 'Садиба', 'Історичне місто', 'Стародавня пам’ятка'], hr: ['Dvorac', 'Tvrđava', 'Palača', 'Dvorac', 'Povijesni grad', 'Antičko nalazište'],
-    ro: ['Castel', 'Fortăreață', 'Palat', 'Conac', 'Oraș istoric', 'Sit antic'], it: ['Castello', 'Fortezza', 'Palazzo', 'Dimora signorile', 'Città storica', 'Sito antico'],
-    fr: ['Château', 'Forteresse', 'Château ou palais', 'Manoir', 'Ville historique', 'Site antique'], es: ['Castillo', 'Fortaleza', 'Palacio', 'Casa señorial', 'Ciudad histórica', 'Yacimiento antiguo'],
+    en: ['Castle', 'Fortress', 'Chateau or palace', 'Manor house', 'Historic town', 'Ancient site', 'Historic site'], cs: ['Hrad', 'Pevnost', 'Zámek nebo palác', 'Tvrz', 'Historické město', 'Starověké místo', 'Historické místo'],
+    sk: ['Hrad', 'Pevnosť', 'Zámok alebo palác', 'Kaštieľ', 'Historické mesto', 'Staroveké miesto', 'Historické miesto'], de: ['Burg', 'Festung', 'Schloss oder Palast', 'Herrenhaus', 'Historische Stadt', 'Antike Stätte', 'Historischer Ort'],
+    pl: ['Zamek', 'Twierdza', 'Pałac', 'Dwór', 'Historyczne miasto', 'Stanowisko starożytne', 'Miejsce historyczne'], ru: ['Замок', 'Крепость', 'Дворец', 'Усадьба', 'Исторический город', 'Древнее место', 'Историческое место'],
+    sl: ['Grad', 'Trdnjava', 'Palača', 'Dvorec', 'Zgodovinsko mesto', 'Starodavno najdišče', 'Zgodovinski kraj'], hu: ['Vár', 'Erőd', 'Kastély vagy palota', 'Kúria', 'Történelmi város', 'Ókori helyszín', 'Történelmi hely'],
+    uk: ['Замок', 'Фортеця', 'Палац', 'Садиба', 'Історичне місто', 'Стародавня пам’ятка', 'Історичне місце'], hr: ['Dvorac', 'Tvrđava', 'Palača', 'Dvorac', 'Povijesni grad', 'Antičko nalazište', 'Povijesno mjesto'],
+    ro: ['Castel', 'Fortăreață', 'Palat', 'Conac', 'Oraș istoric', 'Sit antic', 'Loc istoric'], it: ['Castello', 'Fortezza', 'Palazzo', 'Dimora signorile', 'Città storica', 'Sito antico', 'Sito storico'],
+    fr: ['Château', 'Forteresse', 'Château ou palais', 'Manoir', 'Ville historique', 'Site antique', 'Site historique'], es: ['Castillo', 'Fortaleza', 'Palacio', 'Casa señorial', 'Ciudad histórica', 'Yacimiento antiguo', 'Lugar histórico'],
   };
   var conditions = {
     en: { intact: 'Standing', restored: 'Restored', rebuilt: 'Rebuilt', ruin: 'Ruins', destroyed: 'Destroyed', unknown: 'Unknown', '': 'Not classified' },
@@ -222,12 +222,14 @@
   var t = copy[lang] || copy.en;
   var kindNames = kinds[lang] || kinds.en;
   var conditionNames = conditions[lang] || conditions.en;
-  var categoryKeys = ['castle', 'fortress', 'chateau', 'manor', 'town', 'ancient'];
-  var categoryColors = ['#56a6ff', '#d0dae0', '#ff786d', '#ffad5c', '#e879c1', '#aab55e'];
+  var photoLabels = { en: 'Photo on Wikimedia Commons', cs: 'Fotografie na Wikimedia Commons', sk: 'Fotografia na Wikimedia Commons', de: 'Foto auf Wikimedia Commons', pl: 'Zdjęcie w Wikimedia Commons', ru: 'Фото на Wikimedia Commons', sl: 'Fotografija na Wikimedia Commons', hu: 'Fénykép a Wikimedia Commonson', uk: 'Фото на Wikimedia Commons', hr: 'Fotografija na Wikimedia Commons', ro: 'Fotografie pe Wikimedia Commons', it: 'Foto su Wikimedia Commons', fr: 'Photo sur Wikimedia Commons', es: 'Foto en Wikimedia Commons' };
+  var noPhotoLabels = { en: 'No photo found on Wikimedia Commons', cs: 'Fotografie na Wikimedia Commons nebyla nalezena', sk: 'Fotografia na Wikimedia Commons sa nenašla', de: 'Kein Foto auf Wikimedia Commons gefunden', pl: 'Nie znaleziono zdjęcia w Wikimedia Commons', ru: 'На Wikimedia Commons фотография не найдена', sl: 'Na Wikimedia Commons ni bila najdena fotografija', hu: 'Nem található fénykép a Wikimedia Commonson', uk: 'На Wikimedia Commons не знайдено фото', hr: 'Fotografija nije pronađena na Wikimedia Commons', ro: 'Nu s-a găsit nicio fotografie pe Wikimedia Commons', it: 'Nessuna foto trovata su Wikimedia Commons', fr: 'Aucune photo trouvée sur Wikimedia Commons', es: 'No se encontró ninguna foto en Wikimedia Commons' };
+  var categoryKeys = ['castle', 'fortress', 'chateau', 'manor', 'town', 'ancient', 'other'];
+  var categoryColors = ['#56a6ff', '#d0dae0', '#ff786d', '#ffad5c', '#e879c1', '#aab55e', '#91b9a7'];
   var atlas = document.createElement('section');
   atlas.id = 'atlas'; atlas.className = 'atlas-section';
   atlas.setAttribute('aria-label', t[23]);
-  atlas.innerHTML = '<div class="wrap"><div class="atlas-shell"><div class="atlas-tools"><label class="atlas-search-label"><span></span><input class="atlas-search" type="search" autocomplete="off"></label><label class="atlas-select-label atlas-kind-label"><span></span><select class="atlas-kind"></select></label><label class="atlas-select-label atlas-country-label"><span></span><select class="atlas-country"></select></label><button class="atlas-button atlas-surprise" type="button"></button><button class="atlas-button atlas-reset" type="button"></button></div><div class="atlas-grid"><div class="atlas-mapbox"><canvas class="atlas-canvas" tabindex="0" role="img"></canvas><div class="atlas-zoom"><button type="button" data-zoom="in" aria-label=""></button><button type="button" data-zoom="out" aria-label=""></button><button type="button" data-zoom="reset" aria-label=""></button></div><div class="atlas-map-caption"></div></div><aside class="atlas-side"><div class="atlas-count"></div><div class="atlas-selection" aria-live="polite"></div><div class="atlas-results"></div></aside></div><div class="atlas-journey"><div class="atlas-journey-head"><h3></h3><p></p></div><ol class="atlas-journey-list" aria-live="polite"></ol><div class="atlas-journey-actions"><button class="atlas-clear-journey" type="button"></button><a class="atlas-directions" target="_blank" rel="noopener noreferrer"></a></div></div></div></div>';
+  atlas.innerHTML = '<div class="wrap"><div class="atlas-shell"><div class="atlas-tools"><label class="atlas-search-label"><span></span><input class="atlas-search" type="search" autocomplete="off"></label><label class="atlas-select-label atlas-kind-label"><span></span><select class="atlas-kind"></select></label><label class="atlas-select-label atlas-country-label"><span></span><select class="atlas-country"></select></label><button class="atlas-button atlas-surprise" type="button"></button><button class="atlas-button atlas-reset" type="button"></button></div><div class="atlas-grid"><div class="atlas-mapbox"><canvas class="atlas-canvas" tabindex="0" role="img"></canvas><div class="atlas-zoom"><button type="button" data-zoom="in" aria-label=""></button><button type="button" data-zoom="out" aria-label=""></button><button type="button" data-zoom="reset" aria-label=""></button></div><div class="atlas-map-caption"></div><div class="atlas-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a><span> · </span><a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener noreferrer">Report a map issue</a></div></div><aside class="atlas-side"><div class="atlas-count"></div><div class="atlas-selection" aria-live="polite"></div><div class="atlas-results"></div></aside></div><div class="atlas-journey"><div class="atlas-journey-head"><h3></h3><p></p></div><ol class="atlas-journey-list" aria-live="polite"></ol><div class="atlas-journey-actions"><button class="atlas-clear-journey" type="button"></button><a class="atlas-directions" target="_blank" rel="noopener noreferrer"></a></div></div></div></div>';
   mount.appendChild(atlas);
   var pageTitle = document.getElementById('atlas-title');
   var pageIntro = document.getElementById('atlas-intro');
@@ -261,24 +263,15 @@
   var data = null;
   var filtered = [];
   var selected = null;
+  var initialSelectionMade = false;
   var journey = [];
   var surprisePending = false;
   var zoom = 1; var panX = 0; var panY = 0;
   var canvas = atlas.querySelector('.atlas-canvas');
   var ctx = canvas.getContext('2d');
-  var palette = { castle: 0, fortress: 1, chateau: 2, manor: 3, town: 4, ancient: 5 };
-  var shapes = [
-    [[-168,72],[-140,70],[-128,58],[-122,48],[-116,33],[-104,25],[-98,18],[-86,21],[-82,9],[-78,9],[-76,25],[-66,45],[-57,52],[-64,61],[-79,61],[-91,72],[-112,75],[-130,70]],
-    [[-74,12],[-62,9],[-49,2],[-35,-8],[-42,-23],[-50,-34],[-55,-50],[-67,-56],[-73,-35],[-77,-14]],
-    [[-52,82],[-27,77],[-20,64],[-34,59],[-49,64],[-58,73]],
-    [[-11,36],[-9,56],[4,70],[28,71],[38,60],[54,57],[69,69],[91,73],[113,66],[132,55],[150,59],[169,51],[157,41],[140,37],[132,31],[121,24],[111,16],[102,7],[95,8],[88,20],[78,8],[69,23],[60,25],[53,36],[45,38],[35,32],[30,37],[20,36],[10,37],[2,43],[-4,42]],
-    [[-17,36],[-6,37],[9,35],[23,33],[34,29],[43,12],[51,11],[49,-11],[40,-22],[32,-34],[20,-35],[14,-27],[9,-4],[0,5],[-7,5],[-14,15]],
-    [[40,31],[52,26],[57,14],[50,12],[43,18]],
-    [[112,-11],[132,-10],[153,-22],[150,-37],[135,-44],[116,-35],[113,-22]],
-    [[95,22],[109,20],[121,8],[117,-4],[105,-7],[98,2]],
-    [[-8,59],[-2,58],[0,51],[-6,50],[-8,55]],
-  ];
-
+  var palette = { castle: 0, fortress: 1, chateau: 2, manor: 3, town: 4, ancient: 5, other: 6 };
+  var tileCache = Object.create(null);
+  var tileUrlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
   function dimensions() {
     var rect = canvas.getBoundingClientRect();
     var dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -289,27 +282,54 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     return { w: rect.width, h: rect.height };
   }
-  function xy(lon, lat, w, h) { return [(lon + 180) / 360 * w * zoom + w * (1 - zoom) / 2 + panX, (90 - lat) / 180 * h * zoom + h * (1 - zoom) / 2 + panY]; }
+  function mercatorY(lat) { var safe = Math.max(-85.0511, Math.min(85.0511, lat)); return (1 - Math.log(Math.tan(Math.PI / 4 + safe * Math.PI / 360)) / Math.PI) / 2; }
+  function xy(lon, lat, w, h) { var world = w * zoom; return [w / 2 + panX + lon / 360 * world, h / 2 + panY + (mercatorY(lat) - .5) * world]; }
+  function drawTiles(w, h) {
+    var level = Math.min(19, Math.max(2, Math.round(Math.log(zoom) / Math.LN2) + 3));
+    var count = Math.pow(2, level), world = w * zoom, tileSize = world / count;
+    var left = w / 2 + panX - world / 2, top = h / 2 + panY - world / 2;
+    var minX = Math.floor(-left / tileSize), maxX = Math.floor((w - left) / tileSize);
+    var minY = Math.max(0, Math.floor(-top / tileSize)), maxY = Math.min(count - 1, Math.floor((h - top) / tileSize));
+    for (var ty = minY; ty <= maxY; ty++) for (var tx = minX; tx <= maxX; tx++) {
+      var wrappedX = ((tx % count) + count) % count;
+      var key = level + '/' + wrappedX + '/' + ty;
+      var image = tileCache[key];
+      var dx = left + tx * tileSize, dy = top + ty * tileSize;
+      if (!image) {
+        image = new Image(); tileCache[key] = image;
+        image.onload = draw;
+        image.src = tileUrlTemplate.replace('{z}', level).replace('{x}', wrappedX).replace('{y}', ty);
+      }
+      if (image.complete && image.naturalWidth) ctx.drawImage(image, dx, dy, tileSize + .5, tileSize + .5);
+    }
+  }
+  function clampPan(w, h) {
+    if (zoom <= 1) { panX = 0; panY = 0; return; }
+    var world = w * zoom;
+    panX = Math.max(w - world, Math.min(0, panX));
+    panY = Math.max(h - world, Math.min(0, panY));
+  }
   function draw() {
-    if (!data) return;
     var size = dimensions(); if (!size) return;
     var w = size.w, h = size.h;
     ctx.clearRect(0, 0, w, h);
-    var bg = ctx.createLinearGradient(0, 0, w, h); bg.addColorStop(0, '#091c25'); bg.addColorStop(.55, '#102c35'); bg.addColorStop(1, '#171d2e');
-    ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
-    var glow = ctx.createRadialGradient(w * .52, h * .47, 4, w * .52, h * .47, w * .62); glow.addColorStop(0, 'rgba(54,137,145,.13)'); glow.addColorStop(1, 'rgba(5,14,21,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, w, h);
-    ctx.save(); ctx.strokeStyle = 'rgba(183,208,190,.13)'; ctx.lineWidth = 1;
+    ctx.fillStyle = '#d5e2dd'; ctx.fillRect(0, 0, w, h);
+    drawTiles(w, h);
+    ctx.save(); ctx.strokeStyle = 'rgba(30,54,54,.16)'; ctx.lineWidth = 1;
     for (var lon = -150; lon <= 180; lon += 30) { var gx = xy(lon, 0, w, h)[0]; ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
     for (var lat = -60; lat <= 60; lat += 30) { var gy = xy(0, lat, w, h)[1]; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
-    shapes.forEach(function (poly) { ctx.beginPath(); poly.forEach(function (p, i) { var point = xy(p[0], p[1], w, h); if (i) ctx.lineTo(point[0], point[1]); else ctx.moveTo(point[0], point[1]); }); ctx.closePath(); ctx.fillStyle = 'rgba(133,154,111,.20)'; ctx.fill(); ctx.strokeStyle = 'rgba(219,189,115,.38)'; ctx.lineWidth = 1; ctx.stroke(); });
     ctx.restore();
-    ctx.save(); ctx.globalAlpha = filtered.length > 18000 ? .48 : .78;
-    filtered.forEach(function (p) { var point = xy(p[1], p[0], w, h); if (point[0] < -4 || point[0] > w + 4 || point[1] < -4 || point[1] > h + 4) return; ctx.beginPath(); ctx.arc(point[0], point[1], filtered.length > 30000 ? 1.2 : 1.8, 0, Math.PI * 2); ctx.fillStyle = categoryColors[palette[p[4]] ?? 0]; ctx.fill(); });
+    ctx.save(); ctx.globalAlpha = filtered.length > 18000 ? .68 : .88;
+    var stride = Math.max(1, Math.ceil(filtered.length / Math.min(16000, Math.round(3000 * zoom * zoom))));
+    for (var placeIndex = 0; placeIndex < filtered.length; placeIndex += stride) { var p = filtered[placeIndex], point = xy(p[1], p[0], w, h); if (point[0] < -4 || point[0] > w + 4 || point[1] < -4 || point[1] > h + 4) continue; ctx.beginPath(); ctx.arc(point[0], point[1], filtered.length > 30000 ? 1.5 : 2.2, 0, Math.PI * 2); ctx.fillStyle = categoryColors[palette[p[4]] ?? 0]; ctx.fill(); }
     if (journey.length) { ctx.beginPath(); journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); if (i) ctx.lineTo(pt[0], pt[1]); else ctx.moveTo(pt[0], pt[1]); }); ctx.strokeStyle = '#f2ce7e'; ctx.lineWidth = 2.5; ctx.shadowColor = '#f2ce7e'; ctx.shadowBlur = 9; ctx.stroke(); ctx.shadowBlur = 0; journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); ctx.beginPath(); ctx.arc(pt[0], pt[1], 5, 0, Math.PI * 2); ctx.fillStyle = '#f2ce7e'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#10232b'; ctx.stroke(); ctx.font = 'bold 10px system-ui'; ctx.fillStyle = '#10232b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(i + 1), pt[0], pt[1]); }); }
     if (selected) { var selectedPoint = xy(selected[1], selected[0], w, h); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 8, 0, Math.PI * 2); ctx.strokeStyle = '#ffe49b'; ctx.lineWidth = 2; ctx.stroke(); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 3, 0, Math.PI * 2); ctx.fillStyle = '#fff2c5'; ctx.fill(); }
     ctx.restore();
   }
   function countryName(code) { var entry = data.countries[code] || {}; return entry[lang] || entry.en || code; }
+  function searchText(value) {
+    return String(value || '').toLocaleLowerCase(lang).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
   function refreshCountryOptions() {
     var previous = country.value;
     country.textContent = ''; option(country, '', t[6]);
@@ -318,30 +338,35 @@
   }
   function matchData() {
     if (!data) return;
-    var query = atlas.querySelector('.atlas-search').value.trim().toLocaleLowerCase(lang);
+    var query = searchText(atlas.querySelector('.atlas-search').value.trim());
     var k = type.value, c = country.value;
+    var selectionBefore = selected;
     filtered = data.items.filter(function (p) {
       if (k && p[4] !== k) return false;
       if (c && p[3] !== c) return false;
       if (!query) return true;
-      return p[2].toLocaleLowerCase(lang).indexOf(query) !== -1 || countryName(p[3]).toLocaleLowerCase(lang).indexOf(query) !== -1;
+      if (searchText(p[2]).indexOf(query) !== -1 || searchText(countryName(p[3])).indexOf(query) !== -1 || searchText(p[3]).indexOf(query) !== -1 || searchText(p[6]).indexOf(query) !== -1) return true;
+      var aliases = p[7] || {};
+      if (Object.keys(aliases).some(function (key) { return searchText(aliases[key]).indexOf(query) !== -1; })) return true;
+      var countryAliases = data.countries[p[3]] || {};
+      return Object.keys(countryAliases).some(function (key) { return searchText(countryAliases[key]).indexOf(query) !== -1; });
     });
     atlas.querySelector('.atlas-count').textContent = new Intl.NumberFormat(lang).format(filtered.length) + ' / ' + new Intl.NumberFormat(lang).format(data.total) + ' ' + t[9];
-    draw(); renderResults();
+    renderResults();
     if (selected && filtered.indexOf(selected) < 0) selected = null;
-    if (!selected && filtered.length) selected = filtered[0];
-    renderSelection(); draw();
+    if (!selected && filtered.length && !initialSelectionMade) { selected = filtered[0]; initialSelectionMade = true; }
+    if (selected !== selectionBefore || !initialSelectionMade) renderSelection();
+    draw();
   }
   function renderResults() {
     var list = atlas.querySelector('.atlas-results'); list.textContent = '';
     var query = atlas.querySelector('.atlas-search').value.trim();
-    if (!query) return;
-    filtered.slice(0, 7).forEach(function (p) { var b = document.createElement('button'); b.type = 'button'; b.className = 'atlas-result'; b.textContent = p[2] + ' · ' + countryName(p[3]); b.addEventListener('click', function () { select(p, true); }); list.appendChild(b); });
+    filtered.slice(0, 8).forEach(function (p) { var b = document.createElement('button'); b.type = 'button'; b.className = 'atlas-result'; b.textContent = p[2] + ' · ' + countryName(p[3]); b.addEventListener('click', function () { select(p, true); }); list.appendChild(b); });
     if (!filtered.length) { var empty = document.createElement('p'); empty.className = 'atlas-empty'; empty.textContent = t[10]; list.appendChild(empty); }
   }
   function select(p, panTo) {
     selected = p; renderSelection();
-    if (panTo) { zoom = Math.max(zoom, 1.7); var size = dimensions(); if (size) { var pt = xy(p[1], p[0], size.w, size.h); panX += size.w / 2 - pt[0]; panY += size.h / 2 - pt[1]; } }
+    if (panTo) { zoom = Math.max(zoom, 3); var size = dimensions(); if (size) { var pt = xy(p[1], p[0], size.w, size.h); panX += size.w / 2 - pt[0]; panY += size.h / 2 - pt[1]; clampPan(size.w, size.h); } }
     draw();
   }
   function renderSelection() {
@@ -350,8 +375,12 @@
     var title = document.createElement('p'); title.className = 'atlas-selected-kicker'; title.textContent = t[11];
     var name = document.createElement('h3'); name.textContent = selected[2];
     var countryLine = document.createElement('p'); countryLine.className = 'atlas-country-name'; countryLine.textContent = countryName(selected[3]);
+    var photo = document.createElement('div'); photo.className = 'atlas-photo'; photo.setAttribute('aria-live', 'polite');
+    photo.classList.add('is-loading');
+    box.appendChild(title); box.appendChild(name); box.appendChild(countryLine); box.appendChild(photo);
+    loadPhoto(selected, photo);
     var dl = document.createElement('dl'); dl.className = 'atlas-metadata';
-    [[t[12], kindNames[Math.max(0, categoryKeys.indexOf(selected[4]))]], [t[13], conditionNames[selected[5]] || conditionNames['']], [t[14], selected[0].toFixed(4) + ', ' + selected[1].toFixed(4)]].forEach(function (pair) { var wrap = document.createElement('div'); var dt = document.createElement('dt'); dt.textContent = pair[0]; var dd = document.createElement('dd'); dd.textContent = pair[1]; wrap.appendChild(dt); wrap.appendChild(dd); dl.appendChild(wrap); });
+    [[t[12], kindNames[Math.max(0, categoryKeys.indexOf(selected[4]))] || kindNames[6]], [t[13], conditionNames[selected[5]] || conditionNames['']], [t[14], selected[0].toFixed(4) + ', ' + selected[1].toFixed(4)]].forEach(function (pair) { var wrap = document.createElement('div'); var dt = document.createElement('dt'); dt.textContent = pair[0]; var dd = document.createElement('dd'); dd.textContent = pair[1]; wrap.appendChild(dt); wrap.appendChild(dd); dl.appendChild(wrap); });
     var actions = document.createElement('div'); actions.className = 'atlas-card-actions';
     var source = document.createElement('a'); source.className = 'atlas-link'; source.href = selected[6] ? 'https://www.wikidata.org/wiki/' + selected[6] : 'https://www.openstreetmap.org/?mlat=' + selected[0] + '&mlon=' + selected[1] + '#map=15/' + selected[0] + '/' + selected[1]; source.target = '_blank'; source.rel = 'noopener noreferrer'; source.textContent = t[15];
     var copy = document.createElement('button'); copy.type = 'button'; copy.className = 'atlas-copy'; copy.textContent = t[16];
@@ -364,7 +393,53 @@
       renderJourney(); draw();
     });
     actions.appendChild(source); actions.appendChild(copy); actions.appendChild(add);
-    box.appendChild(title); box.appendChild(name); box.appendChild(countryLine); box.appendChild(dl); box.appendChild(actions);
+    box.appendChild(dl); box.appendChild(actions);
+  }
+  function loadPhoto(place, target) {
+    var request;
+    function noPhoto() { target.classList.remove('is-loading'); target.classList.add('is-empty'); target.textContent = noPhotoLabels[lang] || noPhotoLabels.en; }
+    function commonsFile(title) {
+      var api = 'https://commons.wikimedia.org/w/api.php?action=query&titles=' + encodeURIComponent(title) + '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=900&format=json&origin=*';
+      return fetch(api).then(function (r) { return r.json(); }).then(function (json) { var pages = json.query && json.query.pages; return pages ? pages[Object.keys(pages)[0]] : null; });
+    }
+    function commonsSearch() {
+      if (place[8] && /^Category:/i.test(place[8])) {
+        var categoryApi = 'https://commons.wikimedia.org/w/api.php?action=query&list=categorymembers&cmtitle=' + encodeURIComponent(place[8]) + '&cmtype=file&cmlimit=1&format=json&origin=*';
+        return fetch(categoryApi).then(function (r) { return r.json(); }).then(function (json) {
+          var member = json.query && json.query.categorymembers && json.query.categorymembers[0];
+          if (member) return commonsFile(member.title);
+          return commonsSearchByName();
+        });
+      }
+      return commonsSearchByName();
+    }
+    function commonsSearchByName() {
+      var term = place[8] ? 'file:' + place[8] : place[2];
+      var api = 'https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=' + encodeURIComponent(term) + '&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=900&format=json&origin=*';
+      return fetch(api).then(function (r) { return r.json(); }).then(function (json) { var pages = json.query && json.query.pages; return pages ? pages[Object.keys(pages)[0]] : null; });
+    }
+    if (place[6]) {
+      request = fetch('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + encodeURIComponent(place[6]) + '&props=claims&format=json&origin=*')
+        .then(function (r) { return r.json(); }).then(function (json) {
+          var claims = json.entities && json.entities[place[6]] && json.entities[place[6]].claims;
+          var filename = claims && claims.P18 && claims.P18[0] && claims.P18[0].mainsnak.datavalue.value;
+          if (!filename) return commonsSearch();
+          return commonsFile('File:' + filename);
+        });
+    } else request = commonsSearch();
+    request.then(function (page) {
+      if (!target.isConnected) return;
+      if (!page || !page.imageinfo || !page.imageinfo[0]) { noPhoto(); return; }
+      var info = page.imageinfo[0], meta = info.extmetadata || {};
+      target.classList.remove('is-loading'); target.textContent = '';
+      var image = document.createElement('img'); image.loading = 'lazy'; image.alt = place[2]; image.addEventListener('error', noPhoto); image.src = info.thumburl || info.url; target.appendChild(image);
+      var credit = document.createElement('p'); credit.className = 'atlas-photo-credit';
+      var sourceLink = document.createElement('a'); sourceLink.href = info.descriptionurl; sourceLink.target = '_blank'; sourceLink.rel = 'noopener noreferrer'; sourceLink.textContent = photoLabels[lang] || photoLabels.en; credit.appendChild(sourceLink);
+      var artist = meta.Artist && meta.Artist.value ? meta.Artist.value.replace(/<[^>]*>/g, '').trim() : '';
+      var license = meta.LicenseShortName && meta.LicenseShortName.value ? meta.LicenseShortName.value : '';
+      if (artist || license) credit.appendChild(document.createTextNode(' · ' + [artist, license].filter(Boolean).join(' · ')));
+      target.appendChild(credit);
+    }).catch(function () { if (target.isConnected) noPhoto(); });
   }
   function renderJourney() {
     var list = atlas.querySelector('.atlas-journey-list'); list.textContent = '';
@@ -376,7 +451,7 @@
   }
   function load() {
     if (atlas.dataset.loading) return;
-    atlas.dataset.loading = '1'; atlas.querySelector('.atlas-count').textContent = t[19];
+    atlas.dataset.loading = '1'; atlas.querySelector('.atlas-count').textContent = t[19]; draw();
     var script = document.querySelector('script[src*="site.js"]');
     var url = new URL('../atlas.json', script ? script.src : location.href);
     fetch(url.href).then(function (response) { if (!response.ok) throw new Error('Atlas request failed'); return response.json(); }).then(function (json) {
@@ -392,19 +467,19 @@
   atlas.querySelector('.atlas-surprise').addEventListener('click', function () { if (!data) { surprisePending = true; load(); return; } if (!filtered.length) return; select(filtered[Math.floor(Math.random() * filtered.length)], true); });
   atlas.querySelector('.atlas-clear-journey').addEventListener('click', function () { journey = []; renderJourney(); draw(); });
   atlas.querySelector('.atlas-reset').addEventListener('click', function () { atlas.querySelector('.atlas-search').value = ''; type.value = ''; country.value = ''; zoom = 1; panX = panY = 0; matchData(); });
-  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { zoom = Math.min(5, zoom * 1.35); draw(); });
-  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { zoom = Math.max(1, zoom / 1.35); if (zoom === 1) panX = panY = 0; draw(); });
+  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { zoom = Math.min(12, zoom * 1.5); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
+  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { zoom = Math.max(1, zoom / 1.5); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
   atlas.querySelector('[data-zoom="reset"]').addEventListener('click', function () { zoom = 1; panX = panY = 0; draw(); });
   var dragging = false, moved = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
   canvas.addEventListener('pointerdown', function (e) { dragging = true; moved = false; startX = e.clientX; startY = e.clientY; startPanX = panX; startPanY = panY; canvas.setPointerCapture(e.pointerId); });
-  canvas.addEventListener('pointermove', function (e) { if (!dragging) return; var dx = e.clientX - startX, dy = e.clientY - startY; if (Math.abs(dx) + Math.abs(dy) > 5) moved = true; if (moved) { panX = startPanX + dx; panY = startPanY + dy; draw(); } });
+  canvas.addEventListener('pointermove', function (e) { if (!dragging) return; var dx = e.clientX - startX, dy = e.clientY - startY; if (Math.abs(dx) + Math.abs(dy) > 5) moved = true; if (moved) { panX = startPanX + dx; panY = startPanY + dy; var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); } });
   canvas.addEventListener('pointerup', function (e) {
     if (!dragging) return; dragging = false;
     if (!moved && data && filtered.length) { var rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top, best = null, bestD = 18 * 18; filtered.forEach(function (p) { var pt = xy(p[1], p[0], rect.width, rect.height), dx = pt[0] - x, dy = pt[1] - y, d = dx * dx + dy * dy; if (d < bestD) { bestD = d; best = p; } }); if (best) select(best, false); }
   });
   canvas.addEventListener('pointercancel', function () { dragging = false; });
-  canvas.addEventListener('wheel', function (e) { e.preventDefault(); zoom = Math.max(1, Math.min(5, zoom * (e.deltaY < 0 ? 1.12 : .89))); draw(); }, { passive: false });
-  canvas.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === '=') { zoom = Math.min(5, zoom * 1.2); draw(); } if (e.key === '-') { zoom = Math.max(1, zoom / 1.2); draw(); } });
+  canvas.addEventListener('wheel', function (e) { e.preventDefault(); zoom = Math.max(1, Math.min(12, zoom * (e.deltaY < 0 ? 1.12 : .89))); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); }, { passive: false });
+  canvas.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === '=') { zoom = Math.min(12, zoom * 1.2); } else if (e.key === '-') { zoom = Math.max(1, zoom / 1.2); } else return; var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
   window.addEventListener('resize', draw);
 })();
 

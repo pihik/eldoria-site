@@ -1,6 +1,6 @@
 # Eldoria website
 
-Web page of the Eldoria castle map app in the 14 app languages (English at the root, the others in `cs/`, `sk/`, `de/`, `pl/`, `ru/`, `sl/`, `hu/`, `uk/`, `hr/`, `ro/`, `it/`, `fr/`, `es/`). Every language has a home page (`index.html`), a standalone interactive atlas (`atlas.html`), an events page (`events.html`), a contact page (`contact.html`) and a privacy policy (`privacy.html`). `events.json` is the list of medieval events that the app downloads and the pages show. `atlas.json` is generated with the site from public place data and loaded only when a visitor reaches the interactive atlas.
+Web page of the Eldoria castle map app in the 14 app languages (English at the root, the others in `cs/`, `sk/`, `de/`, `pl/`, `ru/`, `sl/`, `hu/`, `uk/`, `hr/`, `ro/`, `it/`, `fr/`, `es/`). Every language has a home page (`index.html`), a standalone interactive atlas (`atlas.html`), an events page (`events.html`), a contact page (`contact.html`) and a privacy policy (`privacy.html`). `events.json` is the list of medieval events that the app downloads and the pages show. `atlas.json` is generated with the site from public place data and loaded only when a visitor reaches the interactive atlas. The atlas then loads visible OpenStreetMap map tiles; selecting a place requests its photo information from Wikimedia.
 
 Published with GitHub Pages: Settings > Pages > Source "GitHub Actions"; `.github/workflows/pages.yml` deploys every push to `main`.
 
@@ -16,8 +16,8 @@ Written by hand and left alone by the script: `assets/site.css`, `assets/site.js
 
 ## Rules
 
-- The pages load nothing from other hosts (no analytics, no web fonts, no CDN scripts). Keep it that way: the privacy policy and the footer say so. The one request to another host is the message of the contact form, sent to the form service only when a visitor presses send, and only once an access key is set (see "Contact form").
-- Adding analytics, a counter or any other script from another host would change the footer, the privacy policy (14 languages) and the app's Data safety answers: decide that first, do not just paste a snippet.
+- The pages use no analytics, web fonts or third-party scripts. The atlas makes requests to OpenStreetMap for visible map tiles and to Wikimedia for photo information after a place is selected. The privacy policy and footer disclose these requests. The contact form sends a message only when a visitor presses send and an access key is set (see "Contact form").
+- Adding another external service changes the footer and privacy policy in all 14 languages; update both before adding it.
 - Do not add the marker icons from `assets/medieval/` of the app repository. They come from an Asset Store pack whose licence forbids publishing the files.
 - Look at every screenshot before it goes on the page: the site is public.
 - Stylesheet and script links carry a version (`site.css?v=...`) that changes with the file, so a browser never shows a new page with an old stylesheet.
