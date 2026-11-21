@@ -320,7 +320,7 @@
   function zoomBy(factor, x, y) {
     var size = dimensions();
     if (!size) return;
-    zoomAt(Math.max(1, Math.min(128, zoom * factor)), x, y, size.w, size.h);
+    zoomAt(Math.max(1, Math.min(256, zoom * factor)), x, y, size.w, size.h);
     draw();
   }
   function draw() {
@@ -335,9 +335,25 @@
     ctx.restore();
     ctx.save(); ctx.globalAlpha = filtered.length > 18000 ? .68 : .88;
     var stride = Math.max(1, Math.ceil(filtered.length / Math.min(16000, Math.round(3000 * zoom * zoom))));
-    for (var placeIndex = 0; placeIndex < filtered.length; placeIndex += stride) { var p = filtered[placeIndex], point = xy(p[1], p[0], w, h); if (point[0] < -4 || point[0] > w + 4 || point[1] < -4 || point[1] > h + 4) continue; ctx.beginPath(); ctx.arc(point[0], point[1], filtered.length > 30000 ? 1.5 : 2.2, 0, Math.PI * 2); ctx.fillStyle = categoryColors[palette[p[4]] ?? 0]; ctx.fill(); }
+    var zoomSteps = Math.max(0, Math.log(zoom) / Math.LN2);
+    var crowded = filtered.length > 30000;
+    var markerRadius = (crowded ? 1.5 : 2.2) + Math.min(crowded ? 2 : 2.5, zoomSteps * (crowded ? .28 : .35));
+    for (var placeIndex = 0; placeIndex < filtered.length; placeIndex += stride) {
+      var p = filtered[placeIndex], point = xy(p[1], p[0], w, h);
+      if (point[0] < -6 || point[0] > w + 6 || point[1] < -6 || point[1] > h + 6) continue;
+      ctx.beginPath(); ctx.arc(point[0], point[1], markerRadius, 0, Math.PI * 2); ctx.fillStyle = categoryColors[palette[p[4]] ?? 0]; ctx.fill();
+      if (zoom > 1) { ctx.lineWidth = Math.min(1.2, markerRadius * .35); ctx.strokeStyle = 'rgba(17, 35, 43, .82)'; ctx.stroke(); }
+    }
+    ctx.globalAlpha = 1;
     if (journey.length) { ctx.beginPath(); journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); if (i) ctx.lineTo(pt[0], pt[1]); else ctx.moveTo(pt[0], pt[1]); }); ctx.strokeStyle = '#f2ce7e'; ctx.lineWidth = 2.5; ctx.shadowColor = '#f2ce7e'; ctx.shadowBlur = 9; ctx.stroke(); ctx.shadowBlur = 0; journey.forEach(function (p, i) { var pt = xy(p[1], p[0], w, h); ctx.beginPath(); ctx.arc(pt[0], pt[1], 5, 0, Math.PI * 2); ctx.fillStyle = '#f2ce7e'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#10232b'; ctx.stroke(); ctx.font = 'bold 10px system-ui'; ctx.fillStyle = '#10232b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(i + 1), pt[0], pt[1]); }); }
-    if (selected) { var selectedPoint = xy(selected[1], selected[0], w, h); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 8, 0, Math.PI * 2); ctx.strokeStyle = '#ffe49b'; ctx.lineWidth = 2; ctx.stroke(); ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 3, 0, Math.PI * 2); ctx.fillStyle = '#fff2c5'; ctx.fill(); }
+    if (selected) {
+      var selectedPoint = xy(selected[1], selected[0], w, h), selectedRadius = 10 + Math.min(2, zoomSteps * .2);
+      ctx.save(); ctx.shadowColor = '#ffe49b'; ctx.shadowBlur = 20;
+      ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], selectedRadius, 0, Math.PI * 2); ctx.fillStyle = '#ffd34f'; ctx.fill();
+      ctx.shadowBlur = 0; ctx.lineWidth = 3; ctx.strokeStyle = '#fff8dd'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(selectedPoint[0], selectedPoint[1], 4, 0, Math.PI * 2); ctx.fillStyle = '#fff9dd'; ctx.fill();
+      ctx.restore();
+    }
     ctx.restore();
   }
   function countryName(code) { var entry = data.countries[code] || {}; return entry[lang] || entry.en || code; }
