@@ -285,7 +285,7 @@
   function mercatorY(lat) { var safe = Math.max(-85.0511, Math.min(85.0511, lat)); return (1 - Math.log(Math.tan(Math.PI / 4 + safe * Math.PI / 360)) / Math.PI) / 2; }
   function xy(lon, lat, w, h) { var world = w * zoom; return [w / 2 + panX + lon / 360 * world, h / 2 + panY + (mercatorY(lat) - .5) * world]; }
   function drawTiles(w, h) {
-    var level = Math.min(19, Math.max(2, Math.round(Math.log(zoom) / Math.LN2) + 3));
+    var level = Math.min(19, Math.max(2, Math.round(Math.log(zoom) / Math.LN2) + 2));
     var count = Math.pow(2, level), world = w * zoom, tileSize = world / count;
     var left = w / 2 + panX - world / 2, top = h / 2 + panY - world / 2;
     var minX = Math.floor(-left / tileSize), maxX = Math.floor((w - left) / tileSize);
@@ -304,10 +304,11 @@
     }
   }
   function clampPan(w, h) {
-    if (zoom <= 1) { panX = 0; panY = 0; return; }
     var world = w * zoom;
-    panX = Math.max(w - world, Math.min(0, panX));
-    panY = Math.max(h - world, Math.min(0, panY));
+    var limitX = Math.max(0, (world - w) / 2);
+    var limitY = Math.max(0, (world - h) / 2);
+    panX = Math.max(-limitX, Math.min(limitX, panX));
+    panY = Math.max(-limitY, Math.min(limitY, panY));
   }
   function draw() {
     var size = dimensions(); if (!size) return;
@@ -467,8 +468,8 @@
   atlas.querySelector('.atlas-surprise').addEventListener('click', function () { if (!data) { surprisePending = true; load(); return; } if (!filtered.length) return; select(filtered[Math.floor(Math.random() * filtered.length)], true); });
   atlas.querySelector('.atlas-clear-journey').addEventListener('click', function () { journey = []; renderJourney(); draw(); });
   atlas.querySelector('.atlas-reset').addEventListener('click', function () { atlas.querySelector('.atlas-search').value = ''; type.value = ''; country.value = ''; zoom = 1; panX = panY = 0; matchData(); });
-  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { zoom = Math.min(12, zoom * 1.5); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
-  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { zoom = Math.max(1, zoom / 1.5); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
+  atlas.querySelector('[data-zoom="in"]').addEventListener('click', function () { zoom = Math.min(8192, zoom * 2); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
+  atlas.querySelector('[data-zoom="out"]').addEventListener('click', function () { zoom = Math.max(1, zoom / 2); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
   atlas.querySelector('[data-zoom="reset"]').addEventListener('click', function () { zoom = 1; panX = panY = 0; draw(); });
   var dragging = false, moved = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
   canvas.addEventListener('pointerdown', function (e) { dragging = true; moved = false; startX = e.clientX; startY = e.clientY; startPanX = panX; startPanY = panY; canvas.setPointerCapture(e.pointerId); });
@@ -478,8 +479,8 @@
     if (!moved && data && filtered.length) { var rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top, best = null, bestD = 18 * 18; filtered.forEach(function (p) { var pt = xy(p[1], p[0], rect.width, rect.height), dx = pt[0] - x, dy = pt[1] - y, d = dx * dx + dy * dy; if (d < bestD) { bestD = d; best = p; } }); if (best) select(best, false); }
   });
   canvas.addEventListener('pointercancel', function () { dragging = false; });
-  canvas.addEventListener('wheel', function (e) { e.preventDefault(); zoom = Math.max(1, Math.min(12, zoom * (e.deltaY < 0 ? 1.12 : .89))); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); }, { passive: false });
-  canvas.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === '=') { zoom = Math.min(12, zoom * 1.2); } else if (e.key === '-') { zoom = Math.max(1, zoom / 1.2); } else return; var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
+  canvas.addEventListener('wheel', function (e) { e.preventDefault(); zoom = Math.max(1, Math.min(8192, zoom * (e.deltaY < 0 ? 1.25 : .8))); var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); }, { passive: false });
+  canvas.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === '=') { zoom = Math.min(8192, zoom * 2); } else if (e.key === '-') { zoom = Math.max(1, zoom / 2); } else return; var size = dimensions(); if (size) clampPan(size.w, size.h); draw(); });
   window.addEventListener('resize', draw);
 })();
 
